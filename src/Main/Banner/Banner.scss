@@ -1,0 +1,81 @@
+@import './../../Constants.scss';
+
+.banner{
+    height: 120vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+    .planet_img{
+        width: 70%;
+        margin-left: 250px;
+
+        @media screen{
+            @media (max-width: 1000px){
+                margin-left: 100px;
+            }
+            @media (max-width: 800px){
+                margin-left: 0;
+            }
+        }
+    }
+
+    .banner__content{
+        position: absolute;
+        padding: 0 100px;
+        top: 0;
+        left: 0;
+        height: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .banner__content__info{
+            color: $color-white; 
+            margin-top: 200px;
+            width: 50%;
+
+            @media screen{
+                @media (max-width: 1300px){
+                    margin-top: 100px;
+                    width: 70%;
+                }
+
+                @media (max-width: 800px){
+                    width: 90%;
+
+                }
+            }
+
+            .banner_title{
+                
+                font-size: 60px;
+                letter-spacing: -2px;
+                line-height: 50px;
+                margin-bottom: 40px;
+
+                @media screen{
+                    @media (max-width: 1000px){
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
+
+        .banner__content_planet{
+            width: 35%;
+            margin-left: 200px;
+
+            @media screen{
+                @media (max-width: 1200px){
+                    width: 55%;
+                    margin-left: 0;
+                }
+
+                @media (max-width: 800px){
+                    display: none;
+                }
+            }
+        }
+    }
+}

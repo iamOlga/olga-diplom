@@ -1,0 +1,87 @@
+.account__container {
+  max-width: 100%;
+  margin-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0 150px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.account__container h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 60px;
+  padding: 100px 100px 50px 100px;
+  margin-bottom: 60px;
+  text-align: left;
+}
+@media screen and (max-width: 650px) {
+  .account__container h2 {
+    padding: 50px 0;
+  }
+}
+.account__container .form__container {
+  width: 60%;
+  padding: 20px 10px 80px 10px;
+  background-color: rgba(12, 12, 12, 0.7);
+  backdrop-filter: blur(5px);
+}
+.account__container .form__container .row {
+  display: flex;
+  justify-content: center;
+}
+.account__container .form__container .row .column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.account__container .form__container .row .column a {
+  color: #82ED2E;
+  text-decoration: none;
+}
+.account__container .form__container h2 {
+  padding: 50px 100px 50px 100px;
+  margin-bottom: 0;
+  text-align: center;
+}
+.account__container .form__container .button_container {
+  display: flex;
+  justify-content: center;
+}
+.account__container .form__container .button_container .button {
+  width: auto;
+}
+.account__container .form__container .button_secondary {
+  text-decoration: none;
+  color: #B9B9B9;
+  transition: 0.3s;
+}
+.account__container .form__container .button_secondary:hover {
+  color: #e3e3e3;
+}
+.account__container form {
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.account__container form .row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+}
+@media screen and (max-width: 800px) {
+  .account__container form .row {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/*# sourceMappingURL=Account.css.map */

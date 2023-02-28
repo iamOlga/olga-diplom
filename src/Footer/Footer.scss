@@ -1,0 +1,78 @@
+@import './../Constants.scss';
+
+.footer__container{ 
+    margin-top: 50px;
+
+
+    &-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 100px;
+
+        @media (max-width: 770px){
+            flex-direction: column-reverse;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .email{
+            font-style: 22px;
+            color: $color-text;
+        }
+
+        .button{
+            @media (max-width: 770px){
+                margin-left: 30px;
+            }
+        }
+        }
+
+    &-bottom{
+        position: relative;
+        @media (max-width: 700px){
+            margin-top: 130px;
+        }
+
+        .footer_content{
+            width: 100%;
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 70px;
+
+            
+
+            .footer_logo{
+                width: 188px;
+                
+            }
+
+            nav{
+                display: flex;
+                gap: 20px;
+                @media (max-width: 770px){
+                    gap: 0;
+                }
+                @media (max-width: 700px){
+                    flex-direction: column-reverse;
+                }
+
+                .link{
+                    width: 232px;
+                    text-decoration: none;
+                    text-align: center;
+                    color: $color-text;
+                    font-size: 18px;
+                    font-weight: lighter;
+                }
+            }
+        }
+
+        .footer_bg{
+            width: 100%;
+        }
+    }
+}

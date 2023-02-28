@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Code Pro", monospace;
+}
+
+.App-header {
+  height: 130px;
+}
+.App-header nav {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+@media screen and (max-width: 600px) {
+  .App-header nav {
+    padding: 0 50px;
+  }
+}
+.App-header nav .logo {
+  background: url("./../Images/logo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 93px;
+  width: 68px;
+}
+.App-header nav .burger-btn {
+  background-color: none;
+  border: 2px solid #82ED2E;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.App-header nav .burger-btn .burger-btn-2 {
+  background-color: none;
+  border: 2px solid #82ED2E;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+}
+.App-header nav .burger-btn .burger-btn-2 .burger-btn-3 {
+  background-color: none;
+  width: 1px;
+  height: 1px;
+  border-radius: 50px;
+}
+.App-header nav .burger-btn:hover {
+  border: 2px solid #82ED2E;
+  width: 35px;
+  height: 35px;
+  transition: all 0.5s;
+}
+.App-header nav .burger-btn:hover .burger-btn-2 {
+  border: 2px solid #81ed2e00;
+  width: 33px;
+  height: 33px;
+  transition: all 0.5s;
+}
+.App-header nav .burger-btn:hover .burger-btn-3 {
+  background-color: #82ED2E;
+  width: 31px;
+  height: 31px;
+  transition: all 0.5s;
+}
+
+.footer {
+  z-index: 200;
+}
+
+/* error */
+.error__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error__container img {
+  width: 500px;
+}
+.error__container .link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+.error__container .link2 {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+

@@ -1,0 +1,43 @@
+.button{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-decoration: none;
+    align-items: center;
+    width: 283px;
+}
+.button__column{
+    flex-direction: column-reverse;
+    width: 50px;
+}
+.button p{
+    font-size: 20px;
+    letter-spacing: -1px;
+    color: #82ED2E;
+}
+.button__column p{
+    writing-mode: vertical-lr; 
+    text-orientation: upright; 
+}
+.button_cont{
+    width: 32px;
+    height: 32px;
+    border: 2px solid #82ED2E;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-2{
+    width: 10px;
+    height: 10px;
+    background-color: #82ED2E;
+    border-radius: 10px;
+    transition: all .5s;
+}
+
+.button:hover .circle-2{
+    width: 20px;
+    height: 20px;
+}

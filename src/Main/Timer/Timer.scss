@@ -1,0 +1,25 @@
+@import './../../Constants.scss';
+
+.timer{
+    text-align: center;
+    font-size: 40px;
+    color: $color-green;
+}
+
+.timer_name{
+    text-align: center;
+    font-size: 18px;
+    color: $color-text;
+}
+
+@media screen{
+    @media (max-width: 900px){
+        .timer{
+            font-size: 20px;
+        }
+        
+        .timer_name{
+            font-size: 14px;
+        }
+    }
+}

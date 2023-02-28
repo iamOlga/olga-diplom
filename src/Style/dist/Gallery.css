@@ -1,0 +1,16 @@
+.gallery__container {
+  width: 100%;
+}
+.gallery__container h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 60px;
+  padding: 100px 0 50px 100px;
+  text-align: left;
+}
+.gallery__container .gallery__cards {
+  display: flex;
+  flex-wrap: wrap;
+}

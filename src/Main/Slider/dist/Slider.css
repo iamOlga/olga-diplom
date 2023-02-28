@@ -1,0 +1,35 @@
+* {
+  outline: none;
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.slick-slide {
+  padding: 0 50px;
+}
+
+.slider {
+  background: url("./../Images/line_solar-system.png");
+  background-repeat: no-repeat;
+}
+.slider h2 {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 60px;
+}
+.slider .slider__item h4 {
+  width: 100%;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 20px;
+  color: #D2D2D2;
+  margin-bottom: 15px;
+}
+.slider .slider__item img {
+  margin: 0;
+}

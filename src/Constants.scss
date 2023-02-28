@@ -1,0 +1,65 @@
+$color-black: #000; 
+$color-white: #fff; 
+$color-green: #82ED2E; 
+
+$color-text: #e1e1e1e0;
+
+
+@mixin text(){
+    font-size: 20px;
+    color: $color-text;
+    letter-spacing: -1px;
+    line-height: 25px;
+    font-weight: lighter;
+}
+
+@mixin header_2(){
+    text-align: center;
+    font-size: 30px;
+    color: $color-white;
+    font-weight: lighter;
+    margin-bottom: 60px;
+}
+
+@mixin text_block(){
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+
+        .title{
+            font-size: 40px;
+            color: $color-white;
+            width: 350px;
+            letter-spacing: -2px;
+        }
+        .text{
+            @include text();
+        }
+
+}
+
+@mixin background_img($_url, $_height){
+    background: url($_url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: $_height;
+}
+
+@mixin burger-btn(){
+    background-color: none;
+    border: 2px solid $color-green;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin burger-btn-hover($_width, $_height){
+    width: $_width;
+    height: $_height;
+    transition: all .5s;
+}

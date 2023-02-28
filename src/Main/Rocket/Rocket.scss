@@ -1,0 +1,62 @@
+@import './../../Constants.scss';
+
+.rocket__bg{
+    @include background_img('./../../../Images/rocket_bg.png', 560px);
+
+    @media screen{
+        @media (max-width: 800px){
+            @include background_img('./../../../Images/rocket_bg.png', 260px);
+        }
+
+    }
+}
+
+.rocket__content{
+    position: relative;
+    padding: 0 100px;
+
+    @media screen{
+        @media (max-width: 1200px){
+            padding: 0;
+        }
+        @media (max-width: 800px){
+            padding: 0 100px;
+        }
+    }
+
+    img{
+        width: 50%;
+        position: absolute;
+        top: -500px;
+
+        @media screen{
+            @media (max-width: 1000px){
+                top: -400px;
+            }
+            @media (max-width: 900px){
+                top: -300px;
+            }
+            @media (max-width: 800px){
+                display: none;
+            }
+    
+        }
+    }
+
+    .container__info{
+        @include text_block();
+        margin-left: 45%;
+        width: 45%;
+        top: -25px;
+
+        @media screen{
+            @media (max-width: 800px){
+                margin-left: 0;
+                width: 80%;
+                top: -20px;
+            }
+    
+        }
+    }
+  
+}

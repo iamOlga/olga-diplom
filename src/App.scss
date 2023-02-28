@@ -1,0 +1,92 @@
+@import './Constants.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.App-header {
+    height: 130px;
+
+    nav{
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 100px;
+
+        @media screen{
+            @media (max-width: 600px){
+                padding: 0 50px;
+            }
+        }
+
+        .logo{
+            @include background_img('./Images/logo.png', 93px);
+            width: 68px;
+        }
+
+        .burger-btn{
+            @include burger-btn();
+            z-index: 100;
+
+            .burger-btn-2{
+                @include burger-btn();
+                width: 19px;
+                height: 19px;
+
+                .burger-btn-3{
+                    background-color: none;
+                    width: 1px;
+                    height: 1px;
+                    border-radius: 50px;
+                }
+            }
+
+            &:hover{
+                border: 2px solid $color-green;
+                @include burger-btn-hover(35px, 35px);
+
+                .burger-btn-2{
+                    border: 2px solid #81ed2e00;
+                    @include burger-btn-hover(33px, 33px);
+                }
+
+                .burger-btn-3{
+                    background-color: $color-green;
+                    @include burger-btn-hover(31px, 31px);
+                }
+            }
+        }
+    }
+}  
+
+.footer{
+    z-index: 200;
+}
+
+
+
+/* error */
+.error__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        width: 500px;
+    }
+
+    .link{
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+    }
+    .link2{
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+    }
+
+}

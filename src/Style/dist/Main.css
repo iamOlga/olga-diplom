@@ -1,0 +1,78 @@
+.banner__container {
+  height: 100vh;
+}
+@media screen and (max-width: 900px) {
+  .banner__container {
+    height: 80vh;
+  }
+}
+@media screen and (max-width: 700px) {
+  .banner__container {
+    height: 70vh;
+  }
+}
+
+.cards__container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1000px) {
+  .cards__container {
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .cards__container {
+    flex-direction: column;
+  }
+}
+
+.astronaut_section {
+  padding-top: 200px;
+}
+@media screen and (max-width: 1300px) {
+  .astronaut_section {
+    padding-top: 150px;
+  }
+}
+
+.slider_section {
+  padding-top: 600px;
+}
+@media screen and (max-width: 1300px) {
+  .slider_section {
+    padding-top: 400px;
+  }
+}
+
+.map_section {
+  padding-top: 1100px;
+}
+@media screen and (max-width: 1300px) {
+  .map_section {
+    padding-top: 1000px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .map_section {
+    padding-top: 900px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .map_section {
+    padding-top: 750px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .map_section {
+    padding-top: 700px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .map_section {
+    padding-top: 650px;
+  }
+}
