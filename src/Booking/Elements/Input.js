@@ -6,22 +6,28 @@ class Input extends React.Component {
         if(this.props.type == 'text'){
             return <div className={this.props.fullwidth == true ? "input_container full" : "input_container"}>
                 <p className="input_name">{this.props.name}</p>
-                <input id={'elem' + this.props.elid} type={this.props.type} placeholder={this.props.name}/>
+                <input id={'elem' + this.props.elid} type={this.props.type} value={this.props.value} onChange={this.props.onchange} placeholder={this.props.name}/>
             </div>;
         }
         if(this.props.type == 'number'){
             return <div className={this.props.fullwidth == true ? "input_container full" : "input_container"}>
                 <p className="input_name">{this.props.name}</p>
-                <input type={this.props.type} placeholder={this.props.min} min={this.props.min} max={this.props.max}/>
+                <input type={this.props.type} placeholder='1' min="1" max="3"/>
             </div>;
         }
         if(this.props.type == 'password'){
             return <div className={this.props.fullwidth == true ? "input_container full" : "input_container"}>
                 <p className="input_name">{this.props.name}</p>
-                <input id={'elem' + this.props.elid} type={this.props.type} placeholder={this.props.name}/>
+                <input id={'elem' + this.props.elid} type={this.props.type} value={this.props.value} onChange={this.props.onchange} placeholder={this.props.name}/>
+            </div>;
+        }
+        if(this.props.type == 'email'){
+            return <div className={this.props.fullwidth == true ? "input_container full" : "input_container"}>
+                <p className="input_name">{this.props.name}</p>
+                <input id={'elem' + this.props.elid} type={this.props.type} value={this.props.value} onChange={this.props.onchange} placeholder={this.props.name}/>
             </div>;
         }
     }
-  }
+}
 
 export default Input;
