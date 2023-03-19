@@ -4,16 +4,9 @@ import './Account.css';
 import Input from './../Booking/Elements/Input';
 import Button from "../Button/Button";
 
-import account_bg from './../Images/booking-bg.png';
-
 function SignIn() {
 
     return (
-        <div className="account__container"
-             style={{
-                 backgroundImage: `url(${account_bg})`,
-             }}
-        >
 
             <div className="form__container">
                 <h2>Войти в аккаунт</h2>
@@ -32,16 +25,14 @@ function SignIn() {
                     </div>
 
                     <div className="button_container">
-                        <Button className="button" value="Войти" isrow="row"/>
+                        <Button className="button" value="Войти" isrow="row" />
                     </div>
 
-                    <div className="row">
-                        <a className="button_secondary" href="#">Зарегистрироваться</a>
-                    </div>
+
 
                 </form>
             </div>
-        </div>
+
     )
 }
 
