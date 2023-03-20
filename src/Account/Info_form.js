@@ -13,8 +13,11 @@ function Info_form() {
 
             <form>
                 <div className="row">
-                    <Input elid="1" type={"text"} name={"Имя"} fullwidth={false}/>
-                    <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={false}/>
+                    <Input elid="1" type={"text"} name={"Имя"} fullwidth={true}/>
+                </div>
+
+                <div className="row">
+                    <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={true}/>
                 </div>
 
                 <div className="row">
@@ -36,8 +39,10 @@ function Info_form() {
                     </div>
                 </div>
 
-                <div className="row">
-                    <Input elid="3" type={"number"} name={"Возраст"} min={"18"} max={"60"} fullwidth={true}/>
+                <div className="column">
+                    <p className="input_name">Дата рождения</p>
+                    <input type="date" id="start" name="trip-start"
+                           value="2018-07-22" min="1923-01-01" max="2005-01-01"/>
                 </div>
 
                 <div className="button_container">

@@ -2,12 +2,28 @@
 .account__container {
   max-width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 0 150px 0;
+}
+.account__container h2 {
+  width: 60%;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
+  text-align: left;
+}
+@media screen and (max-width: 650px) {
+  .account__container h2 {
+    padding: 50px 0;
+  }
 }
 .account__container .account__cont {
   width: 60%;
@@ -87,15 +103,16 @@
   margin-bottom: 12px;
   cursor: pointer;
   user-select: none;
+  color: rgba(222, 222, 222, 0.89);
 }
 .account__container .account__cont .form__container .row .radio_cont .radio_labels span {
-  border: 1px solid rgba(225, 225, 225, 0.8784313725);
+  border: 1px solid rgba(222, 222, 222, 0.89);
   position: absolute;
   top: 0;
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: rgba(225, 225, 225, 0.8784313725);
+  background-color: rgba(222, 222, 222, 0.89);
   border-radius: 50%;
 }
 .account__container .account__cont .form__container .row .radio_cont .radio_labels label input:checked ~ span {
@@ -120,6 +137,26 @@
   color: #82ED2E;
   text-decoration: none;
 }
+.account__container .account__cont .form__container .column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.account__container .account__cont .form__container .column p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #82ED2E;
+}
+.account__container .account__cont .form__container .column input {
+  padding: 20px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3960784314);
+  color: rgba(222, 222, 222, 0.89) !important;
+}
+.account__container .account__cont .form__container .column input[type=date]::-webkit-calendar-picker-indicator {
+  background: url("./img/calendar-icon.png") no-repeat center;
+  background-size: contain;
+}
 .account__container .account__cont .form__container h2 {
   padding: 50px 100px 50px 100px;
   margin-bottom: 0;
@@ -130,6 +167,96 @@
   justify-content: center;
 }
 .account__container .account__cont .form__container .button_container .button {
+  width: auto;
+}
+.account__container .account__cont .account {
+  width: 90%;
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+  padding: 60px 0;
+}
+.account__container .account__cont .account .info_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+.account__container .account__cont .account .info_block h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 60px;
+  text-align: start;
+  margin: 0 0 10px 0;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+}
+.account__container .account__cont .account .info_block .div_result .text_result, .account__container .account__cont .account .info_block div_result .text_result {
+  color: rgba(222, 222, 222, 0.89);
+  font-size: 18px;
+}
+.account__container .account__cont .account .info_block .div_result img, .account__container .account__cont .account .info_block div_result img {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+}
+.account__container .account__cont .account .info_block .div_result .button_container, .account__container .account__cont .account .info_block div_result .button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.account__container .account__cont .account .info_block .div_result .button_container .button, .account__container .account__cont .account .info_block div_result .button_container .button {
+  width: auto;
+}
+.account__container .account__cont .account .info_block .div_result_none {
+  display: none;
+}
+.account__container .account__cont .account .info_block form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 26px;
+}
+.account__container .account__cont .account .info_block form .row_gender {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: rgba(222, 222, 222, 0.89);
+  font-weight: 600;
+}
+.account__container .account__cont .account .info_block form .row_gender .input_name {
+  font-size: 18px;
+  color: #82ED2E;
+}
+.account__container .account__cont .account .info_block form .column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.account__container .account__cont .account .info_block form .column p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #82ED2E;
+}
+.account__container .account__cont .account .info_block form .column input {
+  padding: 20px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.3960784314);
+  color: rgba(222, 222, 222, 0.89);
+}
+.account__container .account__cont .account .info_block form .column input[type=date]::-webkit-calendar-picker-indicator {
+  background: url("./img/calendar-icon.png") no-repeat center;
+  background-size: contain;
+}
+.account__container .account__cont .account .info_block form .row_button {
+  display: flex;
+  justify-content: center;
+}
+.account__container .account__cont .account .info_block form .row_button .button {
   width: auto;
 }
 .account__container form {
@@ -153,7 +280,7 @@
 }
 
 .test__container {
-  max-width: 100%;
+  width: 100%;
   padding: 60px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -174,6 +301,15 @@
   margin: 10px 0 30px 0;
   width: 70%;
 }
+.test__container .question_container p {
+  color: rgba(222, 222, 222, 0.89);
+  font-size: 18px;
+}
+.test__container .question_container img {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+}
 .test__container .button {
   width: auto;
 }
@@ -191,7 +327,7 @@
 }
 .q_cont .number_container p {
   font-size: 20px;
-  color: rgba(225, 225, 225, 0.8784313725);
+  color: rgba(222, 222, 222, 0.89);
   letter-spacing: -1px;
   line-height: 25px;
   font-weight: lighter;
@@ -221,7 +357,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  color: rgba(225, 225, 225, 0.8784313725);
+  color: rgba(222, 222, 222, 0.89);
 }
 .q_cont .question .radio_cont input {
   position: absolute;
@@ -237,13 +373,13 @@
   user-select: none;
 }
 .q_cont .question .radio_cont span {
-  border: 1px solid rgba(225, 225, 225, 0.8784313725);
+  border: 1px solid rgba(222, 222, 222, 0.89);
   position: absolute;
   top: 0;
   left: 0;
   height: 20px;
   width: 20px;
-  background-color: rgba(225, 225, 225, 0.8784313725);
+  background-color: rgba(222, 222, 222, 0.89);
   border-radius: 50%;
 }
 .q_cont .question .radio_cont label input:checked ~ span {
