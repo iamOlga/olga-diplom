@@ -69,6 +69,7 @@ function Test() {
 
             <Button className="button" value="Следующий вопрос" isrow="row" />
             {/*<Button className="button" value="Завершить тест" isrow="row" />*/}
+
         </div>
     )
 }

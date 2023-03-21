@@ -7,7 +7,7 @@
 .timer_name {
   text-align: center;
   font-size: 18px;
-  color: #e1e1e1e0;
+  color: rgba(222, 222, 222, 0.89);
 }
 
 @media screen and (max-width: 900px) {
@@ -18,4 +18,5 @@
     font-size: 14px;
   }
 }
+
 /*# sourceMappingURL=Timer.css.map */

@@ -5,12 +5,25 @@
 .account__container{
   max-width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 0 150px 0;
+
+  h2{
+    width: 60%;
+    @include header_2();
+    padding-bottom: 30px;
+    text-align: left;
+    @media screen{
+      @media (max-width: 650px){
+        padding: 50px 0;
+      }
+    }
+  }
 
   .account__cont{
     width: 60%;
@@ -95,6 +108,7 @@
             margin-bottom: 12px;
             cursor: pointer;
             user-select: none;
+            color: $color-text;
           }
 
           span {
@@ -137,6 +151,30 @@
         }
       }
     }
+
+    .column{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      p{
+        font-size: 18px;
+        font-weight: 600;
+        color: $color-green;
+      }
+
+      input{
+        padding: 20px;
+        background: none;
+        border: 1px solid #ffffff65;
+        color: $color-text !important;
+      }
+
+      input[type=date]::-webkit-calendar-picker-indicator {
+        background: url("./img/calendar-icon.png") no-repeat center;
+        background-size: contain;
+      }
+    }
     h2{
       padding: 50px 100px 50px 100px;
       margin-bottom: 0;
@@ -152,6 +190,112 @@
       }
     }
   }
+
+
+    .account{
+      width: 90%;
+      display: flex;
+      gap: 60px;
+      flex-direction: column;
+      padding: 60px 0;
+
+      .info_block{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 20px;
+
+        h2 {
+          width: 100%;
+          @include header_2();
+          text-align: start;
+          margin: 0 0 10px 0;
+          padding: 0 0 20px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+
+        }
+
+        .div_result, div_result{
+          .text_result{
+            color: $color-text;
+            font-size: 18px;
+          }
+          img{
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 20px;
+          }
+          .button_container{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
+            .button{
+              width: auto;
+            }
+          }
+        }
+        .div_result_none{
+          display: none;
+        }
+
+        form{
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          gap: 26px;
+
+          .row_gender{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: $color-text;
+            font-weight: 600;
+
+            .input_name{
+              font-size: 18px;
+              color: $color-green;
+            }
+
+          }
+
+          .column{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p{
+              font-size: 18px;
+              font-weight: 600;
+              color: $color-green;
+            }
+
+            input{
+              padding: 20px;
+              background: none;
+              border: 1px solid #ffffff65;
+              color: $color-text;
+            }
+
+            input[type=date]::-webkit-calendar-picker-indicator {
+              background: url("./img/calendar-icon.png") no-repeat center;
+              background-size: contain;
+            }
+          }
+
+          .row_button{
+            display: flex;
+            justify-content: center;
+
+            .button{
+              width: auto;
+            }
+          }
+        }
+      }
+
+    }
   }
 
   form{
@@ -175,11 +319,12 @@
       }
     }
   }
+
 }
 
 
 .test__container {
-  max-width: 100%;
+  width: 100%;
   padding: 60px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -198,6 +343,16 @@
   .question_container{
     margin: 10px 0 30px 0;
     width: 70%;
+
+    p{
+      color: $color-text;
+      font-size: 18px;
+    }
+    img{
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 20px;
+    }
   }
 
   .button{
