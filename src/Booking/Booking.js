@@ -47,12 +47,13 @@ function Booking() {
         </div>
 
         //это форма, которая будет показываться, если ты вошел в аккаунт
-        {/*<Booking_form/>*/}
+        <Booking_form/>
 
-        <div className="link__container">
-            <h3>Войдите в личный аккаунт для того, чтобы забронировать билет</h3>
-            <Link to="/account"><Button className="button" value="Войти в аккаунт" isrow="row"/></Link>
-        </div>
+        //а это будет показываться, если ты НЕ вошел в аккаунт
+        {/*<div className="link__container">*/}
+        {/*    <h3>Войдите в личный аккаунт для того, чтобы забронировать билет</h3>*/}
+        {/*    <Link to="/account"><Button className="button" value="Войти в аккаунт" isrow="row"/></Link>*/}
+        {/*</div>*/}
 
     </div>
   )

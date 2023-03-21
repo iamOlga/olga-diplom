@@ -17,42 +17,59 @@ function Booking_form() {
 
             <Modal active={modalActive} setActive={setModalActive} text='Вы отправили заявку на следующий рейс в космос!'/* name={name + ' ' + surname} email={email} country={country} city={city} *//>
 
-            <h2>Забронируй свой полет в космос!</h2>
-            <h3>Купите место у окна в космическом полете, который изменит вашу жизнь</h3>
+            <div className="booking">
+                <div className="info_block">
+                    <h2>Персональная информация</h2>
+                    <form>
 
+                        {/*эти данные из бд типа*/}
 
-            <form>
-                <h2>Контактная информация</h2>
-                <div className="row">
-                    <Input elid="1" type={"text"} name={"Имя"} fullwidth={false}/>
-                    <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={false}/>
+                        <div className="row">
+                            <Input elid="1" type={"text"} name={"Имя"} fullwidth={true}/>
+                        </div>
+
+                        <div className="row">
+                            <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={true}/>
+                        </div>
+
+                        <div className="row_gender">
+                            <p className="input_name">Пол:</p>
+                            <p>женский</p>
+                        </div>
+
+                        <div className="column">
+                            <p className="input_name">Дата рождения</p>
+                            <input type="date" id="start" name="trip-start"
+                                   value="2018-07-22" min="1923-01-01" max="2005-01-01"/>
+                        </div>
+
+                        <div className="row">
+                            <Input elid="3" type={"text"} name={"Электронный адрес"} fullwidth={true}/>
+                        </div>
+
+                        {/*А ЭТИ ДАННЫЕ НУЖНО БУДЕТ ВВОДИТЬ И СДЕЛАТЬ ПРОВЕРДКУ ЧТОБ ВСЕ БЫЛО ВВЕДЕНО*/}
+
+                        <div className="row">
+                            <Input elid="4" type={"text"} name={"Страна"} fullwidth={false}/>
+                            <Input elid="5" type={"text"} name={"Город"} fullwidth={false}/>
+                        </div>
+
+                        <div className="row">
+                            <Select name={"Куда вы хотите отправиться?"} fullwidth={true}/>
+                        </div>
+
+                        <div className="row">
+                            <TextArea name={"В нескольких словах расскажите о себе, о своём экстремальном опыте"} fullwidth={true}/>
+                        </div>
+
+                        <div className="button_container" onClick={() => setModalActive(!modalActive)}>
+                            <Button className="button" value="Отправить запрос" isrow="row"/>
+                        </div>
+
+                    </form>
                 </div>
+            </div>
 
-                <div className="row">
-                    <Input elid="3" type={"text"} name={"Электронный адрес"} fullwidth={true}/>
-                </div>
-
-                <div className="row">
-                    <Input elid="4" type={"text"} name={"Страна"} fullwidth={false}/>
-                    <Input elid="5" type={"text"} name={"Город"} fullwidth={false}/>
-                </div>
-
-                <div className="row">
-                    <Select name={"Куда вы хотите отправиться?"} fullwidth={true}/>
-                </div>
-
-                <div className="row">
-                    <Input type={"number"} name={"Сколько мест вы бы хотели купить?"} fullwidth={true}/>
-                </div>
-
-                <div className="row">
-                    <TextArea name={"В нескольких словах расскажите о себе, о своём экстремальном опыте"} fullwidth={true}/>
-                </div>
-
-                <div className="button_container" onClick={() => setModalActive(!modalActive)}>
-                    <Button className="button" value="Отправить запрос" isrow="row"/>
-                </div>
-            </form>
         </div>
     )
 }

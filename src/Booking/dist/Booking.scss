@@ -5,7 +5,93 @@
 
 .booking__container{
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 100px;
+
+    .booking{
+        min-width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .info_block{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 20px;
+
+            h2 {
+                width: 100%;
+                @include header_2();
+                text-align: start;
+                margin: 0 0 10px 0;
+                padding: 0 0 20px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+
+            }
+
+
+            form{
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                gap: 26px;
+
+                .row_gender{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    color: $color-text;
+                    font-weight: 600;
+
+                    .input_name{
+                        font-size: 18px;
+                        color: $color-green;
+                    }
+
+                }
+
+                .column{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    p{
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: $color-green;
+                    }
+
+                    input{
+                        padding: 20px;
+                        background: none;
+                        border: 1px solid #ffffff65;
+                        color: $color-text;
+                    }
+
+                    input[type=date]::-webkit-calendar-picker-indicator {
+                        background: url("./../img/calendar-icon.png") no-repeat center;
+                        background-size: contain;
+                    }
+                }
+
+                .row_button{
+                    display: flex;
+                    justify-content: center;
+
+                    .button{
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+
+
 
     .link__container{
         padding: 60px 100px;
@@ -200,16 +286,38 @@
         height: 200px;
         padding: 100px;
         display: flex;
+        flex-direction: column;
+        gap: 16px;
         align-items: center;
         justify-content: center;
 
         p{
-            font-size: 35px;
-            color: $color-green;
+            font-size: 20px;
+            color: $color-text;
+            text-align: center;
+        }
+        .button{
+            margin-top: 20px;
+            width: auto;
         }
     }
 }
 
 .modal__container.active{
     transform: scale(1);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid #ffffff65;
+    -webkit-text-fill-color: $color-text;
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    transition: background-color 5000s ease-in-out 0s;
 }

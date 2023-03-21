@@ -7,6 +7,7 @@ import Gallery from './Gallery/Gallery'
 import Tours from './Tours/Tours'
 import Booking from './Booking/Booking'
 import Account from './Account/Account'
+import Reviews from './Reviews/Reviews'
 import Account_info from './Account/Account_info'
 import SignUp from "./Account/SignUp";
 import SignIn from "./Account/SignIn";
@@ -17,6 +18,17 @@ import { Switch, Route, Link } from 'react-router-dom'
 function App() {
   const [menuActive, setMenuActive] = useState(false);
   const items = [{value:"туры"}, {value:"забронировать"}, {value:"галерея"}];
+
+    function menu(){
+        let menu = document.getElementById("menu");
+        if (menu.classList.contains("active"))
+        {
+            menu.classList.remove('active');
+        }
+        else {
+            menu.classList.add('active');
+        }
+    }
 
   return (
     <div className="App">
@@ -29,7 +41,7 @@ function App() {
               <Timer days={130} hours={15} minutes={5} />
           </div>
 
-          <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
+          <div className="burger-btn" onClick={() => menu()}>
               <div className="burger-btn-2">
                 <div className="burger-btn-3"></div>
               </div>
@@ -50,6 +62,7 @@ function App() {
             <Route path='/signin' component={SignIn}/>
             <Route path='/signup' component={SignUp}/>
             <Route path='/account_info' component={Account_info}/>
+            <Route path='/reviews' component={Reviews}/>
         </Switch>
       </main>
 
