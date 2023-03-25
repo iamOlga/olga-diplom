@@ -130,6 +130,7 @@
   border-radius: 20px;
   background-size: 160%;
   background-position: right;
+  margin-right: -200px;
 }
 @media screen and (max-width: 700px) {
   .tour__card.tour__card-reverse .tour__card__img {

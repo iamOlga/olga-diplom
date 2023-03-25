@@ -10,6 +10,8 @@ import Map from './Map/Map';
 
 import { useState } from 'react';
 
+import a1 from './Card/Images/bg_1.png'
+
 function Home() {
   /* const [modalActive, setModalActive] = useState(false); */
 

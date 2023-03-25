@@ -6,6 +6,19 @@
   align-items: center;
   padding: 100px 0 150px 0;
 }
+.reviews__container .link__container {
+  padding: 60px 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: rgba(222, 222, 222, 0.89);
+  font-weight: lighter;
+}
+.reviews__container .link__container a {
+  text-decoration: none;
+}
 .reviews__container h2 {
   width: 100%;
   text-align: center;
@@ -17,6 +30,7 @@
 .reviews__container .reviews {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 40px;
 }
 .reviews__container .reviews .review {
