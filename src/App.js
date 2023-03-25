@@ -7,6 +7,7 @@ import Gallery from './Gallery/Gallery'
 import Tours from './Tours/Tours'
 import Booking from './Booking/Booking'
 import Account from './Account/Account'
+import Virtual_tour from './Virtual_tour/Virtual_tour'
 import Reviews from './Reviews/Reviews'
 import Account_info from './Account/Account_info'
 import SignUp from "./Account/SignUp";
@@ -58,6 +59,7 @@ function App() {
           <Route path='/tours' component={Tours}/>
           <Route path='/booking' component={Booking}/>
           <Route path='/account' component={Account}/>
+            <Route path='/virtual_tour' component={Virtual_tour}/>
           <Route path='/error' component={Error}/>
             <Route path='/signin' component={SignIn}/>
             <Route path='/signup' component={SignUp}/>

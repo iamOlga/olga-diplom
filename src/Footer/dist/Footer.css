@@ -15,7 +15,7 @@
   }
 }
 .footer__container-top .email {
-  font-style: 22px;
+  font-size: 22px;
   color: #e1e1e1e0;
 }
 @media (max-width: 770px) {
@@ -63,7 +63,7 @@
   text-align: center;
   color: #e1e1e1e0;
   font-size: 18px;
-  font-weight: lighter;
+  font-weight: 400;
 }
 .footer__container-bottom .footer_bg {
   width: 100%;

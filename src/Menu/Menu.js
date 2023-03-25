@@ -31,6 +31,9 @@ const Menu = ({items, active, setActive}) => {
                     <Link to="/gallery" onClick={() => menu()}>галерея</Link>
                 </li>
                 <li>
+                    <Link to="/virtual_tour" onClick={() => menu()}>о полете</Link>
+                </li>
+                <li>
                     <Link to="/account" onClick={() => menu()}>аккаунт</Link>
                 </li>
                 <li>
@@ -38,10 +41,6 @@ const Menu = ({items, active, setActive}) => {
                 </li>
             </ul>
 
-            <div className="menu__info">
-                <Link to="/"><div className='menu__logo'></div></Link>
-                <Link className='menu__email' to="/error"><p>portaltravel@gmail.com</p></Link>  
-            </div>
         </div>    
     </div>
   )

@@ -5,6 +5,11 @@
     text-decoration: none;
     align-items: center;
     width: 283px;
+    background: none;
+    border: none;
+}
+.button:hover{
+    cursor: pointer;
 }
 .button__column{
     flex-direction: column-reverse;
