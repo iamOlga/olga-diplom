@@ -1,9 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
 import './Help.css';
-import Input from './../Booking/Elements/Input';
-import Button from "../Button/Button";
-import {Link} from "react-router-dom";
 
 import help1 from "./../Images/help1.png"
 import video1 from "./../Images/video1.mp4";

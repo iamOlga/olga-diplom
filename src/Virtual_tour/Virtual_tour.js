@@ -8,7 +8,7 @@ import bg4 from './../Images/virtual_tour_4.jpg';
 import bg5 from './../Images/virtual_tour_5.jpg';
 import bg6 from './../Images/virtual_tour_6.jpg';
 import bg7 from './../Images/virtual_tour_7.jpg';
-import Button from './../Button/Button';
+import Button from '../components/Button/Button';
 import { Link } from "react-router-dom";
 
 function Virtual_tour() {

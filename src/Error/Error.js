@@ -1,6 +1,6 @@
 import './../App.css'; 
 import img from './../Images/error_img.png'
-import Button from './../Button/Button';
+import Button from '../components/Button/Button';
 import { Link } from "react-router-dom";
 
 function Error() {

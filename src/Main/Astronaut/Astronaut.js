@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import Button from './../../Button/Button';
+import Button from '../../components/Button/Button';
 import astronaut from './../../Images/astronaut.png';
-import planet_bg from './../../Images/planet_bg.png';
 import './dist/Astronaut.css'
 
 import { Canvas } from '@react-three/fiber';

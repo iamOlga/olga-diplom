@@ -1,6 +1,7 @@
 import React from 'react';
 import './../dist/Booking.css';
-import Button from './../../Button/Button';
+import Button from "../../components/Button/Button";
+
 
 const Modal = ({active, setActive, text}) => {
         return (

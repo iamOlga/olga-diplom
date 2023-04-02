@@ -1,6 +1,6 @@
 import React from 'react'
 import './Admin.css';
-import Button from "../Button/Button";
+import Button from "../components/Button/Button";
 
 function Admin() {
 
@@ -20,7 +20,7 @@ function Admin() {
             parentListItem.classList.add("active");
             const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
 
-            const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
+            const panel = [...tabPanels].filter(el => el.getAttribute("data-index") === index);
             panel[0].classList.add("active");
         });
     }
