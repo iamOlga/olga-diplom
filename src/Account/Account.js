@@ -3,7 +3,7 @@ import './Account.css';
 import SignIn from "./SignIn";
 import account_bg from "../Images/booking-bg.png";
 
-function Account() {
+const Account = () => {
 
     //где-то тут нужно сделать проверку на вход в аккаунт и уже в зависимости от этого подключать нужный модуль
     return (

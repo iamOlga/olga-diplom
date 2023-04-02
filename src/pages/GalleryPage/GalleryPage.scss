@@ -1,10 +1,10 @@
-@import './../Constants.scss';
+@import './../../Constants.scss';
 
 .gallery__container{
     width: 100%;
     
 
-    h2{
+    h2 {
         @include header_2();
         padding: 100px 0 50px 100px;
         text-align: left;

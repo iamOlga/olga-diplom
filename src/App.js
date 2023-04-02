@@ -3,10 +3,8 @@ import Menu from './Menu/Menu';
 import Timer from './Main/Timer/Timer';
 import Footer from './Footer/Footer';
 import Home from './Main/Home';
-import Gallery from './Gallery/Gallery'
 import Tours from './Tours/Tours'
 import Booking from './Booking/Booking'
-import Account from './Account/Account'
 import Virtual_tour from './Virtual_tour/Virtual_tour'
 import Reviews from './Reviews/Reviews'
 import Account_info from './Account/Account_info'
@@ -17,6 +15,7 @@ import { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
 import LoginPage from './pages/LoginPage/LogingPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -58,7 +57,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/gallery" component={Gallery} />
+          <Route path="/gallery" component={GalleryPage} />
           <Route path="/tours" component={Tours} />
           <Route path="/booking" component={Booking} />
           {/* <Route path='/account' component={Account}/> */}

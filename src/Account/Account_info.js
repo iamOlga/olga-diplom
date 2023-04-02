@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 import './Account.css';
 import Input from './../Booking/Elements/Input';
 import Button from "../Button/Button";
@@ -8,23 +7,26 @@ import img1 from "./img/result1.jpg";
 import img2 from "./img/result1.jpg";
 import img3 from "./img/result1.jpg";
 
-const Account_info = ({test_result, ticket}) => {
+const Account_info = ({
+    test_result, 
+    ticket
+}) => {
 
     let text_result;
     let img_src;
-    if(test_result == "result1"){
+    if(test_result === "result1"){
         text_result= "Тебе лучше остаться на Земле! К сожалению, ты не готов к дальним полетам, а твое тело не выдержит таких физических нагрузок. Но не отчаивайся, а пройди полное медецинское обследование для точного результата!";
         img_src = img1;
     }
-    else if(test_result == "result2"){
+    else if(test_result === "result2"){
         text_result= "Ты уверен, что ты сможешь полететь в космос? Результаты показали, что тебе лучше отказаться от этой идеи, по крайней мере, не лететь на большие расстояния. Однако ты можешь попробовать отправиться на орбиту нашей Земли!";
         img_src = img2;
     }
-    else if(test_result == "result3"){
+    else if(test_result === "result3"){
         text_result= "Ого! Ты готов к полету в любую точку космоса! Но возможности наши не настолько большие. Мы можем предложить тебе отправиться в космическое путешествие на Луну или Марс. Ждем тебя!";
         img_src = img3;
     }
-    else if(test_result == "0"){
+    else if(test_result === "0"){
         text_result= "Хочешь узнать, куда тебе стоит полететь? А может тебе лучше остаться на Земле? Пройди небольшой тест, и мы дадим тебе совет!";
     }
 
@@ -66,11 +68,11 @@ const Account_info = ({test_result, ticket}) => {
 
             <div className="info_block">
                 <h2>Подбор полета</h2>
-                <div className={test_result !="0" ? "div_result" : "div_result_none"}>
+                <div className={test_result !== "0" ? "div_result" : "div_result_none"}>
                     <p>{text_result}</p>
                     <img src={img_src} alt=""/>
                 </div>
-                <div className={test_result =="0" ? "div_result" : "div_result_none"}>
+                <div className={test_result === "0" ? "div_result" : "div_result_none"}>
                     <p className="text_result">{text_result}</p>
                     <div className="button_container">
                         <Button className="button" value="Пройти тест" isrow="row" />
@@ -82,7 +84,7 @@ const Account_info = ({test_result, ticket}) => {
             <div className="info_block">
                 <h2>Ваши билеты</h2>
 
-                <div className={ticket =="0" ? "div_result" : "div_result_none"}>
+                <div className={ticket === "0" ? "div_result" : "div_result_none"}>
                     <p className="text_result">У вас нет ни одного билета</p>
                     <div className="button_container">
                         <Button className="button" value="Выбрать билет" isrow="row" />
