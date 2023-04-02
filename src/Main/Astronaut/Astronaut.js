@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Button from './../../Button/Button';
 import astronaut from './../../Images/astronaut.png';
 import planet_bg from './../../Images/planet_bg.png';
@@ -16,8 +17,7 @@ const Astronaut = () => {
                 <div className="img_container">
                   <img src={astronaut}/>
                 </div>
-                
-                <Button value="Лететь" isrow="norow"/>
+                <Link to="/booking"><Button value="Лететь" isrow="norow"/></Link>
             </div>
             
             <div className="planet__bg">

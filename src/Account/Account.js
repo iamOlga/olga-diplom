@@ -6,6 +6,7 @@ import Test from "./Test";
 import Test_result from "./Test_result";
 import SignUp from "./SignUp";
 import Info_form from "./Info_form";
+
 import account_bg from "../Images/booking-bg.png";
 
 function Account() {
@@ -30,8 +31,10 @@ function Account() {
 
                 {/*ticket="0" нет билетов */}
                 {/*а как дальше я пока хз ибо если у него например 2 билета будет то это както тож нужно показать*/}
-
                 <Account_info test_result="0" ticket="0"/>
+
+
+
 
                 <div className="button_row">
 

@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="footer__container">
         <div className="footer__container-top">
             <p className="email">© Бабич Ольга</p>
-            <Button className="button" value="Отправиться в космос" isrow="row"/>
+            <Link to="/booking"><Button className="button" value="Отправиться в космос" isrow="row"/></Link>
         </div>
 
         <div className="footer__container-bottom">
@@ -25,6 +25,11 @@ const Footer = () => {
               <Link className="link" to="/booking">забронировать</Link>
               <Link className="link" to="/gallery">галерея</Link>
               <Link className="link" to="/tours">туры</Link>
+              <Link className="link" to="/virtual_tour">о полете</Link>
+              <Link className="link" to="/account">аккаунт</Link>
+              <Link className="link" to="/reviews">отзывы</Link>
+              <Link className="link" to="/help">помощь</Link>
+
             </nav>
           </div>
           <img className="footer_bg" src={footer_bg}/>

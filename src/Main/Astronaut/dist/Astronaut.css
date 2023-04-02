@@ -30,6 +30,9 @@
 .astronaut__container .container__info .img_container img {
   animation: astronaut_anim 6s infinite ease-in-out;
 }
+.astronaut__container .container__info a{
+  text-decoration: none;
+}
 @keyframes astronaut_anim {
   0% {
     margin-left: -20px;
