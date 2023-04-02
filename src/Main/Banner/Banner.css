@@ -71,6 +71,10 @@
   }
 }
 
+.banner .banner__content .banner__content__info a {
+  text-decoration: none;
+}
+
 .banner .banner__content .banner__content_planet {
   width: 35%;
   margin-left: 200px;

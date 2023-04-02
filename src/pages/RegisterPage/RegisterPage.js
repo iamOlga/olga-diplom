@@ -1,6 +1,6 @@
 import React from "react";
 import "./Account.css";
-import SignUp from '../../Account/SignUp'
+import SignUp from '../../components/signUp/SignUp'
 import account_bg from "../../Images/booking-bg.png";
 import { Link } from "react-router-dom";
 

@@ -1,9 +1,7 @@
 import React from 'react'
-import {Link} from "react-router-dom";
 import './Reviews.css';
 import Review from "./Review";
 import Review_input from "./Review_input";
-import Button from './../Button/Button';
 
 function Reviews() {
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from './../../Button/Button';
+import { Link } from "react-router-dom";
+import Button from '../../components/Button/Button';
 import astronaut from './../../Images/astronaut.png';
-import planet_bg from './../../Images/planet_bg.png';
 import './dist/Astronaut.css'
 
 import { Canvas } from '@react-three/fiber';
@@ -16,8 +16,7 @@ const Astronaut = () => {
                 <div className="img_container">
                   <img src={astronaut}/>
                 </div>
-                
-                <Button value="Лететь" isrow="norow"/>
+                <Link to="/booking"><Button value="Лететь" isrow="norow"/></Link>
             </div>
             
             <div className="planet__bg">

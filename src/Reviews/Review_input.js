@@ -1,6 +1,6 @@
 import React from 'react'
 import './Reviews.css';
-import Button from "../Button/Button";
+import Button from "../components/Button/Button";
 
 const Review_input = ({name, text}) => {
     return (

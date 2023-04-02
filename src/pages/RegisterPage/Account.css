@@ -154,7 +154,7 @@
   color: rgba(222, 222, 222, 0.89) !important;
 }
 .account__container .account__cont .form__container .column input[type=date]::-webkit-calendar-picker-indicator {
-  background: url("../../Account/img/calendar-icon.png") no-repeat center;
+  background: url("../../assets/accountPage/calendar-icon.png") no-repeat center;
   background-size: contain;
 }
 .account__container .account__cont .form__container h2 {
@@ -249,7 +249,7 @@
   color: rgba(222, 222, 222, 0.89);
 }
 .account__container .account__cont .account .info_block form .column input[type=date]::-webkit-calendar-picker-indicator {
-  background: url("../../Account/img/calendar-icon.png") no-repeat center;
+  background: url("../../assets/accountPage/calendar-icon.png") no-repeat center;
   background-size: contain;
 }
 .account__container .account__cont .account .info_block form .row_button {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Account.css";
-import SignIn from "../../Account/SignIn";
+import SignIn from "../../components/signIn/SignIn";
 import account_bg from "../../Images/booking-bg.png";
 import { Link } from "react-router-dom";
 
@@ -37,7 +37,7 @@ function LoginPage() {
                     и скрывать блок инфо форм, тест резалт или сам акканут (аккаунт инфо)
                     */}
 
-          <Link className="button_secondary" to={'/register'}>
+          <Link className="button_secondary" to={"/register"}>
             Зарегистрироваться
           </Link>
         </div>

@@ -4,7 +4,7 @@ import './dist/Booking.css';
 import Input from './Elements/Input';
 import TextArea from './Elements/TextArea';
 import Select from './Elements/Select';
-import Button from './../Button/Button';
+import Button from "../components/Button/Button";
 import Modal from './Elements/Modal';
 
 

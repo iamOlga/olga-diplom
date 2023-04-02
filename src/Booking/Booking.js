@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './dist/Booking.css';
 import Card from './Elements/Card'
 import Modal from './Elements/Modal';
-import Button from './../Button/Button';
 
 import Booking_form from "./Booking_form";
 
@@ -11,7 +10,6 @@ import cardbg1 from './../Images/book-bg1.png';
 import cardbg2 from './../Images/book-bg2.png';
 import cardbg3 from './../Images/book-bg3.png';
 import booking_bg from './../Images/booking-bg.png';
-import {Link} from "react-router-dom";
 
 function Booking() {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Account.css";
-import Input from "./../Booking/Elements/Input";
+import Input from "../../Booking/Elements/Input";
 import Button from "../Button/Button";
 
 const SignIn = () => {

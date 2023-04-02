@@ -8,7 +8,8 @@ import bg4 from './../Images/virtual_tour_4.jpg';
 import bg5 from './../Images/virtual_tour_5.jpg';
 import bg6 from './../Images/virtual_tour_6.jpg';
 import bg7 from './../Images/virtual_tour_7.jpg';
-import Button from './../Button/Button';
+import Button from '../components/Button/Button';
+import { Link } from "react-router-dom";
 
 function Virtual_tour() {
 
@@ -40,8 +41,7 @@ function Virtual_tour() {
                                 <div className="info">
                                     <span>1 этап</span>
                                     <p>У нас есть подробная медицинская анкета и осмотр для всех участников, чтобы убедиться, что вы готовы к полету. Этот процесс адаптирован под каждого индивидуально. В среднем медицинская подготовка занимает 3 месяца.</p>
-                                    <Button className="button" value="подробнее о требованиях" isrow="row"/>
-                                    {/*<Link to="/account"></Link>*/}
+                                    <Link to="/help"><Button className="button" value="подробнее о требованиях" isrow="row"/></Link>
                                 </div>
                             </div>
                         </div>
@@ -56,8 +56,7 @@ function Virtual_tour() {
                                 <div className="info">
                                     <span>2 этап</span>
                                     <p>После оплаты и подписания договора о сотрудничестве вас ждет наша программа подготовки к полету в космос. Она состоит из специальных мероприятий, занятий и тренировок, призванных помочь вам физически, умственно и духовно подготовиться к космосу. От начала до конца, вас будут сопровождать на каждом этапе, чтобы обеспечить вашу безопасность и комфорт.</p>
-                                    <Button className="button" value="подробнее об оплате" isrow="row"/>
-                                    {/*<Link to="/account"></Link>*/}
+                                    <Link to="/help"><Button className="button" value="подробнее об оплате" isrow="row"/></Link>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +96,7 @@ function Virtual_tour() {
                                 <div className="info">
                                     <span>5 этап</span>
                                     <p>Добро пожаловать в космос! Насладись своим туром в полной мере.</p>
-                                    <Button className="button" value="выбрать тур" isrow="row"/>
-                                    {/*<Link to="/account"></Link>*/}
+                                    <Link to="/tours"><Button className="button" value="выбрать тур" isrow="row"/></Link>
                                 </div>
                             </div>
                         </div>

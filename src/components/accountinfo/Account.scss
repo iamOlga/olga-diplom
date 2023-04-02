@@ -1,0 +1,456 @@
+@import './../Constants.scss';
+
+
+
+.account__container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0 150px 0;
+
+  h2 {
+    width: 60%;
+    @include header_2();
+    padding-bottom: 30px;
+    text-align: left;
+
+    @media screen {
+      @media (max-width: 650px) {
+        padding: 50px 0;
+      }
+    }
+  }
+
+  .account__cont {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px 80px 10px;
+    background-color: rgba(12, 12, 12, 0.7);
+    backdrop-filter: blur(5px);
+
+
+    .button_row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .button_secondary {
+        text-decoration: none;
+        color: #B9B9B9;
+        transition: 0.3s;
+
+        &:hover {
+          color: #e3e3e3;
+        }
+      }
+    }
+
+
+    .form__container {
+      width: 100%;
+
+      h2 {
+
+        @include header_2();
+        padding: 100px 100px 50px 100px;
+        margin-bottom: 60px;
+        text-align: left;
+
+        @media screen {
+          @media (max-width: 650px) {
+            padding: 50px 0;
+          }
+        }
+      }
+
+      .row {
+        display: flex;
+        justify-content: center;
+
+        .radio_cont {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+
+          @media screen {
+            @media (max-width: 800px) {
+              width: 100%;
+            }
+          }
+
+          .input_name {
+            font-size: 18px;
+            font-weight: 600;
+            color: $color-green;
+          }
+
+          .radio_labels {
+            display: flex;
+            gap: 20px;
+
+            input {
+              position: absolute;
+              opacity: 0;
+              сursor: pointer;
+            }
+
+            label {
+              display: block;
+              position: relative;
+              padding-left: 35px;
+              margin-bottom: 12px;
+              cursor: pointer;
+              user-select: none;
+              color: $color-text;
+            }
+
+            span {
+              border: 1px solid $color-text;
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 20px;
+              width: 20px;
+              background-color: $color-text;
+              border-radius: 50%;
+            }
+
+            label input:checked~span {
+              background-color: $color-green;
+            }
+
+            span:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+
+            label input:checked~span:after {
+              display: block;
+            }
+          }
+        }
+
+        .column {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 8px;
+
+          a {
+            color: $color-green;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        p {
+          font-size: 18px;
+          font-weight: 600;
+          color: $color-green;
+        }
+
+        input {
+          padding: 20px;
+          background: none;
+          border: 1px solid #ffffff65;
+          color: $color-text !important;
+        }
+
+        input[type=date]::-webkit-calendar-picker-indicator {
+          background: url("../../assets/accountPage/calendar-icon.png") no-repeat center;
+          background-size: contain;
+        }
+      }
+
+      h2 {
+        padding: 50px 100px 50px 100px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .button_container {
+        display: flex;
+        justify-content: center;
+
+        .button {
+          width: auto;
+        }
+      }
+    }
+
+
+    .account {
+      width: 90%;
+      display: flex;
+      gap: 60px;
+      flex-direction: column;
+      padding: 60px 0;
+
+      .info_block {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 20px;
+
+        h2 {
+          width: 100%;
+          @include header_2();
+          text-align: start;
+          margin: 0 0 10px 0;
+          padding: 0 0 20px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+
+        }
+
+        .div_result,
+        div_result {
+          .text_result {
+            color: $color-text;
+            font-size: 18px;
+          }
+
+          img {
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 20px;
+          }
+
+          .button_container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
+            .button {
+              width: auto;
+            }
+          }
+        }
+
+        .div_result_none {
+          display: none;
+        }
+
+        form {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          gap: 26px;
+
+          .row_gender {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: $color-text;
+            font-weight: 600;
+
+            .input_name {
+              font-size: 18px;
+              color: $color-green;
+            }
+
+          }
+
+          .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+              font-size: 18px;
+              font-weight: 600;
+              color: $color-green;
+            }
+
+            input {
+              padding: 20px;
+              background: none;
+              border: 1px solid #ffffff65;
+              color: $color-text;
+            }
+
+            input[type=date]::-webkit-calendar-picker-indicator {
+              background: url("../../assets/accountPage/calendar-icon.png") no-repeat center;
+              background-size: contain;
+            }
+          }
+
+          .row_button {
+            display: flex;
+            justify-content: center;
+
+            .button {
+              width: auto;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  form {
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .row {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: space-between;
+
+      @media screen {
+        @media (max-width: 800px) {
+          flex-direction: column;
+          gap: 40px;
+        }
+      }
+    }
+  }
+
+}
+
+
+.test__container {
+  width: 100%;
+  padding: 60px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  h2 {
+    width: 70%;
+    @include header_2();
+    text-align: center;
+    margin-bottom: 30px;
+
+  }
+
+
+  .question_container {
+    margin: 10px 0 30px 0;
+    width: 70%;
+
+    p {
+      color: $color-text;
+      font-size: 18px;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
+
+  .button {
+    width: auto;
+  }
+}
+
+.q_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+
+  .number_container {
+    display: flex;
+    width: 70%;
+    justify-content: flex-start;
+    padding: 0 26px;
+
+    p {
+      @include text();
+    }
+  }
+
+  .question {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    padding: 32px 26px;
+    background-color: #212121;
+    border-radius: 30px;
+
+    h2 {
+      width: 100%;
+      @include header_2();
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 0;
+
+    }
+
+    .radio_cont {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      color: $color-text;
+
+
+      input {
+        position: absolute;
+        opacity: 0;
+        сursor: pointer;
+      }
+
+      label {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      span {
+        border: 1px solid $color-text;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: $color-text;
+        border-radius: 50%;
+      }
+
+      label input:checked~span {
+        background-color: $color-green;
+      }
+
+      span:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      label input:checked~span:after {
+        display: block;
+      }
+    }
+  }
+}

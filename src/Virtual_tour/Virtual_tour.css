@@ -39,7 +39,7 @@ div {
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -390,6 +390,10 @@ div {
           align-items: flex-end;
 }
 
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info a {
+  text-decoration: none;
+}
+
 @media (max-width: 1240px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info {
     width: 80%;
@@ -553,6 +557,10 @@ div {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 {
     padding: 20px 0 0 200px;
   }
+}
+
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info a {
+  text-decoration: none;
 }
 
 @media (max-width: 1200px) {

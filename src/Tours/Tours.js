@@ -1,6 +1,7 @@
 import './dist/Tours.css';
 import Tours_card from './Tours_card'
 import { useState } from 'react';
+import {Link} from "react-router-dom";
 
 import marsbg from './Images/mars-bg.png';
 import marsimg from './Images/mars.png';
@@ -31,9 +32,9 @@ function Tours() {
       <h2>Космические туры</h2>
 
       <div className="tours__cards">
-        <Tours_card isreverse={'row'} urlbg={mars_bg} name={"Mars"} place={"Долины Маринер"} description={description1} time_fly={"117 дней"} time_onplanet={"7 дней"} amount_people={"5 человек"} price={"2 000 000"} imgurl={mars_img}/>
-        <Tours_card isreverse={'rowreverse'} urlbg={moon_bg} name={"Moon"} place={"Океан Бурь"} description={description2} time_fly={"24 часа"} time_onplanet={"5 часов"} amount_people={"10 человек"} price={"1 000 000"} imgurl={moon_img}/>
-        <Tours_card isreverse={'row'} urlbg={station_bg} name={"Space station"} place={""} description={description3} time_fly={"2 часа 9 минут"} time_onplanet={"3 дня"} amount_people={"3 человека"} price={"1 500 000"} imgurl={station_img}/>
+        <Link to="/tour" state={{ a: "aaaa" }}><Tours_card isreverse={'row'} urlbg={mars_bg} name={"Mars"} place={"Долины Маринер"} description={description1} time_fly={"117 дней"} time_onplanet={"7 дней"} amount_people={"5 человек"} price={"2 000 000"} date={"01.05.2024"} imgurl={mars_img}/></Link>
+        <Tours_card isreverse={'rowreverse'} urlbg={moon_bg} name={"Moon"} place={"Океан Бурь"} description={description2} time_fly={"24 часа"} time_onplanet={"5 часов"} amount_people={"10 человек"} price={"1 000 000"} date={"25.08.2023"} imgurl={moon_img}/>
+        <Tours_card isreverse={'row'} urlbg={station_bg} name={"Space station"} place={""} description={description3} time_fly={"2 часа 9 минут"} time_onplanet={"3 дня"} amount_people={"3 человека"} price={"1 500 000"} date={"12.12.2024"} imgurl={station_img}/>
 
         
       </div>

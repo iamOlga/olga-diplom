@@ -33,6 +33,10 @@
   color: rgba(222, 222, 222, 0.89);
 }
 
+.footer__container-top a {
+  text-decoration: none;
+}
+
 @media (max-width: 770px) {
   .footer__container-top .button {
     margin-left: 30px;
@@ -74,7 +78,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 20px;
+  gap: 5px;
 }
 
 @media (max-width: 770px) {
@@ -93,7 +97,7 @@
 }
 
 .footer__container-bottom .footer_content nav .link {
-  width: 232px;
+  max-width: 130px;
   text-decoration: none;
   text-align: center;
   color: rgba(222, 222, 222, 0.89);

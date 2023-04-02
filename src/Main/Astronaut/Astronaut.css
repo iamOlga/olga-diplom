@@ -96,6 +96,10 @@
   }
 }
 
+.astronaut__container .container__info a {
+  text-decoration: none;
+}
+
 .astronaut__container .planet__bg {
   position: absolute;
   width: 100%;

@@ -21,6 +21,10 @@ class Tours_card extends React.Component {
 
             <div className="tour__card__info-add">
                 <div className="tour__card__info-add-row">
+                    <p>Дата отправления</p>
+                    <p>{this.props.date}</p>
+                </div>
+                <div className="tour__card__info-add-row">
                     <p>Длительность полета:</p>
                     <p>{this.props.time_fly} в одну сторону</p>
                 </div>
