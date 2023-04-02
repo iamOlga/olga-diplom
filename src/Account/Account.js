@@ -1,11 +1,6 @@
 import React from 'react'
 import './Account.css';
-import Account_info from "./Account_info";
 import SignIn from "./SignIn";
-import Test from "./Test";
-import Test_result from "./Test_result";
-import SignUp from "./SignUp";
-import Info_form from "./Info_form";
 import account_bg from "../Images/booking-bg.png";
 
 function Account() {
@@ -19,10 +14,10 @@ function Account() {
         >
 
             {/*этот заголовок нужно будет показать только когда мы уже вошли в аккаунт*/}
-            <h2>Ваш аккаунт</h2>
+            {/* <h2>Ваш аккаунт</h2> */}
 
             <div className="account__cont">
-                {/*<SignIn/>*/}
+                <SignIn/>
                 {/*<SignUp />*/}
                 {/*<Info_form />*/}
                 {/*<Test/>*/}
@@ -31,7 +26,7 @@ function Account() {
                 {/*ticket="0" нет билетов */}
                 {/*а как дальше я пока хз ибо если у него например 2 билета будет то это както тож нужно показать*/}
 
-                <Account_info test_result="0" ticket="0"/>
+                {/* <Account_info test_result="0" ticket="0"/> */}
 
                 <div className="button_row">
 

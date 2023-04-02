@@ -34,7 +34,7 @@ const Menu = ({items, active, setActive}) => {
                     <Link to="/virtual_tour" onClick={() => menu()}>о полете</Link>
                 </li>
                 <li>
-                    <Link to="/account" onClick={() => menu()}>аккаунт</Link>
+                    <Link to="/login" onClick={() => menu()}>аккаунт</Link>
                 </li>
                 <li>
                     <Link to="/reviews" onClick={() => menu()}>отзывы</Link>
