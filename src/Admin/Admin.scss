@@ -1,0 +1,241 @@
+@import './../Constants.scss';
+
+.admin__container {
+  min-width: 100%;
+  padding: 0 20px;
+
+
+  @media screen {
+    @media (max-width: 700px) {
+      padding: 0 20px;
+    }
+  }
+
+    h2 {
+      @include header_2();
+      width: 100%;
+      margin: 0;
+      margin-top: 30px;
+    }
+
+  .button_container{
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    justify-content: flex-end;
+
+    .button{
+      width: auto;
+    }
+  }
+
+
+
+
+  .tabs {
+    max-width: 90%;
+    float: none;
+    list-style: none;
+    padding: 0;
+    margin: 75px auto;
+    border-bottom: 4px solid #ccc;
+  }
+
+  .tabs:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .tabs input[type=radio] {
+    display: none;
+  }
+
+  .tabs label p {
+    padding: 5px;
+    margin-right: 0;
+  }
+
+  .tabs label {
+    display: block;
+    float: left;
+    width: 33%;
+    color: #ccc;
+    font-size: 22px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    line-height: 2;
+    cursor: pointer;
+    border-bottom: 4px solid #ccc;
+    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+    transition: all 0.5s;
+  }
+
+  .tabs label span {
+    display: none;
+  }
+
+  .tabs label:hover {
+    color: $color-green;
+    border-bottom: 4px solid $color-green;
+  }
+
+  .tab-content {
+    display: none;
+    width: 100%;
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+
+  }
+
+  .tabs [id^="tab"]:checked + label {
+    background: #FFF;
+    border-bottom: 4px solid $color-green;
+    color: $color-green;
+  }
+
+  #tab-first:checked ~ #tab-content-1,
+  #tab-second:checked ~ #tab-content-2,
+  #tab-third:checked ~ #tab-content-3{
+    display: block;
+  }
+
+
+  .tab_cont{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    gap: 20px;
+
+    .ticket, .tour, .review{
+      background-color: #212121;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px 10px;
+      gap: 10px;
+
+      .row{
+        display: flex;
+        gap: 20px;
+
+        .name{
+          color: $color-white;
+          font-size: 24px;
+        }
+
+        p{
+          color: $color-green;
+
+          span{
+            color: $color-white;
+          }
+        }
+      }
+    }
+
+    .tour{
+
+      h2{
+        @include header_2();
+        margin: 30px 0;
+      }
+
+      .row{
+        padding: 0 2%;
+        p{
+          width: 20%;
+        }
+        input{
+          width: 76%;
+          font-size: 18px;
+          background-color: #ababab;
+          padding: 5px 7px;
+        }
+        textarea{
+          resize: none;
+          width: 76%;
+          height: 150px;
+          font-size: 18px;
+          background-color: #ababab;
+          padding: 5px 7px;
+        }
+
+        button{
+          font-size: 14px;
+          font-weight: 500;
+          padding: 6px 9px;
+          outline: none;
+          border: none;
+          margin-top: 10px;
+          transition: all .3s linear;
+        }
+        .save{
+          color: $color-black;
+          background-color: $color-white;
+
+          &:hover{
+            background-color: #cecece;
+          }
+        }
+        .delete{
+          color: $color-white;
+          background-color: #b42c2c;
+
+          &:hover{
+            background-color: #8a2828;
+          }
+        }
+        .add{
+          color: $color-white;
+          background-color: $color-green;
+
+          &:hover{
+            background-color: #5a9f25;
+          }
+        }
+      }
+    }
+
+    .review{
+      padding: 20px 0;
+      .row{
+        justify-content: space-between;
+        padding: 0 2%;
+
+        p{
+          color: $color-white;
+        }
+        .review_name, .review_date{
+          color: $color-text;
+          font-size: 14px;
+        }
+
+        button{
+          font-size: 14px;
+          font-weight: 500;
+          padding: 6px 9px;
+          outline: none;
+          border: none;
+          margin-top: 10px;
+          transition: all .3s linear;
+        }
+        .delete{
+          color: $color-white;
+          background-color: #b42c2c;
+
+          &:hover{
+            background-color: #8a2828;
+          }
+        }
+      }
+
+
+    }
+  }
+
+
+}

@@ -20,6 +20,9 @@
             font-size: 22px;
             color: $color-text;
         }
+        a{
+            text-decoration: none;
+        }
 
         .button{
             @media (max-width: 770px){
@@ -52,7 +55,7 @@
 
             nav{
                 display: flex;
-                gap: 20px;
+                gap: 5px;
                 @media (max-width: 770px){
                     gap: 0;
                 }
@@ -61,7 +64,7 @@
                 }
 
                 .link{
-                    width: 232px;
+                    max-width: 130px;
                     text-decoration: none;
                     text-align: center;
                     color: $color-text;

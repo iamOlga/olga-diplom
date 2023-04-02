@@ -5,13 +5,16 @@ import Footer from './Footer/Footer';
 import Home from './Main/Home';
 import Gallery from './Gallery/Gallery'
 import Tours from './Tours/Tours'
+import Tour_page from './Tours/Tour_page'
 import Booking from './Booking/Booking'
 import Account from './Account/Account'
 import Virtual_tour from './Virtual_tour/Virtual_tour'
 import Reviews from './Reviews/Reviews'
+import Help from './Help/Help'
 import Account_info from './Account/Account_info'
 import SignUp from "./Account/SignUp";
 import SignIn from "./Account/SignIn";
+import Admin from "./Admin/Admin";
 import Error from './Error/Error'
 import { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom'
@@ -57,6 +60,7 @@ function App() {
           <Route exact path='/' component={Home}/>
           <Route path='/gallery' component={Gallery}/>
           <Route path='/tours' component={Tours}/>
+            <Route path='/tour' component={Tour_page}/>
           <Route path='/booking' component={Booking}/>
           <Route path='/account' component={Account}/>
             <Route path='/virtual_tour' component={Virtual_tour}/>
@@ -65,6 +69,8 @@ function App() {
             <Route path='/signup' component={SignUp}/>
             <Route path='/account_info' component={Account_info}/>
             <Route path='/reviews' component={Reviews}/>
+            <Route path='/help' component={Help}/>
+            <Route path='/admin' component={Admin}/>
         </Switch>
       </main>
 

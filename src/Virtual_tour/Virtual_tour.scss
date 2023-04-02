@@ -270,6 +270,10 @@ div {
           flex-direction: column;
           align-items: flex-end;
 
+          a{
+            text-decoration: none;
+          }
+
           @media (max-width: 1240px){
             width: 80%;
           }
@@ -387,6 +391,9 @@ div {
         }
 
         .info{
+          a{
+            text-decoration: none;
+          }
           @media (max-width: 1200px){
             width: 50%;
           }

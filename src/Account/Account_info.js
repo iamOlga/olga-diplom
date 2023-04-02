@@ -7,6 +7,7 @@ import Button from "../Button/Button";
 import img1 from "./img/result1.jpg";
 import img2 from "./img/result1.jpg";
 import img3 from "./img/result1.jpg";
+import {Link} from "react-router-dom";
 
 const Account_info = ({test_result, ticket}) => {
 
@@ -85,7 +86,7 @@ const Account_info = ({test_result, ticket}) => {
                 <div className={ticket =="0" ? "div_result" : "div_result_none"}>
                     <p className="text_result">У вас нет ни одного билета</p>
                     <div className="button_container">
-                        <Button className="button" value="Выбрать билет" isrow="row" />
+                        <Link to="/booking"><Button className="button" value="Выбрать билет" isrow="row" /></Link>
                     </div>
 
                 </div>

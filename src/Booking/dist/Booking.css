@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 100px;
 }
 .booking__container .booking {
   min-width: 70%;
@@ -18,13 +17,24 @@
   justify-content: flex-start;
   width: 100%;
   gap: 20px;
+  padding: 0 100px;
+}
+@media screen and (max-width: 650px) {
+  .booking__container .booking .info_block {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .booking__container .booking .info_block {
+    padding: 0 10px;
+  }
 }
 .booking__container .booking .info_block h2 {
   width: 100%;
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   text-align: start;
   margin: 0 0 10px 0;
@@ -89,7 +99,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   padding: 100px 100px 0 100px;
   margin-bottom: 15px;
@@ -97,7 +107,7 @@
 }
 @media screen and (max-width: 650px) {
   .booking__container h2 {
-    padding: 50px 0;
+    padding: 50px 10px 20px 10px;
   }
 }
 .booking__container h3 {
@@ -106,7 +116,13 @@
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.432);
 }
+@media screen and (max-width: 650px) {
+  .booking__container h3 {
+    padding: 0 10px;
+  }
+}
 .booking__container .cards__container {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -120,6 +136,11 @@
     flex-direction: column;
   }
 }
+@media screen and (max-width: 600px) {
+  .booking__container .cards__container {
+    padding: 120px 30px;
+  }
+}
 .booking__container form {
   padding: 0 100px;
   display: flex;
@@ -130,7 +151,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   font-size: 22px;
   margin-bottom: 0;
@@ -151,6 +172,9 @@
 .booking__container form .button_container {
   display: flex;
   justify-content: center;
+}
+.booking__container form .button_container .button {
+  width: auto;
 }
 
 .input_container {

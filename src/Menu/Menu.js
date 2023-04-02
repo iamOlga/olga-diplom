@@ -39,6 +39,12 @@ const Menu = ({items, active, setActive}) => {
                 <li>
                     <Link to="/reviews" onClick={() => menu()}>отзывы</Link>
                 </li>
+                <li>
+                    <Link to="/help" onClick={() => menu()}>помощь</Link>
+                </li>
+                {/*<li>*/}
+                {/*    <Link to="/admin" onClick={() => menu()}>admin</Link>*/}
+                {/*</li>*/}
             </ul>
 
         </div>    

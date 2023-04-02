@@ -15,7 +15,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   padding-bottom: 30px;
   text-align: left;
@@ -56,7 +56,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   padding: 100px 100px 50px 100px;
   margin-bottom: 60px;
@@ -188,7 +188,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   text-align: start;
   margin: 0 0 10px 0;
@@ -208,6 +208,9 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.account__container .account__cont .account .info_block .div_result .button_container a, .account__container .account__cont .account .info_block div_result .button_container a {
+  text-decoration: none;
 }
 .account__container .account__cont .account .info_block .div_result .button_container .button, .account__container .account__cont .account .info_block div_result .button_container .button {
   width: auto;
@@ -292,7 +295,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   text-align: center;
   margin-bottom: 30px;
@@ -347,7 +350,7 @@
   text-align: center;
   font-size: 30px;
   color: #fff;
-  font-weight: lighter;
+  font-weight: 500;
   margin-bottom: 60px;
   text-align: left;
   font-size: 20px;

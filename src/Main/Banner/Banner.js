@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './dist/Banner.css';
 import content_planet from './../../Images/banner_info.png';
 import Button from './../../Button/Button';
@@ -20,7 +21,7 @@ const Banner = () => {
             <div className="banner__content">
                 <div className="banner__content__info">
                     <p className="banner_title">Добро пожаловать <br/>в Солнечную систему</p>
-                    <Button value="Отправиться в космос" isrow="row"/>
+                    <Link to="/booking"><Button value="Отправиться в космос" isrow="row"/></Link>
                 </div>
                 <img className="banner__content_planet" src={content_planet} />
             </div>
