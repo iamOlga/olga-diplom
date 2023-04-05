@@ -1,8 +1,27 @@
 import React from "react";
-import Input from '../../Booking/Elements/Input';
+import Input from "../../Booking/Elements/Input";
 import Button from "../Button/Button";
+import { postFormData } from "../../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
 
 const InfoForm = () => {
+  const dispatch = useDispatch();
+
+  const onClickSubmitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      postFormData({
+        targetUrl: "info",
+        body: {
+          firstname: "Tymek",
+          lastname: "Kremko",
+          gender: "оно",
+          birthday: "2001-08-04",
+          userEmail: "timkremko123@gmail.com",
+        },
+      })
+    );
+  };
   return (
     <div className="form__container">
       <h2>Заполните личную информацию</h2>
@@ -57,11 +76,16 @@ const InfoForm = () => {
         </div>
 
         <div className="button_container">
-          <Button className="button" value="Далее" isrow="row" />
+          <Button
+            className="button"
+            value="Далее"
+            isrow="row"
+            onClickAction={onClickSubmitHandler}
+          />
         </div>
       </form>
     </div>
   );
-}
+};
 
 export default InfoForm;
