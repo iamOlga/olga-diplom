@@ -19,7 +19,9 @@ export const userSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    
+    clearUserState() {
+      return initialState;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -30,12 +32,12 @@ export const userSlice = createSlice({
         localStorage.setItem("userEmail", action.payload?.data?.email);
       })
       .addCase(postFormData.rejected, (state, action) => {
-        console.log(action.payload)
-        state.responseStatus = action.payload
+        console.log(action.payload);
+        state.responseStatus = action.payload;
       });
-  }
+  },
 });
 
-// export const {} = userSlice.actions;
+export const { clearUserState } = userSlice.actions;
 
 export default userSlice.reducer;

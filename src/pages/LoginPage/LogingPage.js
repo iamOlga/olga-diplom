@@ -3,20 +3,20 @@ import "./Account.css";
 import SignIn from "../../components/signIn/SignIn";
 import account_bg from "../../Images/booking-bg.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearUserState } from "../../redux/slices/userSlice";
 
 function LoginPage() {
   const navigate = useNavigate();
-  // const userEmail = localStorage.getItem('userEmail');
+  const dispatch = useDispatch();
   const userEmail = useSelector((state) => state.user.userEmail);
   useEffect(() => {
-    if(userEmail) {
+    if (userEmail) {
       navigate("/account_info");
-    // window.location.href("/account_info");
     }
-  }, [userEmail])
+    return () => dispatch(clearUserState());
+  }, [userEmail, navigate, dispatch]);
 
-  //где-то тут нужно сделать проверку на вход в аккаунт и уже в зависимости от этого подключать нужный модуль
   return (
     <div
       className="account__container"
@@ -29,25 +29,7 @@ function LoginPage() {
 
       <div className="account__cont">
         <SignIn />
-        {/*<SignUp />*/}
-        {/*<Info_form />*/}
-        {/*<Test/>*/}
-        {/*<Test_result value="result1"/>*/}
-
-        {/*ticket="0" нет билетов */}
-        {/*а как дальше я пока хз ибо если у него например 2 билета будет то это както тож нужно показать*/}
-
-        {/* <Account_info test_result="0" ticket="0"/> */}
-
         <div className="button_row">
-          {/*
-                    тут потом нужно менять текст
-                    "Зарегистрироваться"  если будет вкл signin
-                    "Войти в аккаунт"  если будет вкл signup
-                    "Пройти тест позже"  если будет вкл тест
-                    и скрывать блок инфо форм, тест резалт или сам акканут (аккаунт инфо)
-                    */}
-
           <Link className="button_secondary" to={"/register"}>
             Зарегистрироваться
           </Link>
