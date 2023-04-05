@@ -2,20 +2,12 @@ import React, { useEffect } from "react";
 import "./Account.css";
 import SignIn from "../../components/signIn/SignIn";
 import account_bg from "../../Images/booking-bg.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import AccountInfo from "../../components/accountinfo/AccountInfo";
 
-function LoginPage() {
-  const navigate = useNavigate();
-  // const userEmail = localStorage.getItem('userEmail');
-  const userEmail = useSelector((state) => state.user.userEmail);
-  useEffect(() => {
-    if(userEmail) {
-      navigate("/account_info");
-    // window.location.href("/account_info");
-    }
-  }, [userEmail])
-
+function AccountInfoPage() {
   //где-то тут нужно сделать проверку на вход в аккаунт и уже в зависимости от этого подключать нужный модуль
   return (
     <div
@@ -28,7 +20,7 @@ function LoginPage() {
       {/* <h2>Ваш аккаунт</h2> */}
 
       <div className="account__cont">
-        <SignIn />
+        {/* <SignIn /> */}
         {/*<SignUp />*/}
         {/*<Info_form />*/}
         {/*<Test/>*/}
@@ -37,7 +29,7 @@ function LoginPage() {
         {/*ticket="0" нет билетов */}
         {/*а как дальше я пока хз ибо если у него например 2 билета будет то это както тож нужно показать*/}
 
-        {/* <Account_info test_result="0" ticket="0"/> */}
+        <AccountInfo test_result="0" ticket="0"/>
 
         <div className="button_row">
           {/*
@@ -57,4 +49,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default AccountInfoPage;

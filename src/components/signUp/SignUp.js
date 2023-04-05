@@ -2,8 +2,26 @@ import React from "react";
 import "./Account.css";
 import Input from "../../Booking/Elements/Input";
 import Button from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { postFormData } from "../../redux/slices/userSlice";
+
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
+    const onClickSubmitHandler = (e) => {
+      e.preventDefault();
+      dispatch(
+        postFormData({
+          targetUrl: "register",
+          body: {
+            email: "timkremko@gmail23.com",
+            password: "PogUOmega1",
+            confirm_password: "PogUOmega1",
+          },
+        })
+      );
+    };
   return (
     <div className="form__container">
       <h2>Регистрация</h2>
@@ -31,7 +49,12 @@ const SignUp = () => {
         </div>
 
         <div className="button_container">
-          <Button className="button" value="Зарегистрироваться" isrow="row" />
+          <Button
+            className="button"
+            value="Зарегистрироваться"
+            isrow="row"
+            onClickAction={onClickSubmitHandler}
+          />
         </div>
       </form>
     </div>
