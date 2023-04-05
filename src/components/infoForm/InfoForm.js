@@ -1,9 +1,8 @@
 import React from "react";
-import "./Account.css";
-import Input from "./../Booking/Elements/Input";
+import Input from '../../Booking/Elements/Input';
 import Button from "../Button/Button";
 
-const Info_form = () => {
+const InfoForm = () => {
   return (
     <div className="form__container">
       <h2>Заполните личную информацию</h2>
@@ -65,4 +64,4 @@ const Info_form = () => {
   );
 }
 
-export default Info_form;
+export default InfoForm;

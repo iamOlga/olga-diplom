@@ -18,6 +18,7 @@ import LoginPage from "./pages/LoginPage/LogingPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import AccountInfoPage from "./pages/AccountInfoPage/AccountInfoPage";
+import InfoFormPage from "./pages/InfoFormPage/InfoFormPage";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -61,32 +62,17 @@ function App() {
       <main>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route
-            path="/gallery"
-          
-            element={<GalleryPage />}
-          />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/register"
-          
-            element={<RegisterPage />}
-          />
-          <Route
-            path="/virtual_tour"
-          
-            element={<Virtual_tour />}
-          />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/virtual_tour" element={<Virtual_tour />} />
           <Route path="/error" element={<Error />} />
           {/* <Route path="/signin" /> */}
           {/* <Route path="/signup" /> */}
-          <Route
-            path="/account_info"
-          
-            element={<AccountInfoPage />}
-          />
+          <Route path="/account_info" element={<AccountInfoPage />} />
+          <Route path="/info_form" element={<InfoFormPage />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/help" element={<Help />} />
           <Route path="/admin" element={<Admin />} />

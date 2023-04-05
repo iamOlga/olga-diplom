@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Account.css";
 import Input from "../../Booking/Elements/Input";
 import Button from "../Button/Button";
-import { useDispatch } from "react-redux";
-import { postFormData } from "../../redux/slices/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUserState, postFormData } from "../../redux/slices/userSlice";
 
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isResponseOk = useSelector((state) => state.user.isResponseOk);
+
+  useEffect(() => {
+    if(isResponseOk) {
+      navigate('/info_form');
+    }
+    return () => dispatch(clearUserState())
+  }, [isResponseOk]);
 
     const onClickSubmitHandler = (e) => {
       e.preventDefault();
@@ -15,7 +26,7 @@ const SignUp = () => {
         postFormData({
           targetUrl: "register",
           body: {
-            email: "timkremko@gmail23.com",
+            email: "timkremko123@gmail.com",
             password: "PogUOmega1",
             confirm_password: "PogUOmega1",
           },

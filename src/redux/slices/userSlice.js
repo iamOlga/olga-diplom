@@ -1,16 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios'
+import axios from "axios";
 
 const initialState = {
   userEmail: null,
-  responseStatus: null
+  isResponseOk: null,
 };
 
 export const postFormData = createAsyncThunk(
   "users/fetchByIdStatus",
   async (arg) => {
-    const response = axios.post(`http://127.0.0.1:8000/api/${arg.targetUrl}`, arg.body);
-    const data = await response
+    const response = axios.post(
+      `http://127.0.0.1:8000/api/${arg.targetUrl}`,
+      arg.body
+    );
+    const data = await response;
     return data;
   }
 );
@@ -27,13 +30,12 @@ export const userSlice = createSlice({
     builder
       .addCase(postFormData.pending, (state) => {})
       .addCase(postFormData.fulfilled, (state, action) => {
-        state.responseStatus = action.payload.status;
+        state.isResponseOk = true;
         state.userEmail = action.payload?.data?.email;
         localStorage.setItem("userEmail", action.payload?.data?.email);
       })
-      .addCase(postFormData.rejected, (state, action) => {
-        console.log(action.payload);
-        state.responseStatus = action.payload;
+      .addCase(postFormData.rejected, (state) => {
+        state.isResponseOk = false;
       });
   },
 });
