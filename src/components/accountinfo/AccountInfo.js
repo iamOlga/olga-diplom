@@ -8,7 +8,7 @@ import img2 from "../../assets/accountPage/result2.jpg";
 import img3 from "../../assets/accountPage/result3.jpg";
 import { Link } from "react-router-dom";
 
-const Account_info = ({ test_result, ticket }) => {
+const AccountInfo = ({ test_result, ticket }) => {
   let text_result;
   let img_src;
   if (test_result === "result1") {
@@ -103,4 +103,4 @@ const Account_info = ({ test_result, ticket }) => {
   );
 };
 
-export default Account_info;
+export default AccountInfo;
