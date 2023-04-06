@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import "./Account.css";
-import Input from "../../Booking/Elements/Input";
+import Input from "../../components/input/Input";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUserState, postFormData } from "../../redux/slices/userSlice";
+import { useForm } from "react-hook-form";
 
 
 const SignUp = () => {
+  const { register, handleSubmit, formState } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,18 +20,13 @@ const SignUp = () => {
       navigate('/info_form');
     }
     return () => dispatch(clearUserState())
-  }, [isResponseOk]);
+  }, [dispatch, isResponseOk, navigate]);
 
-    const onClickSubmitHandler = (e) => {
-      e.preventDefault();
+    const onClickSubmitHandler = (data) => {
       dispatch(
         postFormData({
           targetUrl: "register",
-          body: {
-            email: "timkremko123@gmail.com",
-            password: "PogUOmega1",
-            confirm_password: "PogUOmega1",
-          },
+          body: data,
         })
       );
     };
@@ -37,25 +34,51 @@ const SignUp = () => {
     <div className="form__container">
       <h2>Регистрация</h2>
 
-      <form>
+      <form onSubmit={handleSubmit(onClickSubmitHandler)}>
         <div className="row">
           <Input
-            elid="1"
             type={"text"}
-            name={"Электронный адрес"}
-            fullwidth={true}
+            title={"Электронный адрес"}
+            placeholder={"Электронный адрес"}
+            fullWidth={true}
+            register={register("email", {
+              required: {
+                value: true,
+                message: "This field is required!",
+              },
+            })}
+            error={formState.errors.email}
           />
         </div>
 
         <div className="row">
-          <Input elid="2" type={"password"} name={"Пароль"} fullwidth={true} />
+          <Input
+            type={"password"}
+            title={"Пароль"}
+            placeholder={"Пароль"}
+            fullWidth={true}
+            register={register("password", {
+              required: {
+                value: true,
+                message: "This field is required!",
+              },
+            })}
+            error={formState.errors.password}
+          />
         </div>
         <div className="row">
           <Input
-            elid="3"
             type={"password"}
-            name={"Повторите пароль"}
-            fullwidth={true}
+            title={"Повторите пароль"}
+            placeholder={"Повторите пароль"}
+            fullWidth={true}
+            register={register("confirm_password", {
+              required: {
+                value: true,
+                message: "This field is required!",
+              },
+            })}
+            error={formState.errors.confirm_password}
           />
         </div>
 

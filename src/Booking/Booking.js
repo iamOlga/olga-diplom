@@ -10,8 +10,12 @@ import cardbg1 from './../Images/book-bg1.png';
 import cardbg2 from './../Images/book-bg2.png';
 import cardbg3 from './../Images/book-bg3.png';
 import booking_bg from './../Images/booking-bg.png';
+import { Link } from 'react-router-dom';
+
+import Button from '../components/Button/Button';
 
 function Booking() {
+  const isUserLogged = localStorage.getItem("userEmail");
 
   const [card_bg1] = useState(cardbg1);
   const [card_bg2] = useState(cardbg2);
@@ -28,33 +32,37 @@ function Booking() {
 
   return (
     <div className="booking__container">
-      
-        <Modal active={modalActive} setActive={setModalActive} text='Вы отправили заявку на следующий рейс в космос!'/* name={name + ' ' + surname} email={email} country={country} city={city} *//> 
-
-        <h2>Забронируй свой полет в космос!</h2>
-        <h3>Купите место у окна в космическом полете, который изменит вашу жизнь</h3>
-    
-        <div className="cards__container" 
+      <Modal
+        active={modalActive}
+        setActive={setModalActive}
+        text="Вы отправили заявку на следующий рейс в космос!" /* name={name + ' ' + surname} email={email} country={country} city={city} */
+      />
+      <h2>Забронируй свой полет в космос!</h2>
+      <h3>
+        Купите место у окна в космическом полете, который изменит вашу жизнь
+      </h3>
+      <div
+        className="cards__container"
         style={{
-            backgroundImage: `url(${booking_bg})`,
-          }}
-        >
-          <Card urlbg={card_bg1} title='mars' price='2 000 000'/>
-          <Card urlbg={card_bg2} title='the moon' price='1 000 000'/>
-          <Card urlbg={card_bg3} title='space station' price='1 500 000'/>
+          backgroundImage: `url(${booking_bg})`,
+        }}
+      >
+        <Card urlbg={card_bg1} title="mars" price="2 000 000" />
+        <Card urlbg={card_bg2} title="the moon" price="1 000 000" />
+        <Card urlbg={card_bg3} title="space station" price="1 500 000" />
+      </div>
+      {isUserLogged ? (
+        <Booking_form />
+      ) : (
+        <div className="link__container">
+          <h3>Войдите в личный аккаунт для того, чтобы забронировать билет</h3>
+          <Link to="/login">
+            <Button className="button" value="Войти в аккаунт" isrow="row" />
+          </Link>
         </div>
-
-        //это форма, которая будет показываться, если ты вошел в аккаунт
-        <Booking_form/>
-
-        //а это будет показываться, если ты НЕ вошел в аккаунт
-        {/*<div className="link__container">*/}
-        {/*    <h3>Войдите в личный аккаунт для того, чтобы забронировать билет</h3>*/}
-        {/*    <Link to="/account"><Button className="button" value="Войти в аккаунт" isrow="row"/></Link>*/}
-        {/*</div>*/}
-
+      )}
     </div>
-  )
+  );
 }
 
 export default Booking;

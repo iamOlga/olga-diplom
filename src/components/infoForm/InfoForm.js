@@ -1,24 +1,19 @@
 import React from "react";
-import Input from "../../Booking/Elements/Input";
+import Input from "../../components/input/Input";
 import Button from "../Button/Button";
 import { postFormData } from "../../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
 
 const InfoForm = () => {
+  const { register, handleSubmit, formState, setValue } = useForm();
   const dispatch = useDispatch();
-
-  const onClickSubmitHandler = (e) => {
-    e.preventDefault();
+  
+  const onClickSubmitHandler = (data) => {
     dispatch(
       postFormData({
         targetUrl: "info",
-        body: {
-          firstname: "Tymek",
-          lastname: "Kremko",
-          gender: "оно",
-          birthday: "2001-08-04",
-          userEmail: "timkremko123@gmail.com",
-        },
+        body: data,
       })
     );
   };
@@ -26,13 +21,37 @@ const InfoForm = () => {
     <div className="form__container">
       <h2>Заполните личную информацию</h2>
 
-      <form>
+      <form onSubmit={handleSubmit(onClickSubmitHandler)}>
         <div className="row">
-          <Input elid="1" type={"text"} name={"Имя"} fullwidth={true} />
+          <Input
+            type={"text"}
+            title={"Имя"}
+            placeholder={"Имя"}
+            fullWidth={true}
+            register={register("firstname", {
+              required: {
+                value: true,
+                message: "This field is required!",
+              },
+            })}
+            error={formState.errors.name}
+          />
         </div>
 
         <div className="row">
-          <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={true} />
+          <Input
+            type={"text"}
+            title={"Фамилия"}
+            placeholder={"Фамилия"}
+            fullWidth={true}
+            register={register("lastname", {
+              required: {
+                value: true,
+                message: "This field is required!",
+              },
+            })}
+            error={formState.errors.surname}
+          />
         </div>
 
         <div className="row">
@@ -46,6 +65,7 @@ const InfoForm = () => {
                   className="modern-radio"
                   value="1"
                   name="a"
+                  onClick={() => setValue("gender", "мужчина")}
                 />
                 <span></span>
               </label>
@@ -56,6 +76,7 @@ const InfoForm = () => {
                   className="modern-radio"
                   value="2"
                   name="a"
+                  onClick={() => setValue("gender", "женщина")}
                 />
                 <span></span>
               </label>
@@ -66,12 +87,13 @@ const InfoForm = () => {
         <div className="column">
           <p className="input_name">Дата рождения</p>
           <input
+            {...register("birthday", {})}
             type="date"
             id="start"
             name="trip-start"
             value="2018-07-22"
             min="1923-01-01"
-            max="2005-01-01"
+            // max="2005-01-01"
           />
         </div>
 
