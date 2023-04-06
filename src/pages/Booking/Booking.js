@@ -1,18 +1,17 @@
 import React from 'react'
 import { useState } from 'react';
-import './dist/Booking.css';
-import Card from './Elements/Card'
-import Modal from './Elements/Modal';
+import './Booking.css';
+import Card from '../../components/bookingCard/BookingCard'
+import Modal from '../../Booking/Elements/Modal';
 
-import Booking_form from "./Booking_form";
-
-import cardbg1 from './../Images/book-bg1.png';
-import cardbg2 from './../Images/book-bg2.png';
-import cardbg3 from './../Images/book-bg3.png';
-import booking_bg from './../Images/booking-bg.png';
+import cardbg1 from '../../assets/bookingPage/book-bg1.png';
+import cardbg2 from "../../assets/bookingPage/book-bg2.png";
+import cardbg3 from "../../assets/bookingPage/book-bg3.png";
+import booking_bg from "../../assets/bookingPage/booking-bg.png";
 import { Link } from 'react-router-dom';
 
-import Button from '../components/Button/Button';
+import Button from '../../components/Button/Button';
+import BookingForm from '../../components/bookingForm/BookingForm';
 
 function Booking() {
   const isUserLogged = localStorage.getItem("userEmail");
@@ -52,7 +51,7 @@ function Booking() {
         <Card urlbg={card_bg3} title="space station" price="1 500 000" />
       </div>
       {isUserLogged ? (
-        <Booking_form />
+        <BookingForm />
       ) : (
         <div className="link__container">
           <h3>Войдите в личный аккаунт для того, чтобы забронировать билет</h3>

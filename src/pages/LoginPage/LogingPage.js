@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Account.css";
 import SignIn from "../../components/signIn/SignIn";
-import account_bg from "../../Images/booking-bg.png";
+import account_bg from "../../assets/bookingPage/booking-bg.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearUserState } from "../../redux/slices/userSlice";

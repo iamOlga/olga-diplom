@@ -1,7 +1,7 @@
 import React from "react";
 import "./Account.css";
 import SignUp from '../../components/signUp/SignUp'
-import account_bg from "../../Images/booking-bg.png";
+import account_bg from "../../assets/bookingPage/booking-bg.png";
 import { Link } from "react-router-dom";
 
 

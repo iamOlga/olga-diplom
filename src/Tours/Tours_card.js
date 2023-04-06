@@ -4,7 +4,7 @@ import './dist/Tours.css';
 class Tours_card extends React.Component {
     render() {
   return (
-    <div className={this.props.isreverse == 'row' ? 'tour__card' : 'tour__card tour__card-reverse'}
+    <div className={this.props.isreverse === 'row' ? 'tour__card' : 'tour__card tour__card-reverse'}
     style={{
         backgroundImage: `url(${this.props.urlbg})`,
       }}

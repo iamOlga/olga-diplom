@@ -5,11 +5,9 @@ import Footer from "./Footer/Footer";
 import Home from "./Main/Home";
 import Tours from "./Tours/Tours";
 import Tour_page from "./Tours/Tour_page";
-import Booking from "./Booking/Booking";
-import Virtual_tour from "./Virtual_tour/Virtual_tour";
+import Booking from "./pages/Booking/Booking";
 import Reviews from "./Reviews/Reviews";
 import Help from "./Help/Help";
-import AccountInfo from "./components/accountinfo/AccountInfo";
 import Admin from "./Admin/Admin";
 import Error from "./Error/Error";
 import { useState } from "react";
@@ -19,6 +17,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import AccountInfoPage from "./pages/AccountInfoPage/AccountInfoPage";
 import InfoFormPage from "./pages/InfoFormPage/InfoFormPage";
+import VirtualTour from "./pages/VirtualTour/VirtualTour";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -67,10 +66,8 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/virtual_tour" element={<Virtual_tour />} />
+          <Route path="/virtual_tour" element={<VirtualTour />} />
           <Route path="/error" element={<Error />} />
-          {/* <Route path="/signin" /> */}
-          {/* <Route path="/signup" /> */}
           <Route path="/account_info" element={<AccountInfoPage />} />
           <Route path="/info_form" element={<InfoFormPage />} />
           <Route path="/reviews" element={<Reviews />} />

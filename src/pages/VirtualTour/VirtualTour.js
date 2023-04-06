@@ -1,17 +1,17 @@
 import React from 'react'
-import './Virtual_tour.css';
-import bg0 from './../Images/virtual_tour_bg.jpg';
-import bg1 from './../Images/virtual_tour_1.jpg';
-import bg2 from './../Images/virtual_tour_2.jpg';
-import bg3 from './../Images/virtual_tour_3.jpg';
-import bg4 from './../Images/virtual_tour_4.jpg';
-import bg5 from './../Images/virtual_tour_5.jpg';
-import bg6 from './../Images/virtual_tour_6.jpg';
-import bg7 from './../Images/virtual_tour_7.jpg';
-import Button from '../components/Button/Button';
+import './VirtualTour.css';
+import bg0 from '../../assets/virtualTour/virtual_tour_bg.jpg';
+import bg1 from '../../assets/virtualTour/virtual_tour_1.jpg';
+import bg2 from '../../assets/virtualTour/virtual_tour_2.jpg';
+import bg3 from '../../assets/virtualTour/virtual_tour_3.jpg';
+import bg4 from '../../assets/virtualTour/virtual_tour_4.jpg';
+import bg5 from '../../assets/virtualTour/virtual_tour_5.jpg';
+import bg6 from '../../assets/virtualTour/virtual_tour_6.jpg';
+import bg7 from '../../assets/virtualTour/virtual_tour_7.jpg';
+import Button from '../../components/Button/Button';
 import { Link } from "react-router-dom";
 
-function Virtual_tour() {
+function VirtualTour() {
 
     return (
         <div className="virtual_tour__container"
@@ -123,4 +123,4 @@ function Virtual_tour() {
     )
 }
 
-export default Virtual_tour;
+export default VirtualTour;

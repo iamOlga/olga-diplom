@@ -1,5 +1,5 @@
 import React from "react";
-import "./../dist/Booking.css";
+import "../../pages/Booking/Booking.css";
 
 const Card = ({ urlbg, title, price }) => {
   return (
