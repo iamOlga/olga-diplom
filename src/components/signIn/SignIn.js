@@ -10,13 +10,15 @@ const SignIn = () => {
 
   const onClickSubmitHandler = (e) => {
     e.preventDefault();
-    dispatch(postFormData({
-      targetUrl: 'auth',
-      body: {
-        email: 'timkremko1@gmail.com',
-        password: 'PogUOmega1',
-      }
-    }))
+    dispatch(
+      postFormData({
+        targetUrl: "auth",
+        body: {
+          email: "timkremko123@gmail.com",
+          password: "PogUOmega1",
+        },
+      })
+    );
   }
   return (
     <div className="form__container">
