@@ -3,10 +3,16 @@ import "../../pages/Booking/Booking.css";
 
 const Card = ({ urlbg, title, price }) => {
   return (
-    <img className="booking__card" src={urlbg} alt="Booking Card">
+    <div
+      className="booking__card"
+      alt="Booking Card"
+      style={{
+        backgroundImage: `url(${urlbg})`,
+      }}
+    >
       <p className="booking__card__title">{title}</p>
       <p className="booking__card__price">$ {price}</p>
-    </img>
+    </div>
   );
 };
 

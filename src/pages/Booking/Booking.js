@@ -15,13 +15,7 @@ import BookingForm from '../../components/bookingForm/BookingForm';
 
 function Booking() {
   const isUserLogged = localStorage.getItem("userEmail");
-
-  const [card_bg1] = useState(cardbg1);
-  const [card_bg2] = useState(cardbg2);
-  const [card_bg3] = useState(cardbg3);
-
   const [modalActive, setModalActive] = useState(false);
-
 
 /*   const name = document.getElementById("elem1").value;
   const surname = document.getElementById("elem2").value; 
@@ -46,11 +40,11 @@ function Booking() {
           backgroundImage: `url(${booking_bg})`,
         }}
       >
-        <Card urlbg={card_bg1} title="mars" price="2 000 000" />
-        <Card urlbg={card_bg2} title="the moon" price="1 000 000" />
-        <Card urlbg={card_bg3} title="space station" price="1 500 000" />
+        <Card urlbg={cardbg1} title="mars" price="2 000 000" />
+        <Card urlbg={cardbg2} title="the moon" price="1 000 000" />
+        <Card urlbg={cardbg3} title="space station" price="1 500 000" />
       </div>
-      {isUserLogged ? (
+      {isUserLogged && isUserLogged !== 'undefined' ? (
         <BookingForm />
       ) : (
         <div className="link__container">
