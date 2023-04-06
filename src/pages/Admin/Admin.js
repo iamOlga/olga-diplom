@@ -1,6 +1,6 @@
 import React from 'react'
 import './Admin.css';
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 
 function Admin() {
 

@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 const InfoForm = () => {
   const { register, handleSubmit, formState, setValue } = useForm();
   const dispatch = useDispatch();
-  
+
   const onClickSubmitHandler = (data) => {
     dispatch(
       postFormData({

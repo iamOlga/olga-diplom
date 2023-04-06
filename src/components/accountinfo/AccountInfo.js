@@ -1,6 +1,6 @@
 import React from "react";
 import "./Account.css";
-import Input from "../../Booking/Elements/Input";
+import Input from "../../components/input/Input";
 import Button from "../Button/Button";
 
 import img1 from "../../assets/accountPage/result1.jpg";

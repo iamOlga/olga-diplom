@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import './Booking.css';
 import Card from '../../components/bookingCard/BookingCard'
-import Modal from '../../Booking/Elements/Modal';
+import Modal from '../../components/bookingModal/Modal';
 
 import cardbg1 from '../../assets/bookingPage/book-bg1.png';
 import cardbg2 from "../../assets/bookingPage/book-bg2.png";

@@ -8,7 +8,7 @@ import Tour_page from "./Tours/Tour_page";
 import Booking from "./pages/Booking/Booking";
 import Reviews from "./Reviews/Reviews";
 import Help from "./Help/Help";
-import Admin from "./Admin/Admin";
+import Admin from "./pages/Admin/Admin";
 import Error from "./Error/Error";
 import { useState } from "react";
 import { Route, Link, Routes } from "react-router-dom";
