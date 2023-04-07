@@ -17,10 +17,20 @@ const AccountInfo = ({ test_result, ticket }) => {
  
   const accountInfo = useSelector((state) => state.user.accountInfo);
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, setValue } = useForm({
+    defaultValues:  accountInfo,
+  });
   const userEmail = localStorage.getItem('userEmail')
 
   console.log(accountInfo);
+  useEffect(() => {
+    if(accountInfo) {
+      setValue('firstname', accountInfo.firstname);
+      setValue("lastname", accountInfo.lastname);
+      setValue("birthday", accountInfo.birthday);
+      setValue("email", accountInfo.email);
+    }
+  }, [accountInfo])
 
   let text_result;
   let img_src;
@@ -96,7 +106,7 @@ const AccountInfo = ({ test_result, ticket }) => {
 
           <div className="row_gender">
             <p className="input_name">Пол:</p>
-            <p>женский</p>
+            <p>{accountInfo?.gender}</p>
           </div>
 
           <div className="column">
