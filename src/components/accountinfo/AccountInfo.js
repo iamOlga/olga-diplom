@@ -1,14 +1,21 @@
 import React from "react";
 import "./Account.css";
 import Input from "../../components/input/Input";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 
 import img1 from "../../assets/accountPage/result1.jpg";
 import img2 from "../../assets/accountPage/result2.jpg";
 import img3 from "../../assets/accountPage/result3.jpg";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { postFormData } from "../../redux/slices/userSlice";
+
 
 const AccountInfo = ({ test_result, ticket }) => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit, formState } = useForm();
+
   let text_result;
   let img_src;
   if (test_result === "result1") {
@@ -28,17 +35,51 @@ const AccountInfo = ({ test_result, ticket }) => {
       "Хочешь узнать, куда тебе стоит полететь? А может тебе лучше остаться на Земле? Пройди небольшой тест, и мы дадим тебе совет!";
   }
 
+    const onClickSubmitHandler = (data) => {
+      console.log(data)
+      dispatch(
+        postFormData({
+          targetUrl: "info",
+          body: data,
+        })
+      );
+    };
+
   return (
     <div className="account">
       <div className="info_block">
         <h2>Персональная информация</h2>
-        <form>
+        <form onSubmit={handleSubmit(onClickSubmitHandler)}>
           <div className="row">
-            <Input elid="1" type={"text"} name={"Имя"} fullwidth={true} />
+            <Input
+              type={"text"}
+              title={"Имя"}
+              placeholder={"Имя"}
+              fullWidth={true}
+              register={register("firstname", {
+                required: {
+                  value: true,
+                  message: "This field is required!",
+                },
+              })}
+              error={formState.errors.name}
+            />
           </div>
 
           <div className="row">
-            <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={true} />
+            <Input
+              type={"text"}
+              title={"Фамилия"}
+              placeholder={"Фамилия"}
+              fullWidth={true}
+              register={register("lastname", {
+                required: {
+                  value: true,
+                  message: "This field is required!",
+                },
+              })}
+              error={formState.errors.name}
+            />
           </div>
 
           <div className="row_gender">
@@ -52,7 +93,7 @@ const AccountInfo = ({ test_result, ticket }) => {
               type="date"
               id="start"
               name="trip-start"
-              value="2018-07-22"
+              value="2005-01-01"
               min="1923-01-01"
               max="2005-01-01"
             />
@@ -60,15 +101,27 @@ const AccountInfo = ({ test_result, ticket }) => {
 
           <div className="row">
             <Input
-              elid="3"
               type={"text"}
-              name={"Электронный адрес"}
-              fullwidth={true}
+              title={"Электронный адрес"}
+              placeholder={"Электронный адрес"}
+              fullWidth={true}
+              register={register("email", {
+                required: {
+                  value: true,
+                  message: "This field is required!",
+                },
+              })}
+              error={formState.errors.name}
             />
           </div>
 
           <div className="row_button">
-            <Button className="button" value="Сохранить" isrow="row" />
+            <Button
+              className="button"
+              value="Сохранить"
+              isrow="row"
+              onClickAction={onClickSubmitHandler}
+            />
           </div>
         </form>
       </div>
