@@ -8,13 +8,19 @@ import img2 from "../../assets/accountPage/result2.jpg";
 import img3 from "../../assets/accountPage/result3.jpg";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { postFormData } from "../../redux/slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData, postFormData } from "../../redux/slices/userSlice";
+import {useEffect} from 'react'
 
 
 const AccountInfo = ({ test_result, ticket }) => {
+ 
+  const accountInfo = useSelector((state) => state.user.accountInfo);
   const dispatch = useDispatch();
   const { register, handleSubmit, formState } = useForm();
+  const userEmail = localStorage.getItem('userEmail')
+
+  console.log(accountInfo);
 
   let text_result;
   let img_src;
@@ -36,7 +42,6 @@ const AccountInfo = ({ test_result, ticket }) => {
   }
 
     const onClickSubmitHandler = (data) => {
-      console.log(data)
       dispatch(
         postFormData({
           targetUrl: "info",
@@ -44,6 +49,13 @@ const AccountInfo = ({ test_result, ticket }) => {
         })
       );
     };
+
+     useEffect(() => {
+      if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
+       return () => {};
+     }, [dispatch]);
+
+
 
   return (
     <div className="account">

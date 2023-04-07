@@ -43,7 +43,14 @@ const Menu = ({items, active, setActive}) => {
             </Link>
           </li>
           <li>
-            <Link to={isUserLogged !== 'undefind' ? '/account_info' : '/login'} onClick={() => menu()}>
+            <Link
+              to={
+                isUserLogged && isUserLogged !== "undefined"
+                  ? "/account_info"
+                  : "/login"
+              }
+              onClick={() => menu()}
+            >
               аккаунт
             </Link>
           </li>
