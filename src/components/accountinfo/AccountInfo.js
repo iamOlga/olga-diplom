@@ -30,7 +30,7 @@ const AccountInfo = ({ test_result, ticket }) => {
       setValue("birthday", accountInfo.birthday);
       setValue("email", accountInfo.email);
     }
-  }, [accountInfo])
+  }, [accountInfo, setValue])
 
   let text_result;
   let img_src;
@@ -63,7 +63,7 @@ const AccountInfo = ({ test_result, ticket }) => {
      useEffect(() => {
       if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
        return () => {};
-     }, [dispatch]);
+     }, [dispatch, userEmail]);
 
 
 
