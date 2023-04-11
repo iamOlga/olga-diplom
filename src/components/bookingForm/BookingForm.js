@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { getUserData, postFormData } from "../../redux/slices/userSlice";
 import { clearUserState } from "../../redux/slices/userSlice";
+import { getToursData } from "../../redux/slices/bookingSlice";
 
 
 
@@ -26,6 +27,7 @@ function BookingForm() {
 
   useEffect(() => {
     if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
+    dispatch(getToursData('get_tours_select'));
     return () => dispatch(clearUserState());
   }, [dispatch]);
 
@@ -35,13 +37,14 @@ function BookingForm() {
             setValue("lastname", accountInfo.lastname);
             setValue("birthday", accountInfo.birthday);
             setValue("email", accountInfo.email);
+            setValue("gender", accountInfo.gender);
           }
         }, [accountInfo, dispatch, setValue]);
 
       const onClickSubmitHandler = (data) => {
         dispatch(
           postFormData({
-            targetUrl: "info",
+            targetUrl: "booking",
             body: data,
           })
         );
