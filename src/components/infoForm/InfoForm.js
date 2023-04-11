@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../components/input/Input";
 import Button from "../Button/Button";
 import { postFormData } from "../../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 
 const InfoForm = () => {
   const { register, handleSubmit, formState, setValue } = useForm();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const [date, setDate] = useState();
+  const userEmail = localStorage.getItem('userEmail')
 
   const onClickSubmitHandler = (data) => {
     dispatch(
       postFormData({
-        targetUrl: "info",
-        body: data,
+        targetUrl: `info`,
+        body: { ...data, birthday: date, userEmail: userEmail },
       })
     );
+      navigate("/account_info");
   };
   return (
     <div className="form__container">
@@ -28,13 +33,7 @@ const InfoForm = () => {
             title={"Имя"}
             placeholder={"Имя"}
             fullWidth={true}
-            register={register("firstname", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
-            error={formState.errors.name}
+            register={register("firstname")}
           />
         </div>
 
@@ -44,12 +43,7 @@ const InfoForm = () => {
             title={"Фамилия"}
             placeholder={"Фамилия"}
             fullWidth={true}
-            register={register("lastname", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
+            register={register("lastname")}
             error={formState.errors.surname}
           />
         </div>
@@ -91,9 +85,9 @@ const InfoForm = () => {
             type="date"
             id="start"
             name="trip-start"
-            value="2018-07-22"
+            value={date}
             min="1923-01-01"
-            // max="2005-01-01"
+            onChange={(e) => setDate(e.target.value)}
           />
         </div>
 

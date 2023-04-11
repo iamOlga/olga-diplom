@@ -6,63 +6,104 @@ import TextArea from "../bookingTextArea/TextArea";
 import Select from "../bookingSelect/Select";
 import Button from "../Button/Button";
 import Modal from "../bookingModal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { getUserData, postFormData } from "../../redux/slices/userSlice";
+
 
 function BookingForm() {
+  const dispatch = useDispatch();
+  const [date, setDate] = useState();
   const [modalActive, setModalActive] = useState(false);
+  const accountInfo = useSelector((state) => state.user.accountInfo);
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: accountInfo,
+  });
+
+      const onClickSubmitHandler = (data) => {
+        dispatch(
+          postFormData({
+            targetUrl: "info",
+            body: data,
+          })
+        );
+      };
 
   return (
     <div className="booking__container">
       <Modal
         active={modalActive}
         setActive={setModalActive}
-        text="Вы отправили заявку на следующий рейс в космос!" /* name={name + ' ' + surname} email={email} country={country} city={city} */
+        text="Вы отправили заявку на следующий рейс в космос!"
       />
 
       <div className="booking">
         <div className="info_block">
           <h2>Персональная информация</h2>
-          <form>
-            {/*эти данные из бд типа*/}
-
+          <form onSubmit={handleSubmit(onClickSubmitHandler)}>
             <div className="row">
-              <Input elid="1" type={"text"} name={"Имя"} fullwidth={true} />
-            </div>
-
-            <div className="row">
-              <Input elid="2" type={"text"} name={"Фамилия"} fullwidth={true} />
-            </div>
-
-            <div className="row_gender">
-              <p className="input_name">Пол:</p>
-              <p>женский</p>
-            </div>
-
-            <div className="column">
-              <p className="input_name">Дата рождения</p>
-              <input
-                type="date"
-                id="start"
-                name="trip-start"
-                value="2018-07-22"
-                min="1923-01-01"
-                max="2005-01-01"
+              <Input
+                type={"text"}
+                title={"Имя"}
+                placeholder={"Имя"}
+                fullWidth={true}
+                register={register("firstname")}
               />
             </div>
 
             <div className="row">
               <Input
-                elid="3"
                 type={"text"}
-                name={"Электронный адрес"}
-                fullwidth={true}
+                title={"Фамилия"}
+                placeholder={"Фамилия"}
+                fullWidth={true}
+                register={register("lastname")}
               />
             </div>
 
-            {/*А ЭТИ ДАННЫЕ НУЖНО БУДЕТ ВВОДИТЬ И СДЕЛАТЬ ПРОВЕРДКУ ЧТОБ ВСЕ БЫЛО ВВЕДЕНО*/}
+            <div className="row_gender">
+              <p className="input_name">Пол:</p>
+              <p>{accountInfo?.gender}</p>
+            </div>
+
+            <div className="column">
+              <p className="input_name">Дата рождения</p>
+              <input
+                {...register("birthday", {})}
+                type="date"
+                id="start"
+                name="trip-start"
+                value={date}
+                min="1923-01-01"
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
 
             <div className="row">
-              <Input elid="4" type={"text"} name={"Страна"} fullwidth={false} />
-              <Input elid="5" type={"text"} name={"Город"} fullwidth={false} />
+              <Input
+                type={"text"}
+                title={"Электронный адрес"}
+                placeholder={"Электронный адрес"}
+                fullWidth={true}
+                register={register("email")}
+              />
+            </div>
+            <div className="row">
+              <Input
+                type={"text"}
+                title={"Страна"}
+                placeholder={"Страна"}
+                fullWidth={false}
+                register={register("country")}
+              />
+              <Input
+                type={"text"}
+                title={"Город"}
+                placeholder={"Город"}
+                fullWidth={false}
+                register={register("city")}
+              />
             </div>
 
             <div className="row">

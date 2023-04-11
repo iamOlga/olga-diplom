@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Account.css";
 import Input from "../../components/input/Input";
 import Button from "../../components/Button/Button";
@@ -14,6 +14,7 @@ import {useEffect} from 'react'
 
 
 const AccountInfo = ({ test_result, ticket }) => {
+  const [date, setDate] = useState();
  
   const accountInfo = useSelector((state) => state.user.accountInfo);
   const dispatch = useDispatch();
@@ -78,13 +79,8 @@ const AccountInfo = ({ test_result, ticket }) => {
               title={"Имя"}
               placeholder={"Имя"}
               fullWidth={true}
-              register={register("firstname", {
-                required: {
-                  value: true,
-                  message: "This field is required!",
-                },
-              })}
-              error={formState.errors.name}
+              register={register("firstname")}
+              
             />
           </div>
 
@@ -94,13 +90,7 @@ const AccountInfo = ({ test_result, ticket }) => {
               title={"Фамилия"}
               placeholder={"Фамилия"}
               fullWidth={true}
-              register={register("lastname", {
-                required: {
-                  value: true,
-                  message: "This field is required!",
-                },
-              })}
-              error={formState.errors.name}
+              register={register("lastname")}
             />
           </div>
 
@@ -112,12 +102,13 @@ const AccountInfo = ({ test_result, ticket }) => {
           <div className="column">
             <p className="input_name">Дата рождения</p>
             <input
+              {...register("birthday", {})}
               type="date"
               id="start"
               name="trip-start"
-              value="2005-01-01"
+              value={date}
               min="1923-01-01"
-              max="2005-01-01"
+              onChange={(e) => setDate(e.target.value)}
             />
           </div>
 
@@ -127,22 +118,8 @@ const AccountInfo = ({ test_result, ticket }) => {
               title={"Электронный адрес"}
               placeholder={"Электронный адрес"}
               fullWidth={true}
-              register={register("email", {
-                required: {
-                  value: true,
-                  message: "This field is required!",
-                },
-              })}
+              register={register("email")}
               error={formState.errors.name}
-            />
-          </div>
-
-          <div className="row_button">
-            <Button
-              className="button"
-              value="Сохранить"
-              isrow="row"
-              onClickAction={onClickSubmitHandler}
             />
           </div>
         </form>
