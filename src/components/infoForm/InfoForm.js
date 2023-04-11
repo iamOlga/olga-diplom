@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/input/Input";
 import Button from "../Button/Button";
-import { postFormData } from "../../redux/slices/userSlice";
-import { useDispatch } from "react-redux";
+import { clearUserState, postFormData } from "../../redux/slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 
 const InfoForm = () => {
   const { register, handleSubmit, formState, setValue } = useForm();
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [date, setDate] = useState();
-  const userEmail = localStorage.getItem('userEmail')
+  const [posted, setPosted] = useState(false)
+  const userEmail = localStorage.getItem("userEmail");
+  const isRespOk = useSelector((state) => state.user.isResponseOk);
 
   const onClickSubmitHandler = (data) => {
     dispatch(
@@ -20,8 +22,18 @@ const InfoForm = () => {
         body: { ...data, birthday: date, userEmail: userEmail },
       })
     );
-      navigate("/account_info");
+    setPosted(true);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (isRespOk && posted) navigate("/account_info");
+    }, 500);
+  }, [isRespOk, navigate, posted]);
+
+  useEffect(() => {
+    dispatch(clearUserState());
+  }, [dispatch]);
   return (
     <div className="form__container">
       <h2>Заполните личную информацию</h2>

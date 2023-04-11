@@ -10,15 +10,14 @@ const initialState = {
 
 export const postFormData = createAsyncThunk(
   "users/postFormData",
-  async (arg , {rejectWithValue}) => {
-    const response = axios.post(
-      `http://127.0.0.1:8000/api/${arg.targetUrl}`,
-      arg.body
-    ).catch((err) => {
-      if(err.response) {
-        return rejectWithValue(err.response.data);
-      }
-    });
+  async (arg, { rejectWithValue }) => {
+    const response = axios
+      .post(`http://127.0.0.1:8000/api/${arg.targetUrl}`, arg.body)
+      .catch((err) => {
+        if (err.response) {
+          return rejectWithValue(err.response.data);
+        }
+      });
     const data = await response;
     return data;
   }
@@ -47,10 +46,11 @@ export const userSlice = createSlice({
       .addCase(postFormData.fulfilled, (state, action) => {
         state.isResponseOk = true;
         state.userEmail = action.payload?.data?.email;
-        localStorage.setItem("userEmail", action.payload?.data?.email);
+        if (action.payload?.data?.email) {
+          localStorage.setItem("userEmail", action.payload?.data?.email);
+        }
       })
       .addCase(postFormData.rejected, (state, action) => {
-        console.log(action.payload);
         state.isResponseOk = false;
         state.error = action.payload;
       })
