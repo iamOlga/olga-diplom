@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import "../../pages/Booking/Booking.css";
 import Input from "../input/Input";
@@ -9,6 +9,8 @@ import Modal from "../bookingModal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { getUserData, postFormData } from "../../redux/slices/userSlice";
+import { clearUserState } from "../../redux/slices/userSlice";
+
 
 
 function BookingForm() {
@@ -16,10 +18,16 @@ function BookingForm() {
   const [date, setDate] = useState();
   const [modalActive, setModalActive] = useState(false);
   const accountInfo = useSelector((state) => state.user.accountInfo);
+  const userEmail = localStorage.getItem('userEmail');
 
   const { register, handleSubmit } = useForm({
     defaultValues: accountInfo,
   });
+
+  useEffect(() => {
+    if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
+    return () => dispatch(clearUserState());
+  }, [dispatch])
 
       const onClickSubmitHandler = (data) => {
         dispatch(

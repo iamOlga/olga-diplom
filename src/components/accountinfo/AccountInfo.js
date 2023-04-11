@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData, postFormData } from "../../redux/slices/userSlice";
+import { clearUserState } from "../../redux/slices/userSlice";
 import {useEffect} from 'react'
 
 
@@ -22,16 +23,6 @@ const AccountInfo = ({ test_result, ticket }) => {
     defaultValues:  accountInfo,
   });
   const userEmail = localStorage.getItem('userEmail')
-
-  console.log(accountInfo);
-  useEffect(() => {
-    if(accountInfo) {
-      setValue('firstname', accountInfo.firstname);
-      setValue("lastname", accountInfo.lastname);
-      setValue("birthday", accountInfo.birthday);
-      setValue("email", accountInfo.email);
-    }
-  }, [accountInfo, setValue])
 
   let text_result;
   let img_src;
@@ -63,9 +54,17 @@ const AccountInfo = ({ test_result, ticket }) => {
 
      useEffect(() => {
       if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
-       return () => {};
+       return () => dispatch(clearUserState());
      }, [dispatch, userEmail]);
 
+      useEffect(() => {
+        if (accountInfo) {
+          setValue("firstname", accountInfo.firstname);
+          setValue("lastname", accountInfo.lastname);
+          setValue("birthday", accountInfo.birthday);
+          setValue("email", accountInfo.email);
+        }
+      }, [accountInfo, dispatch, setValue]);
 
 
   return (
