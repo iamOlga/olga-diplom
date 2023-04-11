@@ -4,25 +4,34 @@ import axios from "axios";
 const initialState = {
   userEmail: null,
   isResponseOk: null,
-  accountInfo: null
+  accountInfo: null,
+  error: null,
 };
 
-export const postFormData = createAsyncThunk("users/postFormData", async (arg) => {
-  const response = axios.post(
-    `http://127.0.0.1:8000/api/${arg.targetUrl}`,
-    arg.body
-  );
-  const data = await response;
-  return data;
-});
+export const postFormData = createAsyncThunk(
+  "users/postFormData",
+  async (arg , {rejectWithValue}) => {
+    const response = axios.post(
+      `http://127.0.0.1:8000/api/${arg.targetUrl}`,
+      arg.body
+    ).catch((err) => {
+      if(err.response) {
+        return rejectWithValue(err.response.data);
+      }
+    });
+    const data = await response;
+    return data;
+  }
+);
 
-export const getUserData = createAsyncThunk("users/getUserData", async (arg) => {
-  const response = axios.get(
-    `http://127.0.0.1:8000/api/${arg}`,
-  );
-  const data = (await response).data.user_data;
-  return data;
-});
+export const getUserData = createAsyncThunk(
+  "users/getUserData",
+  async (arg) => {
+    const response = axios.get(`http://127.0.0.1:8000/api/${arg}`);
+    const data = (await response).data.user_data;
+    return data;
+  }
+);
 
 export const userSlice = createSlice({
   name: "counter",
@@ -40,13 +49,15 @@ export const userSlice = createSlice({
         state.userEmail = action.payload?.data?.email;
         localStorage.setItem("userEmail", action.payload?.data?.email);
       })
-      .addCase(postFormData.rejected, (state) => {
+      .addCase(postFormData.rejected, (state, action) => {
+        console.log(action.payload);
         state.isResponseOk = false;
+        state.error = action.payload;
       })
       .addCase(getUserData.fulfilled, (state, action) => {
         state.accountInfo = action.payload;
       })
-      .addCase(getUserData.rejected, (state) => {
+      .addCase(getUserData.rejected, (state, action) => {
         state.isResponseOk = false;
       });
   },
