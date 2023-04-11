@@ -33,12 +33,7 @@ const SignIn = () => {
             title={"Электронный адрес"}
             placeholder={"Электронный адрес"}
             fullWidth={true}
-            register={register("email", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
+            register={register("email")}
             error={formState.errors.email}
           />
         </div>
@@ -50,12 +45,7 @@ const SignIn = () => {
               title={"Пароль"}
               placeholder={"Пароль"}
               fullWidth={true}
-              register={register("password", {
-                required: {
-                  value: true,
-                  message: "This field is required!",
-                },
-              })}
+              register={register("password")}
               error={formState.errors.password}
             />
             <a href="#">Забыли пароль?</a>

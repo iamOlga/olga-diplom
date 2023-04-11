@@ -20,14 +20,23 @@ function BookingForm() {
   const accountInfo = useSelector((state) => state.user.accountInfo);
   const userEmail = localStorage.getItem('userEmail');
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     defaultValues: accountInfo,
   });
 
   useEffect(() => {
     if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
     return () => dispatch(clearUserState());
-  }, [dispatch])
+  }, [dispatch]);
+
+        useEffect(() => {
+          if (accountInfo) {
+            setValue("firstname", accountInfo.firstname);
+            setValue("lastname", accountInfo.lastname);
+            setValue("birthday", accountInfo.birthday);
+            setValue("email", accountInfo.email);
+          }
+        }, [accountInfo, dispatch, setValue]);
 
       const onClickSubmitHandler = (data) => {
         dispatch(

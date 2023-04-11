@@ -41,12 +41,7 @@ const SignUp = () => {
             title={"Электронный адрес"}
             placeholder={"Электронный адрес"}
             fullWidth={true}
-            register={register("email", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
+            register={register("email")}
             error={formState.errors.email}
           />
         </div>
@@ -57,12 +52,7 @@ const SignUp = () => {
             title={"Пароль"}
             placeholder={"Пароль"}
             fullWidth={true}
-            register={register("password", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
+            register={register("password")}
             error={formState.errors.password}
           />
         </div>
@@ -72,12 +62,7 @@ const SignUp = () => {
             title={"Повторите пароль"}
             placeholder={"Повторите пароль"}
             fullWidth={true}
-            register={register("confirm_password", {
-              required: {
-                value: true,
-                message: "This field is required!",
-              },
-            })}
+            register={register("confirm_password")}
             error={formState.errors.confirm_password}
           />
         </div>
