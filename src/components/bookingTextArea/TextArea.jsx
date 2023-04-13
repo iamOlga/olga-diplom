@@ -1,7 +1,7 @@
 import React from "react";
 import "../../pages/Booking/Booking.css";
 
-const TextArea = ({ fullwidth, name }) => {
+const TextArea = ({ fullwidth, register, name }) => {
   return (
     <div
       className={
@@ -9,7 +9,7 @@ const TextArea = ({ fullwidth, name }) => {
       }
     >
       <p className="input_name">{name}</p>
-      <textarea placeholder="Напиши ответ..." maxLength="850" />
+      <textarea {...register} placeholder="Напиши ответ..." maxLength="850" />
     </div>
   );
 };

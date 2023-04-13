@@ -136,6 +136,7 @@ function BookingForm() {
                   "В нескольких словах расскажите о себе, о своём экстремальном опыте"
                 }
                 fullwidth={true}
+                register={register("experience")}
               />
             </div>
 
