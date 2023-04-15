@@ -45,7 +45,7 @@ const Menu = ({items, active, setActive}) => {
           <li>
             <Link
               to={
-                isUserLogged && isUserLogged !== "undefined"
+                isUserLogged
                   ? "/account_info"
                   : "/login"
               }
