@@ -2,9 +2,9 @@ import React from "react";
 // import "./Account.css";
 import Button from "../../components/Button/Button";
 
-// import img1 from "./img/result1.jpg";
-// import img2 from "./img/result1.jpg";
-// import img3 from "./img/result1.jpg";
+import img1 from "../../assets/testResultPage/result1.jpg";
+import img2 from "../../assets/testResultPage/result2.jpg";
+import img3 from "../../assets/testResultPage/result3.jpg";
 
 const Test_result = ({ value }) => {
   let text_result;
@@ -28,7 +28,7 @@ const Test_result = ({ value }) => {
       <h2>Результаты теста</h2>
       <div className="question_container">
         <p>{text_result}</p>
-        {/*<img src={img_src} alt="" />*/}
+        <img src={img_src} alt="" />
       </div>
       <Button className="button" value="Далее" isrow="row" />
     </div>

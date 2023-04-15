@@ -39,52 +39,52 @@ function App() {
   }
 
   return (
-      <div className="App">
-        <header className="App-header">
-          <nav>
-            <Link to="/">
-              <div className="logo"></div>
-            </Link>
+    <div className="App">
+      <header className="App-header">
+        <nav>
+          <Link to="/">
+            <div className="logo"></div>
+          </Link>
 
-            <div className="timer__container">
-              <Timer days={130} hours={15} minutes={5} />
+          <div className="timer__container">
+            <Timer days={130} hours={15} minutes={5} />
+          </div>
+
+          <div className="burger-btn" onClick={() => menu()}>
+            <div className="burger-btn-2">
+              <div className="burger-btn-3"></div>
             </div>
+          </div>
+        </nav>
 
-            <div className="burger-btn" onClick={() => menu()}>
-              <div className="burger-btn-2">
-                <div className="burger-btn-3"></div>
-              </div>
-            </div>
-          </nav>
+        <Menu active={menuActive} setActive={setMenuActive} items={items} />
+      </header>
 
-          <Menu active={menuActive} setActive={setMenuActive} items={items} />
-        </header>
+      <main>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/tours" element={<Tours />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/virtual_tour" element={<VirtualTour />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/account_info" element={<AccountInfoPage />} />
+          <Route path="/info_form" element={<InfoFormPage />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/tour" element={<Tour_page />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/testresult" element={<TestResultPage />} />
+        </Routes>
+      </main>
 
-        <main>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/tours" element={<Tours />} />
-            <Route path="/booking" element={<Booking />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/virtual_tour" element={<VirtualTour />} />
-            <Route path="/error" element={<Error />} />
-            <Route path="/account_info" element={<AccountInfoPage />} />
-            <Route path="/info_form" element={<InfoFormPage />} />
-            <Route path="/reviews" element={<Reviews />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/tour" element={<Tour_page />} />
-            <Route path="/test" element={<TestPage/>}/>
-            <Route path="/testresult" element={<TestResultPage/>}/>
-          </Routes>
-        </main>
-
-        <section className="footer">
-          <Footer />
-        </section>
-      </div>
+      <section className="footer">
+        <Footer />
+      </section>
+    </div>
   );
 }
 
