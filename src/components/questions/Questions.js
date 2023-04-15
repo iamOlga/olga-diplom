@@ -30,7 +30,7 @@ const Question = ({
             </label>
             <label>
               {value3}
-              <input type="radio" className="modern-radio" value="2" name={name} />
+              <input type="radio" className="modern-radio" value="3" name={name} />
               <span></span>
             </label>
           </div>
