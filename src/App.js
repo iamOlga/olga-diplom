@@ -18,6 +18,8 @@ import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import AccountInfoPage from "./pages/AccountInfoPage/AccountInfoPage";
 import InfoFormPage from "./pages/InfoFormPage/InfoFormPage";
 import VirtualTour from "./pages/VirtualTour/VirtualTour";
+import TestPage from "./pages/TestPage/TestPage";
+import TestResultPage from "./pages/TestResultPage/TestResultPage";
 
 function App() {
   const [menuActive, setMenuActive] = useState(false);
@@ -74,6 +76,8 @@ function App() {
           <Route path="/help" element={<Help />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/tour" element={<Tour_page />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/testresult" element={<TestResultPage />} />
         </Routes>
       </main>
 

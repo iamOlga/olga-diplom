@@ -133,7 +133,7 @@ const AccountInfo = ({ test_result, ticket }) => {
         <div className={test_result === "0" ? "div_result" : "div_result_none"}>
           <p className="text_result">{text_result}</p>
           <div className="button_container">
-            <Button className="button" value="Пройти тест" isrow="row" />
+            <Link className="link" to="/test"><Button className="button" value="Пройти тест" isrow="row" /></Link>
           </div>
         </div>
       </div>

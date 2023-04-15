@@ -1,10 +1,10 @@
 import React from "react";
-import "./Account.css";
-import Button from "../Button/Button";
+// import "./Account.css";
+import Button from "../../components/Button/Button";
 
-import img1 from "./img/result1.jpg";
-import img2 from "./img/result1.jpg";
-import img3 from "./img/result1.jpg";
+import img1 from "../../assets/testResultPage/result1.jpg";
+import img2 from "../../assets/testResultPage/result2.jpg";
+import img3 from "../../assets/testResultPage/result3.jpg";
 
 const Test_result = ({ value }) => {
   let text_result;
