@@ -21,7 +21,7 @@ function BookingForm() {
   const accountInfo = useSelector((state) => state.user.accountInfo);
   const userEmail = localStorage.getItem('userEmail');
 
-  const { register, handleSubmit, setValue } = useForm({
+  const { register, handleSubmit, setValue, control } = useForm({
     defaultValues: accountInfo,
   });
 
@@ -29,7 +29,7 @@ function BookingForm() {
     if (userEmail) dispatch(getUserData(`get_info?email=${userEmail}`));
     dispatch(getToursData('get_tours_select'));
     return () => dispatch(clearUserState());
-  }, [dispatch]);
+  }, [dispatch, userEmail]);
 
         useEffect(() => {
           if (accountInfo) {
@@ -127,7 +127,12 @@ function BookingForm() {
             </div>
 
             <div className="row">
-              <Select name={"Куда вы хотите отправиться?"} fullwidth={true} />
+              <Select
+                title={"Куда вы хотите отправиться?"}
+                fullwidth={true}
+                name={"id_tour"}
+                control={control}
+              />
             </div>
 
             <div className="row">

@@ -1,137 +1,75 @@
-import React from "react";
-// import "./Account.css";
+import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import Question from "./../questions/Questions";
-import { Link } from "react-router-dom";
+import { questionsConfig } from "../../config/index";
+import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { postTestData } from "../../redux/slices/testSlice";
+import {useNavigate} from 'react-router-dom'
+
 
 const TestComponent = () => {
+  const { handleSubmit, control } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isResponseOk } = useSelector(state => state.test)
+  const userEmail = localStorage.getItem('userEmail')
+
+    const onClickSubmitHandler = (data) => {
+      dispatch(
+        postTestData({
+          targetUrl: "submit-test",
+          body: { ...data, email: userEmail },
+        })
+      );
+      
+    };
+
+    useEffect(() => {
+      if(isResponseOk) navigate("/testresult");
+    })
   return (
     <div className="test__container">
       <h2>
         Пройди тест и узнай, какой полёт подходит именно для тебя!
         <br />А может ты не готов лететь в космос...
       </h2>
-      <div className="question_container">
-        {/*
-                    смысл таков:
-                    у меня есть 10 вопросов, по 3 варианта
-                    за 1 вариант будет: -1 балл (это значит что все плохо)
-                    за 2: 0 баллов (средненько)
-                    за 3: +1 балл (супер)
+      <form onSubmit={handleSubmit(onClickSubmitHandler)}>
+        <div className="question_container">
+          {/*
+        смысл таков:
+        у меня есть 10 вопросов, по 3 варианта
+        за 1 вариант будет: -1 балл (это значит что все плохо)
+        за 2: 0 баллов (средненько)
+        за 3: +1 балл (супер)
 
-                    и дальше будет считаться: (примерно пока что) (и формулировки потом перефразирую)
-                    0-4 (или там в минус уйдет, но если минусы, то просто будет 0): все плохо никуда не летим
-                    5-7: лучше не лететь или если хочется то максы на орбиту
-                    8-10 супер ты готов лететь куда угодно вот предлагаем тебе полет на луну
+        и дальше будет считаться: (примерно пока что) (и формулировки потом перефразирую)
+        0-4 (или там в минус уйдет, но если минусы, то просто будет 0): все плохо никуда не летим
+        5-7: лучше не лететь или если хочется то максы на орбиту
+        8-10 супер ты готов лететь куда угодно вот предлагаем тебе полет на луну
 
-                    и дальше я подпишу за какой вариант сколько балло
+        и дальше я подпишу за какой вариант сколько балло
+        */}
 
-                    */}
+          {/* value1=0 value2=+1 value3=-1" */}
+          {/*value1=+1 value2=0 value3=-1" */}
+          {/*value1=-1 value2=0 value3=+1" */}
+          {/*value1=-1 value2=0 value3=+1" */}
+          {/*value1=+1 value2=0 value3=-1" */}
+          {/*тут нужно будет вставить видео но я его еще не нашла*/}
+          {/* value1=-1 value2=0 value3=+1" */}
+          {/*тут сделаем так value1=0 value2=+1 value3=0" */}
+          {/*value1=+1 value2=0 value3=-1" */}
+          {/*value1=+1 value2=0 value3=-1" */}
+          {/*value1=+1 value2=0 value3=-1" */}
 
-        {/* value1=0 value2=+1 value3=-1" */}
-        <Question
-          title="Какой у тебя рост?"
-          num="1"
-          value1="120-150"
-          value2="151-180"
-          value3="181 и выше"
-        />
+          {questionsConfig.map((obj) => {
+            return <Question {...obj} control={control} name={(`q${obj.num}`)} />;
+          })}
+        </div>
 
-        {/*value1=+1 value2=0 value3=-1" */}
-        <Question
-          title="Как часто ты занимаешься спортом?"
-          num="2"
-          value1="пару раз в неделю"
-          value2="пару раз в месяц"
-          value3="очень редко"
-          name="a"
-        />
-
-        {/*value1=-1 value2=0 value3=+1" */}
-        <Question
-          title="Как у вас с клаустрофобией?"
-          num="3"
-          value1="это моя частая проблема"
-          value2="случается, но я справляюсь"
-          value3="а что это?"
-          name="b"
-        />
-
-        {/*value1=-1 value2=0 value3=+1" */}
-        <Question
-          title="Как часто вы испытываете чувство тревоги?"
-          num="4"
-          value1="переживаю по каждому пустяку"
-          value2="случается, но не часто"
-          value3="я очень спокоен и могу держать себя в руках"
-          name="c"
-        />
-
-        {/*value1=+1 value2=0 value3=-1" */}
-        <Question
-          title="Где бы вы хотели сейчас оказаться?"
-          num="5"
-          value1="в новом и необычном для себя месте"
-          value2="хотелось бы на прогулку"
-          value3="можно остаться дома и поспать?"
-          name="d"
-        />
-
-        {/*тут нужно будет вставить видео но я его еще не нашла*/}
-        {/* value1=-1 value2=0 value3=+1" */}
-        <Question
-          title="Какие у вас ощущения после этого видео?"
-          num="6"
-          value1="мне поплохело"
-          value2="второй раз лучше не включать"
-          value3="не испытал ничего необычного"
-          name="e"
-        />
-
-        {/*тут сделаем так value1=0 value2=+1 value3=0" */}
-        <Question
-          title="Тест на внимательность: каким был 3-ий вопрос?"
-          num="7"
-          value1="Как часто ты занимаешься спортом?"
-          value2="Как у вас с клаустрофобией?"
-          value3="Как часто вы испытываете чувство тревоги?"
-          name="f"
-        />
-
-        {/*value1=+1 value2=0 value3=-1" */}
-        <Question
-          title="Испытываете ли вы какие-либо дискомфортные ощущения, связанные с вашим физическим здоровьем?"
-          num="8"
-          value1="нет, мое здоровье в полном порядке"
-          value2="время от времени появляются недомогания"
-          value3="я чувствую себя на 30 лет старше из-за моих болячек"
-          name="g"
-        />
-
-        {/*value1=+1 value2=0 value3=-1" */}
-        <Question
-          title="Сколько тебе необходимо часов сна, чтобы целый день чувствовать себя бодрым?"
-          num="9"
-          value1="мне хватает 6 часов"
-          value2="сплю стандартно 8-9 часов"
-          value3="я бы спал весь день"
-          name="h"
-        />
-
-        {/*value1=+1 value2=0 value3=-1" */}
-        <Question
-          title="Часто ли ты сомневаешься перед тем, как принять решение?"
-          num="10"
-          value1="никогда, я уверен в себе"
-          value2="иногда бывает"
-          value3="каждый день жизнь подкидывает сложные ситуации, в ешении которых я сомневаюсь"
-          name="i"
-        />
-      </div>
-
-      <Link className="link" to="/testresult">
-        <Button className="button" value="Завершить тест" isrow="row" />
-      </Link>
+          <Button className="button" value="Завершить тест" isrow="row" />
+      </form>
     </div>
   );
 };
