@@ -5,8 +5,8 @@ const Button = ({ value, isrow, onClickAction }) => {
   return (
     <button
       href="#"
-      onClick={(e) => onClickAction(e)}
-      className={isrow === "row" ? "button" : "button button__column"}
+      onClick={(e) => onClickAction?.(e)}
+      className={isrow ? "button" : "button button__column"}
     >
       <p>{value}</p>
       <div className="button_cont">
