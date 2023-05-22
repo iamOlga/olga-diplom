@@ -180,6 +180,18 @@
             gap: 20px;
             justify-content: space-between;
 
+            .input_container{
+                ul{
+                    padding-left: 20px;
+                    //li{
+                    //    color: $color-text;
+                    //    &:hover{
+                    //        color: $color-green;;
+                    //    }
+                    //}
+                }
+            }
+
             @media screen{
                 @media (max-width: 800px){
                     flex-direction: column;
@@ -265,10 +277,12 @@
     }
 
     &__title{
-        font-size: 55px;
+        font-size: 40px;
+        letter-spacing: 2px;
+        line-height: 40px;
         color: $color-white;
         text-transform: uppercase;
-        letter-spacing: 10px;
+
         @media screen{
             @media (max-width: 1220px){
                 font-size: 35px;
@@ -343,3 +357,4 @@ select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #000 inset;
     transition: background-color 5000s ease-in-out 0s;
 }
+

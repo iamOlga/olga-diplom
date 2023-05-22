@@ -23,12 +23,13 @@ function AccountInfoPage() {
       <Button value={"Выйти из аккаунта"} isrow={true} onClickAction={handleLogOut} />
       <div className="account__cont">
         <AccountInfo test_result="0" ticket="0" />
+        {/*<AccountInfo test_result="result2" ticket="0" />*/}
 
-        <div className="button_row">
-          <Link className="button_secondary" to={"/register"}>
-            Зарегистрироваться
-          </Link>
-        </div>
+        {/*<div className="button_row">*/}
+        {/*  <Link className="button_secondary" to={"/register"}>*/}
+        {/*    Зарегистрироваться*/}
+        {/*  </Link>*/}
+        {/*</div>*/}
       </div>
     </div>
   );

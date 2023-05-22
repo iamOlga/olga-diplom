@@ -65,7 +65,7 @@ function BookingForm() {
             <div className="row">
               <Input
                 type={"text"}
-                title={"Имя"}
+                title={"Имя*"}
                 placeholder={"Имя"}
                 fullWidth={true}
                 register={register("firstname")}
@@ -75,7 +75,7 @@ function BookingForm() {
             <div className="row">
               <Input
                 type={"text"}
-                title={"Фамилия"}
+                title={"Фамилия*"}
                 placeholder={"Фамилия"}
                 fullWidth={true}
                 register={register("lastname")}
@@ -83,12 +83,12 @@ function BookingForm() {
             </div>
 
             <div className="row_gender">
-              <p className="input_name">Пол:</p>
+              <p className="input_name">Пол:*</p>
               <p>{accountInfo?.gender}</p>
             </div>
 
             <div className="column">
-              <p className="input_name">Дата рождения</p>
+              <p className="input_name">Дата рождения*</p>
               <input
                 {...register("birthday", {})}
                 type="date"
@@ -96,6 +96,7 @@ function BookingForm() {
                 name="trip-start"
                 value={date}
                 min="1923-01-01"
+                max="2005-01-01"
                 onChange={(e) => setDate(e.target.value)}
               />
             </div>
@@ -103,7 +104,7 @@ function BookingForm() {
             <div className="row">
               <Input
                 type={"text"}
-                title={"Электронный адрес"}
+                title={"Электронный адрес*"}
                 placeholder={"Электронный адрес"}
                 fullWidth={true}
                 register={register("email")}
@@ -112,14 +113,14 @@ function BookingForm() {
             <div className="row">
               <Input
                 type={"text"}
-                title={"Страна"}
+                title={"Страна*"}
                 placeholder={"Страна"}
                 fullWidth={false}
                 register={register("country")}
               />
               <Input
                 type={"text"}
-                title={"Город"}
+                title={"Город*"}
                 placeholder={"Город"}
                 fullWidth={false}
                 register={register("city")}
@@ -128,7 +129,7 @@ function BookingForm() {
 
             <div className="row">
               <Select
-                title={"Куда вы хотите отправиться?"}
+                title={"Куда вы хотите отправиться?*"}
                 fullwidth={true}
                 name={"id_tour"}
                 control={control}
@@ -138,7 +139,7 @@ function BookingForm() {
             <div className="row">
               <TextArea
                 name={
-                  "В нескольких словах расскажите о себе, о своём экстремальном опыте"
+                  "В нескольких словах расскажите о себе, о своём экстремальном опыте*"
                 }
                 fullwidth={true}
                 register={register("experience")}

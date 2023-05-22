@@ -2,13 +2,11 @@
   min-width: 100%;
   padding: 0 20px;
 }
-
 @media screen and (max-width: 700px) {
   .admin__container {
     padding: 0 20px;
   }
 }
-
 .admin__container h2 {
   text-align: center;
   font-size: 30px;
@@ -19,22 +17,15 @@
   margin: 0;
   margin-top: 30px;
 }
-
 .admin__container .button_container {
   width: 100%;
   padding: 0 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
-
 .admin__container .button_container .button {
   width: auto;
 }
-
 .admin__container .tabs {
   max-width: 90%;
   float: none;
@@ -43,22 +34,18 @@
   margin: 75px auto;
   border-bottom: 4px solid #ccc;
 }
-
 .admin__container .tabs:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
-
 .admin__container .tabs input[type=radio] {
   display: none;
 }
-
 .admin__container .tabs label p {
   padding: 5px;
   margin-right: 0;
 }
-
 .admin__container .tabs label {
   display: block;
   float: left;
@@ -71,88 +58,62 @@
   line-height: 2;
   cursor: pointer;
   border-bottom: 4px solid #ccc;
-  -webkit-transition: all 0.5s;
-  /* Safari 3.1 to 6.0 */
+  -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
   transition: all 0.5s;
 }
-
 .admin__container .tabs label span {
   display: none;
 }
-
 .admin__container .tabs label:hover {
   color: #82ED2E;
   border-bottom: 4px solid #82ED2E;
 }
-
 .admin__container .tab-content {
   display: none;
   width: 100%;
   float: left;
   padding: 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-.admin__container .tabs [id^="tab"]:checked + label {
+.admin__container .tabs [id^=tab]:checked + label {
   background: #FFF;
   border-bottom: 4px solid #82ED2E;
   color: #82ED2E;
 }
-
 .admin__container #tab-first:checked ~ #tab-content-1,
 .admin__container #tab-second:checked ~ #tab-content-2,
 .admin__container #tab-third:checked ~ #tab-content-3 {
   display: block;
 }
-
 .admin__container .tab_cont {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 40px 30px;
   gap: 20px;
 }
-
 .admin__container .tab_cont .ticket, .admin__container .tab_cont .tour, .admin__container .tab_cont .review {
   background-color: #212121;
   border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 15px 10px;
   gap: 10px;
 }
-
 .admin__container .tab_cont .ticket .row, .admin__container .tab_cont .tour .row, .admin__container .tab_cont .review .row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 20px;
 }
-
 .admin__container .tab_cont .ticket .row .name, .admin__container .tab_cont .tour .row .name, .admin__container .tab_cont .review .row .name {
   color: #fff;
   font-size: 24px;
 }
-
 .admin__container .tab_cont .ticket .row p, .admin__container .tab_cont .tour .row p, .admin__container .tab_cont .review .row p {
   color: #82ED2E;
 }
-
 .admin__container .tab_cont .ticket .row p span, .admin__container .tab_cont .tour .row p span, .admin__container .tab_cont .review .row p span {
   color: #fff;
 }
-
 .admin__container .tab_cont .tour h2 {
   text-align: center;
   font-size: 30px;
@@ -161,22 +122,18 @@
   margin-bottom: 60px;
   margin: 30px 0;
 }
-
 .admin__container .tab_cont .tour .row {
   padding: 0 2%;
 }
-
 .admin__container .tab_cont .tour .row p {
   width: 20%;
 }
-
 .admin__container .tab_cont .tour .row input {
   width: 76%;
   font-size: 18px;
   background-color: #ababab;
   padding: 5px 7px;
 }
-
 .admin__container .tab_cont .tour .row textarea {
   resize: none;
   width: 76%;
@@ -185,7 +142,6 @@
   background-color: #ababab;
   padding: 5px 7px;
 }
-
 .admin__container .tab_cont .tour .row button {
   font-size: 14px;
   font-weight: 500;
@@ -193,57 +149,43 @@
   outline: none;
   border: none;
   margin-top: 10px;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
-
 .admin__container .tab_cont .tour .row .save {
   color: #000;
   background-color: #fff;
 }
-
 .admin__container .tab_cont .tour .row .save:hover {
   background-color: #cecece;
 }
-
 .admin__container .tab_cont .tour .row .delete {
   color: #fff;
   background-color: #b42c2c;
 }
-
 .admin__container .tab_cont .tour .row .delete:hover {
   background-color: #8a2828;
 }
-
 .admin__container .tab_cont .tour .row .add {
   color: #fff;
   background-color: #82ED2E;
 }
-
 .admin__container .tab_cont .tour .row .add:hover {
   background-color: #5a9f25;
 }
-
 .admin__container .tab_cont .review {
   padding: 20px 0;
 }
-
 .admin__container .tab_cont .review .row {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 0 2%;
 }
-
 .admin__container .tab_cont .review .row p {
   color: #fff;
 }
-
 .admin__container .tab_cont .review .row .review_name, .admin__container .tab_cont .review .row .review_date {
   color: rgba(222, 222, 222, 0.89);
   font-size: 14px;
 }
-
 .admin__container .tab_cont .review .row button {
   font-size: 14px;
   font-weight: 500;
@@ -251,16 +193,14 @@
   outline: none;
   border: none;
   margin-top: 10px;
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
-
 .admin__container .tab_cont .review .row .delete {
   color: #fff;
   background-color: #b42c2c;
 }
-
 .admin__container .tab_cont .review .row .delete:hover {
   background-color: #8a2828;
 }
+
 /*# sourceMappingURL=Admin.css.map */

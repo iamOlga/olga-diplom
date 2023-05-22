@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { postTestData } from "../../redux/slices/testSlice";
 import {useNavigate} from 'react-router-dom'
+import "./test_component_style.css"
 
 
 const TestComponent = () => {

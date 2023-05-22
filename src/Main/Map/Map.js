@@ -30,23 +30,23 @@ const Map = () => {
 
         switch(name){
             case "item1": 
-                value_name.innerText="Grand Canyon, USA"; 
+                value_name.innerText="Гранд-Каньон, США";
                 bg_img.src =  bg1;
                 break;
             case "item2": 
-                value_name.innerText="Amazonia, Brazil"; 
+                value_name.innerText="Амазония, Бразилия";
                 bg_img.src =  bg2;
                 break;
             case "item3": 
-                value_name.innerText="Salar de Uyuni, Bolivia"; 
+                value_name.innerText="Салар де Уюни, Боливия";
                 bg_img.src =  bg3;
                 break;
             case "item4": 
-                value_name.innerText="Giza Pyramids, Egypt"; 
+                value_name.innerText="Пирамиды Гизы, Египет";
                 bg_img.src =  bg4;
                 break;
             case "item5": 
-                value_name.innerText="Rainbow mountains, China"; 
+                value_name.innerText="Радужные горы, Китай";
                 bg_img.src =  bg5;
                 break;
         }
@@ -106,7 +106,7 @@ const Map = () => {
             </div>
         </div>
         <div className="container-bottom">
-            <p className="value_name" id="value_name">Grand Canyon, USA</p>
+            <p className="value_name" id="value_name">Гранд-Каньон, США</p>
             <img id="bg_img" src={bg1}></img>
         </div>
     </div>

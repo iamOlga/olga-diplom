@@ -52,6 +52,10 @@ const SignIn = () => {
           </div>
         </div>
 
+        <div className="row">
+          <p>error</p>
+        </div>
+
         <div className="button_container">
           <Button
             className="button"

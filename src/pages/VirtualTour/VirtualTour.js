@@ -10,8 +10,30 @@ import bg6 from '../../assets/virtualTour/virtual_tour_6.jpg';
 import bg7 from '../../assets/virtualTour/virtual_tour_7.jpg';
 import Button from '../../components/Button/Button';
 import { Link } from "react-router-dom";
+import video from './SolarSystem_anim.mp4'
+import video1 from "../../Images/video1.mp4";
 
 function VirtualTour() {
+
+    function video_on(){
+
+        let content_none = document.getElementById('content_none');
+        if (!content_none.classList.contains("info-none2"))
+        {
+            console.log("аааааа");
+            content_none.classList.add('info-none');
+            setTimeout(() => {
+                content_none.classList.remove('info-none');
+                content_none.classList.add('info-none2');
+            }, 2000);
+
+        }
+        else{
+            console.log("hhhhh");
+            content_none.classList.remove('info-none2');
+        }
+
+    }
 
     return (
         <div className="virtual_tour__container"
@@ -40,7 +62,7 @@ function VirtualTour() {
                             <div className="virtual_tour_content-text content-2">
                                 <div className="info">
                                     <span>1 этап</span>
-                                    <p>У нас есть подробная медицинская анкета и осмотр для всех участников, чтобы убедиться, что вы готовы к полету. Этот процесс адаптирован под каждого индивидуально. В среднем медицинская подготовка занимает 3 месяца.</p>
+                                    <p>У нас есть подробная медицинская анкета и осмотр для всех участников, чтобы убедиться, что Вы готовы к полету. Этот процесс адаптирован под каждого индивидуально. В среднем медицинская подготовка занимает 3 месяца.</p>
                                     <Link to="/help"><Button className="button" value="подробнее о требованиях" isrow="row"/></Link>
                                 </div>
                             </div>
@@ -55,7 +77,7 @@ function VirtualTour() {
                             <div className="virtual_tour_content-text content-2 content-3">
                                 <div className="info">
                                     <span>2 этап</span>
-                                    <p>После оплаты и подписания договора о сотрудничестве вас ждет наша программа подготовки к полету в космос. Она состоит из специальных мероприятий, занятий и тренировок, призванных помочь вам физически, умственно и духовно подготовиться к космосу. От начала до конца, вас будут сопровождать на каждом этапе, чтобы обеспечить вашу безопасность и комфорт.</p>
+                                    <p>После оплаты и подписания договора о сотрудничестве Вас ждет наша программа подготовки к полету в космос. Она состоит из специальных мероприятий, занятий и тренировок, призванных помочь Вам физически, умственно и духовно подготовиться к космосу. От начала до конца, Вас будут сопровождать на каждом этапе, чтобы обеспечить Вашу безопасность и комфорт.</p>
                                     <Link to="/help"><Button className="button" value="подробнее об оплате" isrow="row"/></Link>
                                 </div>
                             </div>
@@ -82,18 +104,20 @@ function VirtualTour() {
                             <div className="virtual_tour_content-text content-2 content-4 content-5">
                                 <div className="info">
                                     <span>4 этап</span>
-                                    <p>Поднявшись на высоту примерно 50 000 футов, вы услышите крик пилотов: «3, 2, 1, отпустите», когда космический корабль отделяется от корабля-носителя. Через несколько коротких мгновений включится ракетный двигатель, и вы полетите к звездам.</p>
+                                    <p>Поднявшись на высоту примерно 50 000 футов, Вы услышите крик пилотов: «3, 2, 1, отпустите», когда космический корабль отделяется от корабля-носителя. Через несколько коротких мгновений включится ракетный двигатель, и Вы полетите к звездам.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div className="virtual_tour_content"
+                             onClick={() => video_on()}
                              style={{
                                  backgroundImage: `url(${bg6})`,
                              }}>
                             <div className="virtual_tour_content-text content-2 content-6">
-                                <div className="info">
+                                <video src={video} controls="controls" onPause="true"/>
+                                <div id="content_none" className="info">
                                     <span>5 этап</span>
                                     <p>Добро пожаловать в космос! Насладись своим туром в полной мере.</p>
                                     <Link to="/tours"><Button className="button" value="выбрать тур" isrow="row"/></Link>

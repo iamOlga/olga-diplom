@@ -7,6 +7,9 @@
   align-items: center;
   padding: 0 100px;
 }
+.footer__container-top .button{
+  min-width: 272px;
+}
 @media (max-width: 770px) {
   .footer__container-top {
     flex-direction: column-reverse;
@@ -15,12 +18,15 @@
   }
 }
 .footer__container-top .email {
-  font-size: 22px;
+  font-size: 20px;
   color: #e1e1e1e0;
 }
 @media (max-width: 770px) {
   .footer__container-top .button {
     margin-left: 30px;
+  }
+  .footer__container-top{
+    padding: 0 20px;
   }
 }
 .footer__container-top a {

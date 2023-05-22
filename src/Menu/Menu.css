@@ -4,22 +4,16 @@
   height: 100%;
   top: 0;
   right: 0;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
   z-index: 99;
 }
-
 .menu .blur {
   width: 100%;
   height: 100%;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   position: absolute;
 }
-
 .menu .menu__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: absolute;
   right: 0;
@@ -27,45 +21,31 @@
   width: 400px;
   height: 90vh;
   background-color: #82ED2E;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
   padding-right: 100px;
   padding-bottom: 65px;
 }
-
 @media screen and (max-width: 700px) {
   .menu .menu__content {
     width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     padding-right: 0;
   }
 }
-
 .menu .menu__content ul {
   list-style: none;
   width: 250px;
   margin-top: 50px;
 }
-
 .menu .menu__content ul li {
   padding: 20px 0 15px 0;
   border-bottom: 1px solid #fff;
 }
-
 .menu .menu__content ul li:hover {
-  background-color: #71df04;
+  background-color: rgb(113, 223, 4);
 }
-
 .menu .menu__content ul li a {
   text-decoration: none;
   color: #fff;
@@ -76,21 +56,12 @@
   text-transform: uppercase;
   font-weight: 300;
 }
-
 .menu .menu__content .menu__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   gap: 27px;
 }
-
 .menu .menu__content .menu__info .menu__logo {
   background: url("./../logo_white.png");
   background-repeat: no-repeat;
@@ -98,18 +69,16 @@
   width: 68px;
   height: 93px;
 }
-
 .menu .menu__content .menu__info .menu__email {
   text-decoration: none;
 }
-
 .menu .menu__content .menu__info .menu__email p {
   color: #fff;
   font-size: 18px;
 }
 
 .menu.active {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  transform: translateX(0);
 }
+
 /*# sourceMappingURL=Menu.css.map */

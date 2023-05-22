@@ -1,6 +1,8 @@
-@import './../Constants.scss';
+@import './../../Constants.scss';
 
-
+a{
+  text-decoration: none !important;
+}
 
 .account__container {
   max-width: 100%;
@@ -451,6 +453,14 @@
       label input:checked~span:after {
         display: block;
       }
+    }
+  }
+}
+
+.info_block{
+  .div_result{
+    p{
+      color: #B9B9B9;
     }
   }
 }

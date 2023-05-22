@@ -40,9 +40,9 @@ function Booking() {
           backgroundImage: `url(${booking_bg})`,
         }}
       >
-        <Card urlbg={cardbg1} title="mars" price="2 000 000" />
-        <Card urlbg={cardbg2} title="the moon" price="1 000 000" />
-        <Card urlbg={cardbg3} title="space station" price="1 500 000" />
+        <Card urlbg={cardbg1} title="марс" price="2 000 000" />
+        <Card urlbg={cardbg2} title="луна" price="1 000 000" />
+        <Card urlbg={cardbg3} title="космическая станция" price="1 500 000" />
       </div>
       {isUserLogged && isUserLogged !== 'undefined' ? (
         <BookingForm />

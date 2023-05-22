@@ -73,8 +73,13 @@
 }
 @media screen and (max-width: 800px) {
   .rocket__content .container__info {
-    margin-left: 0;
-    width: 80%;
+    margin-left: -50px;
+    width: 90%;
     top: -20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .rocket__content .container__info .title{
+    font-size: 30px;
   }
 }

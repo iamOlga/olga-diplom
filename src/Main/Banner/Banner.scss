@@ -58,6 +58,10 @@
                     @media (max-width: 1000px){
                         font-size: 40px;
                     }
+                    @media (max-width: 560px){
+                        font-size: 20px;
+                        line-height: 25px;
+                    }
                 }
             }
             a{
@@ -75,7 +79,7 @@
                     margin-left: 0;
                 }
 
-                @media (max-width: 800px){
+                @media (max-width: 810px){
                     display: none;
                 }
             }

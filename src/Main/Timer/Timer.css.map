@@ -1,10 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,MAAM,CAAA;EACF,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;EACf,KAAK,ECHK,OAAO;CDIpB;;AAED,AAAA,WAAW,CAAA;EACP,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;EACf,KAAK,ECPI,yBAAyB;CDQrC;;AAGG,MAAM,CAAC,MAAkB,MAAjB,SAAS,EAAE,KAAK;EACpB,AAAA,MAAM,CAAA;IACF,SAAS,EAAE,IAAI;GAClB;EAED,AAAA,WAAW,CAAA;IACP,SAAS,EAAE,IAAI;GAClB",
-    "sources": [
-        "Timer.scss",
-        "../../Constants.scss"
-    ],
-    "names": [],
-    "file": "Timer.css"
-}
+{"version":3,"sourceRoot":"","sources":["Timer.scss","../../Constants.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA,OCHU;;;ADMd;EACI;EACA;EACA,OCPS;;;ADWT;EACI;IACI;;EAGJ;IACI","file":"Timer.css"}

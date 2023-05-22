@@ -1,4 +1,4 @@
-@import './../Constants.scss';
+@import './../../Constants.scss';
 
 
 
@@ -14,10 +14,11 @@
   padding: 100px 0 150px 0;
 
   h2 {
-    width: 60%;
+    width:100%;
     @include header_2();
+    margin-left: 0;
     padding-bottom: 30px;
-    text-align: left;
+    text-align: center;
 
     @media screen {
       @media (max-width: 650px) {

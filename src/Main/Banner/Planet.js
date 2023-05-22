@@ -3,7 +3,6 @@ import { useLoader, useFrame } from '@react-three/fiber';
 import { TextureLoader } from 'three/src/loaders/TextureLoader';
 import moon_bg from './moon-map.jpg';
 
-
 export default function Planet(texture) {
     const ref = useRef();
     const [moon] = useLoader (TextureLoader, [moon_bg])

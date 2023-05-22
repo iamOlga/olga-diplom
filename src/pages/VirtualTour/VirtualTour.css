@@ -9,31 +9,20 @@
 }
 
 div {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .virtual_tour__container {
   max-width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   margin-bottom: 100px;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 0 150px 0;
 }
-
 .virtual_tour__container h2 {
   width: 100%;
   text-align: center;
@@ -43,43 +32,36 @@ div {
   margin-bottom: 60px;
   text-align: center;
 }
-
 .virtual_tour__container .virtual_tour {
   width: 100%;
   height: 400px;
   margin-bottom: 100px;
 }
-
 @media screen and (max-width: 1370px) {
   .virtual_tour__container .virtual_tour {
     margin-bottom: 100px;
   }
 }
-
 @media screen and (max-width: 1200px) {
   .virtual_tour__container .virtual_tour {
     margin-bottom: 40px;
   }
 }
-
 @media screen and (max-width: 1000px) {
   .virtual_tour__container .virtual_tour {
     margin-bottom: 80px;
   }
 }
-
 @media screen and (max-width: 900px) {
   .virtual_tour__container .virtual_tour {
     margin-bottom: 180px;
   }
 }
-
 @media screen and (max-width: 700px) {
   .virtual_tour__container .virtual_tour {
     margin-bottom: 0;
   }
 }
-
 .virtual_tour__container .virtual_tour .horizontal-scroll-wrapper {
   display: block;
   width: calc(700px + 1px);
@@ -88,506 +70,439 @@ div {
   padding-top: 1px;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-transform: rotate(-90deg) translateY(-700px);
-          transform: rotate(-90deg) translateY(-700px);
-  -webkit-transform-origin: right top;
-          transform-origin: right top;
+  transform: rotate(-90deg) translateY(-700px);
+  transform-origin: right top;
 }
-
 @media screen and (max-width: 1800px) {
   .virtual_tour__container .virtual_tour .horizontal-scroll-wrapper {
     width: 700px;
   }
 }
-
 .virtual_tour__container .virtual_tour .horizontal-scroll-wrapper > div {
   display: block;
   background: #cab;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transform-origin: top;
-          transform-origin: top;
+  transform: rotate(90deg);
+  transform-origin: top;
 }
-
 .virtual_tour__container .virtual_tour .squares {
   padding: 700px 0 0 0;
 }
-
 @media screen and (max-width: 2000px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 700px 0 0 0;
   }
 }
-
 @media screen and (max-width: 1570px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 900px 0 0 0;
   }
 }
-
 @media screen and (max-width: 1385px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 550px 0 0 0;
   }
 }
-
 @media screen and (max-width: 1060px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 500px 0 0 0;
     margin-top: -50px;
   }
 }
-
 @media screen and (max-width: 830px) {
   .virtual_tour__container .virtual_tour .squares {
     margin-top: -150px;
   }
 }
-
 @media screen and (max-width: 718px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 420px 0 0 0;
   }
 }
-
 @media screen and (max-width: 700px) {
   .virtual_tour__container .virtual_tour .squares {
     margin-top: -200px;
   }
 }
-
 @media screen and (max-width: 600px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 320px 0 0 0;
     margin-top: -250px;
   }
 }
-
 @media screen and (max-width: 520px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 250px 0 0 0;
     margin-top: -310px;
   }
 }
-
 @media screen and (max-width: 475px) {
   .virtual_tour__container .virtual_tour .squares {
     padding: 200px 0 0 0;
   }
 }
-
 .virtual_tour__container .virtual_tour .squares > div {
   width: 100vw;
   height: 100vw;
 }
-
 @media screen and (max-width: 2000px) {
   .virtual_tour__container .virtual_tour .squares > div {
     width: 130vw;
     height: 130vw;
   }
 }
-
 @media screen and (max-width: 1650px) {
   .virtual_tour__container .virtual_tour .squares > div {
     width: 122vw;
     height: 122vw;
   }
 }
-
 @media screen and (max-width: 1475px) {
   .virtual_tour__container .virtual_tour .squares > div {
     width: 130vw;
     height: 130vw;
   }
 }
-
 @media screen and (max-width: 1325px) {
   .virtual_tour__container .virtual_tour .squares > div {
     width: 140vw;
     height: 140vw;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content {
   width: 100%;
   height: 1000px;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 @media screen and (max-width: 2000px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     height: 1300px;
     background-position-y: 200px;
   }
 }
-
 @media screen and (max-width: 1800px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     height: 1300px;
     background-position-y: 250px;
   }
 }
-
 @media screen and (max-width: 1650px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     height: 1000px;
   }
 }
-
 @media screen and (max-width: 1570px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: 150px;
   }
 }
-
 @media screen and (max-width: 1400px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: 50px;
   }
 }
-
 @media screen and (max-width: 1325px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: 150px;
   }
 }
-
 @media screen and (max-width: 1220px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: 50px;
   }
 }
-
 @media screen and (max-width: 1080px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: -50px;
   }
 }
-
 @media screen and (max-width: 950px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content {
     background-position-y: 0;
     background-size: 120%;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 20px;
   color: rgba(222, 222, 222, 0.89);
   padding: 400px 0 0 200px;
 }
-
 @media screen and (max-width: 1390px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 600px 0 0 400px;
   }
 }
-
 @media screen and (max-width: 1200px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 200px 0 0 300px;
   }
 }
-
 @media screen and (max-width: 1080px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 100px 0 0 300px;
   }
 }
-
 @media screen and (max-width: 930px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 100px 0 0 200px;
   }
 }
-
 @media screen and (max-width: 850px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 100px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 520px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text {
     padding: 40px 0 0 150px;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text .title {
   font-size: 24px;
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text .info {
   width: 20%;
   font-size: 18px;
 }
-
 @media screen and (max-width: 850px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .virtual_tour_content-text .info {
     width: 40%;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
   padding: 600px 0 0 600px;
 }
-
 @media screen and (max-width: 1640px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
     padding: 500px 0 0 600px;
   }
 }
-
 @media screen and (max-width: 1240px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
     padding: 400px 0 0 600px;
   }
 }
-
 @media screen and (max-width: 1040px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
     padding: 200px 0 0 600px;
   }
 }
-
 @media screen and (max-width: 860px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
     padding: 200px 0 0 400px;
   }
 }
-
 @media screen and (max-width: 725px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 {
     padding: 100px 0 0 200px;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info {
   width: 50%;
   padding: 30px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  backdrop-filter: blur(10px);
   display: flex;
   gap: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info a {
   text-decoration: none;
 }
-
 @media (max-width: 1240px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info {
     width: 80%;
   }
 }
-
 @media (max-width: 860px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info {
     width: 100%;
   }
 }
-
 @media (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info {
     background-color: rgba(33, 33, 33, 0.58);
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info span {
   width: 100%;
   display: inline-block;
   font-size: 30px;
   font-weight: bold;
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-2 .info .button {
   width: auto;
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
   padding: 600px 0 0 600px;
 }
-
 @media screen and (max-width: 1640px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
     padding: 500px 0 0 200px;
   }
 }
-
 @media screen and (max-width: 1240px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
     padding: 400px 0 0 200px;
   }
 }
-
 @media screen and (max-width: 1040px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
     padding: 100px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 725px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
     padding: 50px 0 0 50px;
   }
 }
-
 @media screen and (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 {
     padding: 10px 0 0 10px;
   }
 }
-
 @media (max-width: 1240px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 .info {
     width: 70%;
   }
 }
-
 @media (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-3 .info {
     width: 100%;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 {
   padding: 500px 0 0 100px;
 }
-
 @media screen and (max-width: 1190px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 {
     padding: 350px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 1040px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 {
     padding: 200px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 890px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 {
     padding: 50px 0 0 50px;
   }
 }
-
 @media screen and (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 {
     padding: 10px 0 0 10px;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 .info {
   width: 30%;
 }
-
 @media (max-width: 760px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 .info {
     width: 50%;
   }
 }
-
 @media (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-4 .info {
     width: 70%;
   }
 }
-
 @media screen and (max-width: 1600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-5 {
     padding: 350px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 1200px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-5 {
     padding: 200px 0 0 100px;
   }
 }
-
 @media screen and (max-width: 960px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-5 {
     padding: 100px 0 0 50px;
   }
 }
-
 @media screen and (max-width: 830px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-5 {
     padding: 30px 0 0 50px;
   }
 }
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 {
-  padding: 400px 0 0 600px;
+  position: relative;
+  padding: 0;
 }
-
-@media screen and (max-width: 1200px) {
-  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 {
-    padding: 200px 0 0 300px;
-  }
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-6 video {
+  position: absolute;
 }
-
-@media screen and (max-width: 1040px) {
-  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 {
-    padding: 100px 0 0 300px;
-  }
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
+  opacity: 1;
+  margin: 600px 0 0 600px;
 }
-
-@media screen and (max-width: 800px) {
-  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 {
-    padding: 20px 0 0 200px;
-  }
-}
-
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info a {
   text-decoration: none;
 }
-
+@media (max-width: 1240px) {
+  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
+    width: 40%;
+  }
+}
 @media (max-width: 1200px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
-    width: 50%;
+    margin: 500px 0 0 800px;
   }
 }
-
-@media (max-width: 1040px) {
+@media (max-width: 1100px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
-    width: 60%;
+    margin: 300px 0 0 800px;
   }
 }
-
-@media (max-width: 700px) {
+@media (max-width: 970px) {
+  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
+    width: 40%;
+    margin: 300px 0 0 700px;
+  }
+}
+@media (max-width: 870px) {
+  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
+    margin: 40px 0 0 600px;
+  }
+}
+@media (max-width: 720px) {
+  .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
+    margin: 20px 0 0 500px;
+  }
+}
+@media (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info {
     width: 80%;
+    margin: 20px 0 0 20px;
   }
 }
-
+@keyframes div_none {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info-none {
+  animation-name: div_none;
+  animation-duration: 2s;
+}
+.virtual_tour__container .virtual_tour .virtual_tour_content .content-6 .info-none2 {
+  opacity: 0;
+}
 .virtual_tour__container .virtual_tour .virtual_tour_content .content-7 .info {
   background-color: rgba(81, 98, 122, 0.58);
 }
-
 @media (max-width: 600px) {
   .virtual_tour__container .virtual_tour .virtual_tour_content .content-7 .info {
     background-color: rgba(33, 33, 33, 0.58);
   }
 }
+
 /*# sourceMappingURL=VirtualTour.css.map */

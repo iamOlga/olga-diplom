@@ -31,39 +31,39 @@ export default class CenterMode extends Component {
           <h2>Солнечная система</h2>
           <Slider {...settings}>
             <div className="slider__item">
-                <h4>the Sun</h4>
+                <h4>Солнце</h4>
                 <img className="planet_img" src={slide1} />
             </div>
             <div className="slider__item">
-                <h4>the Venus</h4>
+                <h4>Венера</h4>
                 <img className="planet_img" src={slide2} />
             </div>
             <div className="slider__item">
-                <h4>the Mars</h4>
+                <h4>Марс</h4>
                 <img className="planet_img" src={slide3} />
             </div>
             <div className="slider__item">
-                <h4>the Saturn</h4>
+                <h4>Сатурн</h4>
                 <img className="planet_img" src={slide4} />
             </div>
             <div className="slider__item">
-                <h4>the Neptune</h4>
+                <h4>Нептун</h4>
                 <img className="planet_img" src={slide5} />
             </div>
             <div className="slider__item">
-                <h4>the Uranus</h4>
+                <h4>Уран</h4>
                 <img className="planet_img" src={slide6} />
             </div>
             <div className="slider__item">
-                <h4>the Jupiter</h4>
+                <h4>Юпитер</h4>
                 <img className="planet_img" src={slide7} />
             </div>
             <div className="slider__item">
-                <h4>the Earth</h4>
+                <h4>Земля</h4>
                 <img className="planet_img" src={slide8} />
             </div>
             <div className="slider__item" >
-                <h4>the Mercury</h4>
+                <h4>Меркурий</h4>
                 <img className="planet_img" src={slide9} />
             </div>
           </Slider>
