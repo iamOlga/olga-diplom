@@ -25,6 +25,10 @@ function Admin() {
         });
     }
 
+    const handleBooking = () => {
+        dis
+    }
+
     return (
 
         <div className="admin__container">
@@ -47,7 +51,7 @@ function Admin() {
 
 
                 <input type="radio" name="tabs" id="tab-first" />
-                <label htmlFor="tab-first">
+                <label htmlFor="tab-first" onClick={handleBooking()}>
                     <p>Заявки на билет</p>
                 </label>
 

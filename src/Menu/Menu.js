@@ -1,6 +1,7 @@
 import React from 'react'
 import './dist/Menu.css'
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 
@@ -15,6 +16,8 @@ const Menu = ({items, active, setActive}) => {
             menu.classList.remove('active');
         }
     }
+    const accountInfo = useSelector((state) => state.user.accountInfo);
+    const role = accountInfo?.role;
 
   return (
     <div id="menu" className={active ? "menu active" : "menu"}>
@@ -64,9 +67,11 @@ const Menu = ({items, active, setActive}) => {
               помощь
             </Link>
           </li>
-          {/*<li>*/}
-          {/*    <Link to="/admin" onClick={() => menu()}>admin</Link>*/}
-          {/*</li>*/}
+          { role == 1 ? (
+              <li>
+                  <Link to="/admin" onClick={() => menu()}>Админ-панель</Link>
+              </li>
+          )  : '' }
         </ul>
       </div>
     </div>
