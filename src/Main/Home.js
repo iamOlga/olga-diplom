@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './../Style/dist/Main.css';
 import Banner from './Banner/Banner';
 import Card from './Card/Card';
@@ -11,9 +11,24 @@ import Map from './Map/Map';
 import { useState } from 'react';
 
 import a1 from './Card/Images/bg_1.png'
+import axios from "axios";
 
 function Home() {
   /* const [modalActive, setModalActive] = useState(false); */
+    const [tourData, setTourData] = useState([]);
+
+    useEffect(() => {
+        const fetchTourData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/api/tours');
+                setTourData(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchTourData();
+    }, []);
 
   return (
     <div>
@@ -22,9 +37,10 @@ function Home() {
       </section>
 
       <section className="cards__container" >
-        <Card /* setModalActive={setModalActive}  */title={"Долины Маринер"} value={"Марс"} class__card="card__container card__1"/>
-        <Card title={"Океан Бурь"} value={"Луна"} class__card="card__container card__2"/>
-        <Card title={"Космическая станция"} value={"Орбита Земли"} class__card="card__container card__3"/>
+          {tourData.map((item) => (
+              <Card title={item.name} value={item.planet} class__card={`card__container card__${item.id}`} img={item.image}/>
+          ))}
+
       </section>
 
       <section>

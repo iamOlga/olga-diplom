@@ -46,6 +46,11 @@ const Menu = ({items, active, setActive}) => {
             </Link>
           </li>
           <li>
+            { role == 1 ? (
+                  <li>
+                      <Link to="/admin" onClick={() => menu()}>Админ</Link>
+                  </li>
+            )  : '' }
             <Link
               to={
                 isUserLogged
@@ -67,11 +72,7 @@ const Menu = ({items, active, setActive}) => {
               помощь
             </Link>
           </li>
-          { role == 1 ? (
-              <li>
-                  <Link to="/admin" onClick={() => menu()}>Админ-панель</Link>
-              </li>
-          )  : '' }
+
         </ul>
       </div>
     </div>
