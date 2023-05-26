@@ -7,7 +7,6 @@ import axios from "axios";
 const Select = ({ fullwidth, title, name, control }) => {
     const [options, setOptions] = useState([]);
     const { field } = useController({ control, name });
-
     useEffect(() => {
         fetchData();
     }, []);

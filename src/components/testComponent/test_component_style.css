@@ -1,0 +1,15 @@
+.test__container form {
+  width: 70%;
+}
+.test__container form .question_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.test__container form .question_container .q_cont {
+  width: 100%;
+}
+
+/*# sourceMappingURL=test_component_style.css.map */

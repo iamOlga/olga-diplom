@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './Admin.css';
 import Button from "../../components/Button/Button";
+import axios from "axios";
 
 function Admin() {
 
@@ -8,6 +9,69 @@ function Admin() {
 
     const tabLinks = document.querySelectorAll(".tabs a");
     const tabPanels = document.querySelectorAll(".tabs-panel");
+    const [options, setOptions] = useState([]);
+    const [tours, setTours] = useState([]);
+    const [activeTour, setActiveTour] = useState()
+    const [description, setDescription] = useState(activeTour?.description)
+
+    const handleTab1 = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/get-passangers');
+            setTours(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handleTab2Select = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/get_tours_select');
+            setOptions(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    const handleTab2Get = async (id) => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/get-tour', {id});
+            setActiveTour(response.data);
+            setDescription(response.data.description)
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handleTab2Edit = async (id, name, planet, description, duration, residence, count_passengers, price, date_flight, image) => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/edit-tours', {
+                id: id,
+                name: name,
+                planet: planet,
+                description: description,
+                duration: duration,
+                residence: residence,
+                count_passengers: count_passengers,
+                price: price,
+                date_flight: date_flight,
+                image: image,
+            });
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        handleTab2Get(1);
+    }, [])
+
+    const changeTour = (e) => {
+        handleTab2Get(e.target.value)
+    }
+
+    const changeDescription = (e) => {
+        setDescription(e.target.value)
+    }
 
     for (let el of tabLinks) {
         el.addEventListener("click", e => {
@@ -25,17 +89,13 @@ function Admin() {
         });
     }
 
-    const handleBooking = () => {
-        dis
-    }
-
     return (
 
         <div className="admin__container">
-                <h2>Вы зашли как админ</h2>
-                <div className="button_container">
-                    <Button className="button" value="Выйти" isrow="row" />
-                </div>
+            <h2>Вы зашли как админ</h2>
+            <div className="button_container">
+                <Button className="button" value="Выйти" isrow="row"/>
+            </div>
 
             {/*1 заявки на билет: присылаются данные люей кто на что забронировал билет
                                     админ: просматривает
@@ -50,13 +110,13 @@ function Admin() {
             <div className="tabs">
 
 
-                <input type="radio" name="tabs" id="tab-first" />
-                <label htmlFor="tab-first" onClick={handleBooking()}>
+                <input type="radio" name="tabs" id="tab-first"/>
+                <label htmlFor="tab-first" onClick={() => handleTab1()}>
                     <p>Заявки на билет</p>
                 </label>
 
                 <input type="radio" name="tabs" id="tab-second"/>
-                <label htmlFor="tab-second">
+                <label htmlFor="tab-second" onClick={() => handleTab2Select()}>
                     <p>Туры</p>
                 </label>
 
@@ -68,26 +128,35 @@ function Admin() {
                 <div id="tab-content-1" className="tab-content">
                     <div className="tab_cont">
                         <div className="ticket">
-                            <div className="row">
-                                <p className="name">Ольга Бабич</p>
-                            </div>
-                            <div className="row">
-                                <p className="gender">пол: <span>женский</span></p>
-                                <p className="date">дата рождения: <span>28.06.2001</span></p>
-                            </div>
-                            <div className="row">
-                                <p className="email">почта: <span>qqwdwq@email.com</span></p>
-                            </div>
-                            <div className="row">
-                                <p className="country">место жительство: <span>Беларусь, Минск</span></p>
-                            </div>
-                            <div className="row">
-                                <p className="tour_to">тур: <span>Луна</span></p>
-                            </div>
-                            <div className="row">
-                                {/*отменен, активен, завершен*/}
-                                <p className="status ">статус: <span>на рассмотрении</span></p>
-                            </div>
+                            {tours.map((tour) => (
+                                <div>
+                                    <p className="name">{tour.tourName}</p>
+                                    {tour.users.length !== 0 ?
+                                        tour.users.map((user) => (
+                                            <>
+                                                <div key={user.id} className="row">
+                                                    <p className="name">{user.firstname} {user.lastname}</p>
+                                                </div>
+                                                <div className="row">
+                                                    <p className="gender">пол: <span>{user.gender}</span></p>
+                                                    <p className="date">дата рождения: <span>{user.birthday}</span></p>
+                                                </div>
+                                                <div className="row">
+                                                    <p className="email">почта: <span>{user.email}</span></p>
+                                                </div>
+                                                <div className="row">
+                                                    <p className="country">место
+                                                        жительство: <span>{user.country}, {user.city}</span>
+                                                    </p>
+                                                </div>
+                                            </>
+                                        )) :
+                                        <div> users not found </div>
+                                    }
+                                </div>
+
+                            ))}
+
                         </div>
                     </div>
                 </div>
@@ -97,38 +166,53 @@ function Admin() {
                         <div className="tour">
                             <div className="row">
                                 <p>название</p>
-                                <input type="text" className="tour_name" value="Mars"/>
+                                <select className="tour_name" onChange={changeTour}>
+                                    {options.map((item) => (
+                                        <option key={item.id} value={item.id}>
+                                            {item.name}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
                             <div className="row">
-                                <p>место</p>
-                                <input type="text" className="place" value="Долины Маринер"/>
+                                <p>планета</p>
+                                <input type="text" className="planet" value={activeTour?.planet || ""} readOnly/>
                             </div>
                             <div className="row">
                                 <p>описание</p>
-                                <textarea type="text" className="description" value={description1}/>
+                                <textarea type="text" className="description" onChange={changeDescription}
+                                          value={description}/>
                             </div>
                             <div className="row">
                                 <p>время полета</p>
-                                <input type="text" className="time_fly" value="117 дней"/>
+                                <input type="text" className="time_fly" value={activeTour?.duration || ""}/>
                             </div>
                             <div className="row">
                                 <p>время на планете</p>
-                                <input type="text" className="time_onplanet" value="7 дней"/>
+                                <input type="text" className="time_onplanet" value={activeTour?.residence || ""}/>
                             </div>
                             <div className="row">
                                 <p>число пассажиров</p>
-                                <input type="text" className="amount_people" value="5 человек"/>
+                                <input type="text" className="amount_people"
+                                       value={activeTour?.count_passengers || ""}/>
                             </div>
                             <div className="row">
                                 <p>цена</p>
-                                <input type="text" className="price" value="2 000 000$"/>
+                                <input type="text" className="price" value={activeTour?.price || ""}/>
                             </div>
                             <div className="row">
                                 <p>дата</p>
-                                <input type="text" className="date" value="01.05.2024"/>
+                                <input type="date" className="date" value={activeTour?.date_flight || ""}/>
                             </div>
                             <div className="row">
-                                <button className="save">сохранить изменения</button>
+                                <button className="save"
+                                        onClick={() => handleTab2Edit(activeTour?.id, activeTour?.name,
+                                            activeTour?.planet, description, activeTour?.duration,
+                                            activeTour?.residence, activeTour?.count_passengers,
+                                            activeTour?.price, activeTour?.date_flight, activeTour?.image)}>
+                                    сохранить
+                                    изменения
+                                </button>
                                 <button className="delete">удалить тур</button>
                             </div>
                         </div>
@@ -182,7 +266,8 @@ function Admin() {
                                 <p className="review_date">23.05.2022</p>
                             </div>
                             <div className="row">
-                                <p className="review_text">fvndjk jreslmdf ldjv jrfnrdkes;nv fkne lrjnvlfnvdjlnvflj jvfnldvfnvdjlvnf jlfvnldfjvnfnk</p>
+                                <p className="review_text">fvndjk jreslmdf ldjv jrfnrdkes;nv fkne lrjnvlfnvdjlnvflj
+                                    jvfnldvfnvdjlvnf jlfvnldfjvnfnk</p>
                             </div>
                             <div className="row">
                                 <button className="delete">удалить</button>
