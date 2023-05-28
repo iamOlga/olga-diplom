@@ -41,6 +41,15 @@ function Admin() {
         }
     }
 
+    const handleTab2Delete = async (id) => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/delete-tours', {id});
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     const handleTab2Edit = async (id, name, planet, description, duration, residence, count_passengers, price, date_flight, image) => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/edit-tours', {
@@ -61,6 +70,62 @@ function Admin() {
         }
     }
 
+    //variables
+    const [a_name, set_a_name] = useState("")
+    const [a_place, set_a_place] = useState("")
+    const [a_description, set_a_description] = useState("")
+    const [a_time_fly, set_a_time_fly] = useState("")
+    const [a_time_onplanet, set_a_time_onplanet] = useState("")
+    const [a_amount_people, set_a_amount_people] = useState("")
+    const [a_price, set_a_price] = useState("")
+    const [a_date, set_a_date] = useState("")
+
+    //handlers
+    const change_a_name = (e) => {
+        set_a_name(e.target.value)
+    }
+    const change_a_place = (e) => {
+        set_a_place(e.target.value)
+    }
+    const change_a_description = (e) => {
+        set_a_description(e.target.value)
+    }
+    const change_a_time_fly = (e) => {
+        set_a_time_fly(e.target.value)
+    }
+    const change_a_time_onplanet = (e) => {
+        set_a_time_onplanet(e.target.value)
+    }
+    const change_a_amount_people = (e) => {
+        set_a_amount_people(e.target.value)
+    }
+    const change_a_price = (e) => {
+        set_a_price(e.target.value)
+    }
+    const change_a_date = (e) => {
+        set_a_date(e.target.value)
+    }
+
+
+    const handleTab2Add = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/add-tours', {
+                name: a_name,
+                planet: a_place,
+                description: a_description,
+                duration: a_time_fly,
+                residence: a_time_onplanet,
+                count_passengers: a_amount_people,
+                price: a_price,
+                date_flight: a_date,
+                image: activeTour?.image,
+            });
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
         handleTab2Get(1);
     }, [])
@@ -71,6 +136,14 @@ function Admin() {
 
     const changeDescription = (e) => {
         setDescription(e.target.value)
+    }
+
+    const handleTab3 = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/get-reviews');
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     for (let el of tabLinks) {
@@ -121,7 +194,7 @@ function Admin() {
                 </label>
 
                 <input type="radio" name="tabs" id="tab-third"/>
-                <label htmlFor="tab-third">
+                <label htmlFor="tab-third" onClick={() => handleTab3()}>
                     <p>Отзывы</p>
                 </label>
 
@@ -213,7 +286,7 @@ function Admin() {
                                     сохранить
                                     изменения
                                 </button>
-                                <button className="delete">удалить тур</button>
+                                <button className="delete" onClick={()=>handleTab2Delete(activeTour?.id)}>удалить тур</button>
                             </div>
                         </div>
 
@@ -221,38 +294,38 @@ function Admin() {
                             <h2>Добавить новый тур</h2>
                             <div className="row">
                                 <p>название</p>
-                                <input type="text" className="tour_name" value=""/>
+                                <input type="text" className="tour_name" value={a_name} onChange={change_a_name}/>
                             </div>
                             <div className="row">
                                 <p>место</p>
-                                <input type="text" className="place" value=""/>
+                                <input type="text" className="place" value={a_place} onChange={change_a_place}/>
                             </div>
                             <div className="row">
                                 <p>описание</p>
-                                <textarea type="text" className="description" value=""/>
+                                <textarea type="text" className="description" value={a_description} onChange={change_a_description}/>
                             </div>
                             <div className="row">
                                 <p>время полета</p>
-                                <input type="text" className="time_fly" value=""/>
+                                <input type="text" className="time_fly" value={a_time_fly} onChange={change_a_time_fly}/>
                             </div>
                             <div className="row">
                                 <p>время на планете</p>
-                                <input type="text" className="time_onplanet" value=""/>
+                                <input type="text" className="time_onplanet" value={a_time_onplanet} onChange={change_a_time_onplanet}/>
                             </div>
                             <div className="row">
                                 <p>число пассажиров</p>
-                                <input type="text" className="amount_people" value=""/>
+                                <input type="text" className="amount_people" value={a_amount_people} onChange={change_a_amount_people}/>
                             </div>
                             <div className="row">
                                 <p>цена</p>
-                                <input type="text" className="price" value=""/>
+                                <input type="text" className="price" value={a_price} onChange={change_a_price}/>
                             </div>
                             <div className="row">
                                 <p>дата</p>
-                                <input type="text" className="date" value=""/>
+                                <input type="date" className="date" value={a_date} onChange={change_a_date}/>
                             </div>
                             <div className="row">
-                                <button className="add">добавить тур</button>
+                                <button className="add" onClick={()=>handleTab2Add()}>добавить тур</button>
                             </div>
                         </div>
                     </div>

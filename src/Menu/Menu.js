@@ -18,6 +18,7 @@ const Menu = ({items, active, setActive}) => {
     }
     const accountInfo = useSelector((state) => state.user.accountInfo);
     const role = accountInfo?.role;
+    console.log(role)
 
   return (
     <div id="menu" className={active ? "menu active" : "menu"}>

@@ -39,7 +39,6 @@ function Tours() {
         {tourData.map((tour) => {
           // Находим записи изображений для текущего тура
           const tourImages = imageData.filter((image) => image.id_tour === tour.id);
-          console.log(tourImages)
           // Находим основное изображение
           const mainImage = tourImages.find((image) => image.type === 'img');
 
