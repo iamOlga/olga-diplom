@@ -26,7 +26,7 @@ export const postFormData = createAsyncThunk(
 export const getUserData = createAsyncThunk(
   "users/getUserData",
   async (arg) => {
-    const response = axios.get(`http://127.0.0.1:8000/api/${arg}`);
+    const response = axios.post(`http://127.0.0.1:8000/api/${arg}`);
     const data = (await response).data.user_data;
     return data;
   }

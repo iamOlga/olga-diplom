@@ -15,57 +15,62 @@ import {useEffect} from 'react'
 import axios from "axios";
 
 
-const AccountInfo = ({test_result, ticket}) => {
+const AccountInfo = () => {
     const [date, setDate] = useState();
-
     const accountInfo = useSelector((state) => state.user.accountInfo);
     const dispatch = useDispatch();
     const {register, handleSubmit, formState, setValue} = useForm({
         defaultValues: accountInfo,
     });
+
+    const [test_result, setTest_result] = useState("")
     const userEmail = localStorage.getItem('userEmail')
+    let result;
 
-    const [result, setResult] = useState(0);
-    // const getTestResult = async () => {
-    //     try {
-    //         const response = await axios.get('http://127.0.0.1:8000/api/get-result-test');
-    //         setResult(response.data.points)
-    //         setTestResult();
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-    //
-    // useEffect(() => {
-    //     getTestResult();
-    // }, [])
+    const getTestResult = async (email) => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/get-points', {email});
 
-    let text_result;
-    let img_src;
-
-    const setTestResult = () => {
-        if (result <= 4 && result > 0) {
-            text_result =
-                "Тебе лучше остаться на Земле! К сожалению, ты не готов к дальним полетам, а твое тело не выдержит таких физических нагрузок. Но не отчаивайся, а пройди полное медецинское обследование для точного результата!";
-            img_src = img1;
-        } else if (result > 4 && result <= 7) {
-            text_result =
-                "Ты уверен, что ты сможешь полететь в космос? Результаты показали, что тебе лучше отказаться от этой идеи, по крайней мере, не лететь на большие расстояния. Однако ты можешь попробовать отправиться на орбиту нашей Земли!";
-            img_src = img2;
-        } else if (result > 7) {
-            text_result =
-                "Ого! Ты готов к полету в любую точку космоса! Но возможности наши не настолько большие. Мы можем предложить тебе отправиться в космическое путешествие на Луну или Марс. Ждем тебя!";
-            img_src = img3;
+            if(result !== 0){
+                result = response.data;
+                setTestResult(result)
+            }
+        } catch (error) {
+            console.error(error);
         }
     }
 
-    useEffect(()=>{
-        setTestResult()
-    },[])
+    useEffect(() => {
+        getTestResult(userEmail);
+    }, [])
 
-    // useEffect(()=>{
-    //     getTestResult()
-    // },[])
+    const setTestResult = (result) => {
+        if (result !== 0) {
+            if (result <= 4) {
+                setTest_result("Тебе лучше остаться на Земле! К сожалению, ты не готов к дальним полетам, а твое тело не выдержит таких физических нагрузок. Но не отчаивайся, а пройди полное медецинское обследование для точного результата!")
+            } else if (result > 4 && result <= 7) {
+                setTest_result("Ты уверен, что ты сможешь полететь в космос? Результаты показали, что тебе лучше отказаться от этой идеи, по крайней мере, не лететь на большие расстояния. Однако ты можешь попробовать отправиться на орбиту нашей Земли!")
+            } else if (result > 7) {
+                setTest_result("Ого! Ты готов к полету в любую точку космоса! Но возможности наши не настолько большие. Мы можем предложить тебе отправиться в космическое путешествие на Луну или Марс. Ждем тебя!")
+            }
+        }
+    }
+
+    let [tickets, setTickets] = useState([]);
+
+    const getTickets = async (email) => {
+        try {
+            const response = await axios.post(`http://127.0.0.1:8000/api/get_info?email=${email}`);
+            setTickets(response.data.tickets);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getTickets(userEmail)
+    }, [])
+
 
     const onClickSubmitHandler = (data) => {
         dispatch(
@@ -152,15 +157,15 @@ const AccountInfo = ({test_result, ticket}) => {
                 <h2>Подбор полета</h2>
                 {result !== 0 ?
                     <div className="div_result">
-                        <p>{text_result}</p>
-                        <img src={img_src} alt=""/>
+                        <p>{test_result}</p>
                     </div>
                     :
                     <div className="div_result">
                         <p className="text_result">Хочешь узнать, куда тебе стоит полететь? А может тебе лучше остаться на Земле? Пройди небольшой тест, и мы дадим тебе совет!</p>
                         <div className="button_container">
-                            <Link className="link" to="/test"><Button className="button" value="Пройти тест"
-                                                                      isrow="row"/></Link>
+                            <Link className="link" to="/test">
+                                <Button className="button" value="Пройти тест" isrow="row"/>
+                            </Link>
                         </div>
                     </div>
                 }
@@ -168,15 +173,33 @@ const AccountInfo = ({test_result, ticket}) => {
 
             <div className="info_block">
                 <h2>Ваши билеты</h2>
-
-                <div className={ticket === "0" ? "div_result" : "div_result_none"}>
-                    <p className="text_result">У вас нет ни одного билета</p>
-                    <div className="button_container">
-                        <Link to="/booking">
-                            <Button className="button" value="Выбрать билет" isrow="row"/>
-                        </Link>
+                {tickets.length == 0 ?
+                    <div className="div_result">
+                        <p className="text_result">У вас нет ни одного билета</p>
+                        <div className="button_container">
+                            <Link to="/booking">
+                                <Button className="button" value="Выбрать билет" isrow="row"/>
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div className="div_result">
+                        {tickets.map((ticket) => (
+                            <div key={ticket.id}>
+                                <p>Тур: {ticket.tour}</p>
+                                <p>Дата: {ticket.date_flight}</p>
+                                <p>Длительность: {ticket.duration}</p>
+                                <p>Цена: {ticket.price}</p>
+                                <p>residence: {ticket.residence}</p>
+                            </div>
+                        ))}
+                        <div className="button_container">
+                            <Link to="/booking">
+                                <Button className="button" value="Выбрать билет" isrow="row"/>
+                            </Link>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     );

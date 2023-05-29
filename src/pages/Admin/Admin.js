@@ -27,6 +27,7 @@ function Admin() {
         try {
             const response = await axios.get('http://127.0.0.1:8000/api/get_tours_select');
             setOptions(response.data);
+            handleTab2Get("1")
         } catch (error) {
             console.error(error);
         }
@@ -126,9 +127,9 @@ function Admin() {
         }
     }
 
-    useEffect(() => {
-        handleTab2Get(1);
-    }, [])
+    // useEffect(() => {
+    //     handleTab2Get(1);
+    // }, [])
 
     const changeTour = (e) => {
         handleTab2Get(e.target.value)
@@ -138,9 +139,11 @@ function Admin() {
         setDescription(e.target.value)
     }
 
+    const [reviews, setReviews] = useState([])
     const handleTab3 = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:8000/api/get-reviews');
+            const response = await axios.get('http://127.0.0.1:8000/api/get-admin-reviews');
+            setReviews(response.data);
         } catch (error) {
             console.error(error);
         }
@@ -162,13 +165,25 @@ function Admin() {
         });
     }
 
+    var now = new Date();
+    console.log( now );
+
+    const handleTab3Delete = async (id) => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/failure-review', {id});
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
 
         <div className="admin__container">
             <h2>Вы зашли как админ</h2>
-            <div className="button_container">
-                <Button className="button" value="Выйти" isrow="row"/>
-            </div>
+            {/*<div className="button_container">*/}
+            {/*    <Button className="button" value="Выйти" isrow="row"/>*/}
+            {/*</div>*/}
 
             {/*1 заявки на билет: присылаются данные люей кто на что забронировал билет
                                     админ: просматривает
@@ -286,7 +301,9 @@ function Admin() {
                                     сохранить
                                     изменения
                                 </button>
-                                <button className="delete" onClick={()=>handleTab2Delete(activeTour?.id)}>удалить тур</button>
+                                <button className="delete" onClick={() => handleTab2Delete(activeTour?.id)}>удалить
+                                    тур
+                                </button>
                             </div>
                         </div>
 
@@ -302,19 +319,23 @@ function Admin() {
                             </div>
                             <div className="row">
                                 <p>описание</p>
-                                <textarea type="text" className="description" value={a_description} onChange={change_a_description}/>
+                                <textarea type="text" className="description" value={a_description}
+                                          onChange={change_a_description}/>
                             </div>
                             <div className="row">
                                 <p>время полета</p>
-                                <input type="text" className="time_fly" value={a_time_fly} onChange={change_a_time_fly}/>
+                                <input type="text" className="time_fly" value={a_time_fly}
+                                       onChange={change_a_time_fly}/>
                             </div>
                             <div className="row">
                                 <p>время на планете</p>
-                                <input type="text" className="time_onplanet" value={a_time_onplanet} onChange={change_a_time_onplanet}/>
+                                <input type="text" className="time_onplanet" value={a_time_onplanet}
+                                       onChange={change_a_time_onplanet}/>
                             </div>
                             <div className="row">
                                 <p>число пассажиров</p>
-                                <input type="text" className="amount_people" value={a_amount_people} onChange={change_a_amount_people}/>
+                                <input type="text" className="amount_people" value={a_amount_people}
+                                       onChange={change_a_amount_people}/>
                             </div>
                             <div className="row">
                                 <p>цена</p>
@@ -322,10 +343,10 @@ function Admin() {
                             </div>
                             <div className="row">
                                 <p>дата</p>
-                                <input type="date" className="date" value={a_date} onChange={change_a_date}/>
+                                <input type="date" className="date" min="2024-01-01" value={a_date} onChange={change_a_date}/>
                             </div>
                             <div className="row">
-                                <button className="add" onClick={()=>handleTab2Add()}>добавить тур</button>
+                                <button className="add" onClick={() => handleTab2Add()}>добавить тур</button>
                             </div>
                         </div>
                     </div>
@@ -333,20 +354,30 @@ function Admin() {
 
                 <div id="tab-content-3" className="tab-content">
                     <div className="tab_cont">
-                        <div className="review">
-                            <div className="row">
-                                <p className="review_name">Olga Babich</p>
-                                <p className="review_date">23.05.2022</p>
+                        {reviews.length === 0 ?
+                            <div className="review">
+                                <p className="review_text">Нет отзывов</p>
                             </div>
-                            <div className="row">
-                                <p className="review_text">fvndjk jreslmdf ldjv jrfnrdkes;nv fkne lrjnvlfnvdjlnvflj
-                                    jvfnldvfnvdjlvnf jlfvnldfjvnfnk</p>
-                            </div>
-                            <div className="row">
-                                <button className="delete">удалить</button>
-                            </div>
-                        </div>
-
+                            :
+                            <>
+                                {reviews.map((review) => (
+                                    <div key={review.id} className="review">
+                                        <div className="row">
+                                            <p className="review_name">{review.firstname + " " + review.lastname}</p>
+                                            <p className="review_date">{review.date}</p>
+                                        </div>
+                                        <div className="row">
+                                            <p className="review_text">{review.review}</p>
+                                        </div>
+                                        <div className="row">
+                                            <button className="delete"
+                                                    onClick={() => handleTab3Delete(review.id)}>удалить
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </>
+                        }
 
                     </div>
                 </div>

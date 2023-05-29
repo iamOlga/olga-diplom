@@ -15,6 +15,7 @@ const SignUp = () => {
 
   const isResponseOk = useSelector((state) => state.user.isResponseOk);
 
+
   useEffect(() => {
     if(isResponseOk) {
       navigate('/info_form');

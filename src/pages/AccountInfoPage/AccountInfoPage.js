@@ -22,7 +22,7 @@ function AccountInfoPage() {
       {userEmail && <h2>Ваш аккаунт</h2>}
       <Button value={"Выйти из аккаунта"} isrow={true} onClickAction={handleLogOut} />
       <div className="account__cont">
-        <AccountInfo test_result="0" ticket="0" />
+        <AccountInfo />
         {/*<AccountInfo test_result="result2" ticket="0" />*/}
 
         {/*<div className="button_row">*/}
