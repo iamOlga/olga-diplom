@@ -100,13 +100,24 @@
   padding: 15px 10px;
   gap: 10px;
 }
+.admin__container .tab_cont .ticket .not-found, .admin__container .tab_cont .tour .not-found, .admin__container .tab_cont .review .not-found {
+  color: #d7ad26;
+}
+.admin__container .tab_cont .ticket .name-tour, .admin__container .tab_cont .tour .name-tour, .admin__container .tab_cont .review .name-tour {
+  color: #fff;
+  font-size: 24px;
+  margin: 16px 0;
+  border-top: 1px solid grey;
+}
 .admin__container .tab_cont .ticket .row, .admin__container .tab_cont .tour .row, .admin__container .tab_cont .review .row {
   display: flex;
   gap: 20px;
 }
 .admin__container .tab_cont .ticket .row .name, .admin__container .tab_cont .tour .row .name, .admin__container .tab_cont .review .row .name {
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 10px;
 }
 .admin__container .tab_cont .ticket .row p, .admin__container .tab_cont .tour .row p, .admin__container .tab_cont .review .row p {
   color: #82ED2E;

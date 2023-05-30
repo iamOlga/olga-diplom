@@ -30,7 +30,7 @@ a {
   }
 }
 .account__container .account__cont {
-  width: 60%;
+  
   display: flex;
   flex-direction: column;
   gap: 46px;
@@ -39,6 +39,11 @@ a {
   padding: 20px 10px 80px 10px;
   background-color: rgba(12, 12, 12, 0.7);
   backdrop-filter: blur(5px);
+}
+@media screen and (max-width: 700px) {
+  .account__container .account__cont {
+    width: 90%;
+  }
 }
 .account__container .account__cont .button_row {
   display: flex;
@@ -199,25 +204,28 @@ a {
   padding: 0 0 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.36);
 }
-.account__container .account__cont .account .info_block .div_result .text_result,
-.account__container .account__cont .account .info_block div_result .text_result {
+.account__container .account__cont .account .info_block .div_result .user-ticket {
+  margin-bottom: 30px;
+}
+.account__container .account__cont .account .info_block .div_result .user-ticket .user-ticket-title {
+  font-weight: bold;
+  color: #82ED2E;
+}
+.account__container .account__cont .account .info_block .div_result .text_result {
   color: rgba(222, 222, 222, 0.89);
   font-size: 18px;
 }
-.account__container .account__cont .account .info_block .div_result img,
-.account__container .account__cont .account .info_block div_result img {
+.account__container .account__cont .account .info_block .div_result img {
   margin-top: 20px;
   width: 100%;
   border-radius: 20px;
 }
-.account__container .account__cont .account .info_block .div_result .button_container,
-.account__container .account__cont .account .info_block div_result .button_container {
+.account__container .account__cont .account .info_block .div_result .button_container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-.account__container .account__cont .account .info_block .div_result .button_container .button,
-.account__container .account__cont .account .info_block div_result .button_container .button {
+.account__container .account__cont .account .info_block .div_result .button_container .button {
   width: auto;
 }
 .account__container .account__cont .account .info_block .div_result_none {

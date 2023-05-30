@@ -1,6 +1,7 @@
 import React from "react";
 
 const Input = ({ title, fullWidth, register, type, placeholder, error }) => {
+
   return (
     <>
       <div
@@ -10,6 +11,7 @@ const Input = ({ title, fullWidth, register, type, placeholder, error }) => {
       >
         <p className="input_name">{title}</p>
         <input {...register} type={type} placeholder={placeholder} />
+
       </div>
       {error?.message && <p>{error.message}</p>}
     </>

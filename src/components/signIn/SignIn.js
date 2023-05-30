@@ -15,6 +15,9 @@ const SignIn = () => {
   const dispatch = useDispatch();
 
   const onClickSubmitHandler = (data) => {
+    if(userEmail == null){
+      document.getElementById('er').innerText = "Проверьте правильность полей";
+    }
     dispatch(
       postFormData({
         targetUrl: "auth",
@@ -22,6 +25,11 @@ const SignIn = () => {
       })
     );
   }
+
+  const userEmail = localStorage.getItem('userEmail')
+
+
+
   return (
     <div className="form__container">
       <h2>Войти в аккаунт</h2>
@@ -35,6 +43,7 @@ const SignIn = () => {
             fullWidth={true}
             register={register("email")}
             error={formState.errors.email}
+            er={"Проверьте правильность поля"}
           />
         </div>
 
@@ -46,14 +55,14 @@ const SignIn = () => {
               placeholder={"Пароль"}
               fullWidth={true}
               register={register("password")}
-              error={formState.errors.password}
+
             />
-            <a href="#">Забыли пароль?</a>
+            {/*<a href="#">Забыли пароль?</a>*/}
           </div>
         </div>
 
         <div className="row">
-          <p>error</p>
+          <p id="er"></p>
         </div>
 
         <div className="button_container">

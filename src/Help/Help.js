@@ -3,6 +3,7 @@ import './Help.css';
 
 import help1 from "./../Images/help1.png"
 import video1 from "./../Images/video1.mp4";
+import video from "../pages/VirtualTour/SolarSystem_anim.mp4";
 function Help() {
 
     return (
@@ -100,7 +101,7 @@ function Help() {
                     <div className="row">
                         <div className="item item2">
                             <p className="p2">Наша программа обучения с полным погружением подготовит Вас к космическому полету, чтобы Вы могли насладиться каждым моментом. Вы и Ваши коллеги-космонавты будете участвовать в брифингах пилотов, обучаться у наших экспертов по космическим полетам мирового класса.</p>
-                            {/*нужно видео*/}
+
                         </div>
                     </div>
                 </div>
@@ -111,7 +112,7 @@ function Help() {
                 <div className="info_block2_container">
                     <h2>Вылет!</h2>
                     <p className="p2">Посмотри видео с запуском нашей ракеты.</p>
-                    npm install --save react-scrollable-anchor
+                    <video src={video1} controls="controls" onPause="true"/>
                 </div>
             </div>
         </div>

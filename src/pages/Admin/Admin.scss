@@ -118,13 +118,25 @@
       padding: 15px 10px;
       gap: 10px;
 
+      .not-found{
+        color: #d7ad26;
+
+      }
+      .name-tour{
+        color: $color-white;
+        font-size: 24px;
+        margin: 16px 0;
+        border-top: 1px solid grey;
+      }
       .row{
         display: flex;
         gap: 20px;
 
         .name{
           color: $color-white;
-          font-size: 24px;
+          font-size: 18px;
+          font-weight: normal;
+          margin-top: 10px;
         }
 
         p{

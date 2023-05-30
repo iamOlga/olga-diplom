@@ -99,27 +99,38 @@ const AccountInfo = () => {
     return (
         <div className="account">
             <div className="info_block">
-                <h2>Персональная информация</h2>
-                <form onSubmit={handleSubmit(onClickSubmitHandler)}>
-                    <div className="row">
-                        <Input
-                            type={"text"}
-                            title={"Имя"}
-                            placeholder={"Имя"}
-                            fullWidth={true}
-                            register={register("firstname")}
 
-                        />
+                {userEmail !== "olgab2806@gmail.com" ?
+                <h2>Персональная информация</h2>
+                :
+                <h2>Персональная информация Админа</h2>
+                }
+
+                <form onSubmit={handleSubmit(onClickSubmitHandler)}>
+                    <div className="row_gender">
+                        <p className="input_name">Имя:</p>
+                        <p>{accountInfo?.firstname}</p>
+                        {/*<Input*/}
+                        {/*    type={"text"}*/}
+                        {/*    title={"Имя"}*/}
+                        {/*    placeholder={"Имя"}*/}
+                        {/*    fullWidth={true}*/}
+                        {/*    register={register("firstname")}*/}
+                        {/*    readOnly*/}
+                        {/*/>*/}
                     </div>
 
-                    <div className="row">
-                        <Input
-                            type={"text"}
-                            title={"Фамилия"}
-                            placeholder={"Фамилия"}
-                            fullWidth={true}
-                            register={register("lastname")}
-                        />
+                    <div className="row_gender">
+                        <p className="input_name">Фамилия:</p>
+                        <p>{accountInfo?.lastname}</p>
+                        {/*<Input*/}
+                        {/*    type={"text"}*/}
+                        {/*    title={"Фамилия"}*/}
+                        {/*    placeholder={"Фамилия"}*/}
+                        {/*    fullWidth={true}*/}
+                        {/*    register={register("lastname")}*/}
+                        {/*    readOnly*/}
+                        {/*/>*/}
                     </div>
 
                     <div className="row_gender">
@@ -127,32 +138,36 @@ const AccountInfo = () => {
                         <p>{accountInfo?.gender}</p>
                     </div>
 
-                    <div className="column">
+                    <div className="row_gender">
                         <p className="input_name">Дата рождения</p>
-                        <input
-                            {...register("birthday", {})}
-                            type="date"
-                            id="start"
-                            name="trip-start"
-                            value={date}
-                            min="1923-01-01"
-                            onChange={(e) => setDate(e.target.value)}
-                        />
+                        <p>{accountInfo?.birthday}</p>
+                        {/*<input*/}
+                        {/*    {...register("birthday", {})}*/}
+                        {/*    type="date"*/}
+                        {/*    id="start"*/}
+                        {/*    name="trip-start"*/}
+                        {/*    value={date}*/}
+                        {/*    min="1923-01-01"*/}
+                        {/*    onChange={(e) => setDate(e.target.value)}*/}
+                        {/*/>*/}
                     </div>
 
-                    <div className="row">
-                        <Input
-                            type={"text"}
-                            title={"Электронный адрес"}
-                            placeholder={"Электронный адрес"}
-                            fullWidth={true}
-                            register={register("email")}
-                            error={formState.errors.name}
-                        />
+                    <div className="row_gender">
+                        <p className="input_name">Электронный адрес</p>
+                        <p>{accountInfo?.email}</p>
+                        {/*<Input*/}
+                        {/*    type={"text"}*/}
+                        {/*    title={"Электронный адрес"}*/}
+                        {/*    placeholder={"Электронный адрес"}*/}
+                        {/*    fullWidth={true}*/}
+                        {/*    register={register("email")}*/}
+                        {/*    error={formState.errors.name}*/}
+                        {/*/>*/}
                     </div>
                 </form>
             </div>
 
+            {userEmail !== "olgab2806@gmail.com" ?
             <div className="info_block">
                 <h2>Подбор полета</h2>
                 {result !== 0 ?
@@ -170,7 +185,11 @@ const AccountInfo = () => {
                     </div>
                 }
             </div>
+                :
+                <div></div>
+            }
 
+            {userEmail !== "olgab2806@gmail.com" ?
             <div className="info_block">
                 <h2>Ваши билеты</h2>
                 {tickets.length == 0 ?
@@ -185,8 +204,8 @@ const AccountInfo = () => {
                     :
                     <div className="div_result">
                         {tickets.map((ticket) => (
-                            <div key={ticket.id}>
-                                <p>Тур: {ticket.tour}</p>
+                            <div className="user-ticket" key={ticket.id}>
+                                <p className="user-ticket-title">Тур: {ticket.tour}</p>
                                 <p>Дата: {ticket.date_flight}</p>
                                 <p>Длительность: {ticket.duration}</p>
                                 <p>Цена: {ticket.price}</p>
@@ -201,6 +220,9 @@ const AccountInfo = () => {
                     </div>
                 }
             </div>
+                :
+                <div></div>
+            }
         </div>
     );
 };

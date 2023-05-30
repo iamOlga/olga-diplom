@@ -5,6 +5,8 @@ import axios from "axios";
 
 function Admin() {
 
+    //let thumbnail = $('input[name="thumbnail"]').val().split('\\').pop();
+
     const description1 = "В миллионах километров от самого большого каньона Земли, располагающегося в Гренландии, поверхность Марса прорезает крупнейшая система каньонов Солнечной системы – долины Маринер. Долины Маринер пролегают вдоль экватора планеты, простираясь на 4000 км – практически на четверть её окружности.";
 
     const tabLinks = document.querySelectorAll(".tabs a");
@@ -13,6 +15,11 @@ function Admin() {
     const [tours, setTours] = useState([]);
     const [activeTour, setActiveTour] = useState()
     const [description, setDescription] = useState(activeTour?.description)
+    const [duration, setDuration] = useState(activeTour?.duration)
+    const [residence, setResidence] = useState(activeTour?.residence)
+    const [count_passengers, setСount_passengers] = useState(activeTour?.count_passengers)
+    const [price, setPrice] = useState(activeTour?.price)
+    const [date_flight, setDate_flight] = useState(activeTour?.date_flight)
 
     const handleTab1 = async () => {
         try {
@@ -37,6 +44,11 @@ function Admin() {
             const response = await axios.post('http://127.0.0.1:8000/api/get-tour', {id});
             setActiveTour(response.data);
             setDescription(response.data.description)
+            setDuration(response.data.duration)
+            setResidence(response.data.residence)
+            setСount_passengers(response.data.count_passengers)
+            setPrice(response.data.price)
+            setDate_flight(response.data.date_flight)
         } catch (error) {
             console.error(error);
         }
@@ -80,6 +92,7 @@ function Admin() {
     const [a_amount_people, set_a_amount_people] = useState("")
     const [a_price, set_a_price] = useState("")
     const [a_date, set_a_date] = useState("")
+    const [a_img, set_a_img] = useState("")
 
     //handlers
     const change_a_name = (e) => {
@@ -106,6 +119,9 @@ function Admin() {
     const change_a_date = (e) => {
         set_a_date(e.target.value)
     }
+    const change_a_img = (e) => {
+        set_a_img(e.target.value)
+    }
 
 
     const handleTab2Add = async () => {
@@ -119,7 +135,8 @@ function Admin() {
                 count_passengers: a_amount_people,
                 price: a_price,
                 date_flight: a_date,
-                image: activeTour?.image,
+                image: a_img,
+                // image: activeTour?.image,
             });
             window.location.reload();
         } catch (error) {
@@ -137,6 +154,21 @@ function Admin() {
 
     const changeDescription = (e) => {
         setDescription(e.target.value)
+    }
+    const changeDuration = (e) => {
+        setDuration(e.target.value)
+    }
+    const changeResidence = (e) => {
+        setResidence(e.target.value)
+    }
+    const changeСount_passengers = (e) => {
+        setСount_passengers(e.target.value)
+    }
+    const changePrice = (e) => {
+        setPrice(e.target.value)
+    }
+    const changeDate_flight = (e) => {
+        setDate_flight(e.target.value)
     }
 
     const [reviews, setReviews] = useState([])
@@ -218,7 +250,7 @@ function Admin() {
                         <div className="ticket">
                             {tours.map((tour) => (
                                 <div>
-                                    <p className="name">{tour.tourName}</p>
+                                    <p className="name-tour">{tour.tourName}</p>
                                     {tour.users.length !== 0 ?
                                         tour.users.map((user) => (
                                             <>
@@ -239,7 +271,7 @@ function Admin() {
                                                 </div>
                                             </>
                                         )) :
-                                        <div> users not found </div>
+                                        <div className="not-found"> users not found </div>
                                     }
                                 </div>
 
@@ -273,31 +305,31 @@ function Admin() {
                             </div>
                             <div className="row">
                                 <p>время полета</p>
-                                <input type="text" className="time_fly" value={activeTour?.duration || ""}/>
+                                <input type="text" className="time_fly" onChange={changeDuration} value={duration} />
                             </div>
                             <div className="row">
                                 <p>время на планете</p>
-                                <input type="text" className="time_onplanet" value={activeTour?.residence || ""}/>
+                                <input type="text" className="time_onplanet" onChange={changeResidence} value={residence}/>
                             </div>
                             <div className="row">
                                 <p>число пассажиров</p>
                                 <input type="text" className="amount_people"
-                                       value={activeTour?.count_passengers || ""}/>
+                                       onChange={changeСount_passengers} value={count_passengers}/>
                             </div>
                             <div className="row">
                                 <p>цена</p>
-                                <input type="text" className="price" value={activeTour?.price || ""}/>
+                                <input type="text" className="price" onChange={changePrice} value={price}/>
                             </div>
                             <div className="row">
                                 <p>дата</p>
-                                <input type="date" className="date" value={activeTour?.date_flight || ""}/>
+                                <input type="date" className="date" onChange={changeDate_flight} value={date_flight}/>
                             </div>
                             <div className="row">
                                 <button className="save"
                                         onClick={() => handleTab2Edit(activeTour?.id, activeTour?.name,
-                                            activeTour?.planet, description, activeTour?.duration,
-                                            activeTour?.residence, activeTour?.count_passengers,
-                                            activeTour?.price, activeTour?.date_flight, activeTour?.image)}>
+                                            activeTour?.planet, description, duration,
+                                            residence, count_passengers,
+                                            price, date_flight, activeTour?.image)}>
                                     сохранить
                                     изменения
                                 </button>
@@ -344,6 +376,10 @@ function Admin() {
                             <div className="row">
                                 <p>дата</p>
                                 <input type="date" className="date" min="2024-01-01" value={a_date} onChange={change_a_date}/>
+                            </div>
+                            <div className="row">
+                                <p>изображение</p>
+                                <input type="file" className="img" value={a_img} onChange={change_a_img}/>
                             </div>
                             <div className="row">
                                 <button className="add" onClick={() => handleTab2Add()}>добавить тур</button>

@@ -34,6 +34,11 @@
   align-items: center;
   gap: 40px;
 }
+@media screen and (max-width: 700px) {
+  .reviews__container .reviews {
+    width: 90%;
+  }
+}
 .reviews__container .reviews form {
   width: 100%;
 }

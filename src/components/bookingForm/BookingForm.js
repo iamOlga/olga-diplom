@@ -62,24 +62,28 @@ function BookingForm() {
         <div className="info_block">
           <h2>Персональная информация</h2>
           <form onSubmit={handleSubmit(onClickSubmitHandler)}>
-            <div className="row">
-              <Input
-                type={"text"}
-                title={"Имя*"}
-                placeholder={"Имя"}
-                fullWidth={true}
-                register={register("firstname")}
-              />
+            <div className="row_gender">
+            <p className="input_name">Имя:</p>
+            <p>{accountInfo?.firstname}</p>
+              {/*<Input*/}
+              {/*  type={"text"}*/}
+              {/*  title={"Имя*"}*/}
+              {/*  placeholder={"Имя"}*/}
+              {/*  fullWidth={true}*/}
+              {/*  register={register("firstname")}*/}
+              {/*/>*/}
             </div>
 
-            <div className="row">
-              <Input
-                type={"text"}
-                title={"Фамилия*"}
-                placeholder={"Фамилия"}
-                fullWidth={true}
-                register={register("lastname")}
-              />
+            <div className="row_gender">
+              <p className="input_name">Фамилия:</p>
+              <p>{accountInfo?.lastname}</p>
+              {/*<Input*/}
+              {/*  type={"text"}*/}
+              {/*  title={"Фамилия*"}*/}
+              {/*  placeholder={"Фамилия"}*/}
+              {/*  fullWidth={true}*/}
+              {/*  register={register("lastname")}*/}
+              {/*/>*/}
             </div>
 
             <div className="row_gender">
@@ -87,28 +91,31 @@ function BookingForm() {
               <p>{accountInfo?.gender}</p>
             </div>
 
-            <div className="column">
-              <p className="input_name">Дата рождения*</p>
-              <input
-                {...register("birthday", {})}
-                type="date"
-                id="start"
-                name="trip-start"
-                value={date}
-                min="1923-01-01"
-                max="2005-01-01"
-                onChange={(e) => setDate(e.target.value)}
-              />
+            <div className="row_gender">
+              <p className="input_name">Дата рождения</p>
+              <p>{accountInfo?.birthday}</p>
+              {/*<input*/}
+              {/*  {...register("birthday", {})}*/}
+              {/*  type="date"*/}
+              {/*  id="start"*/}
+              {/*  name="trip-start"*/}
+              {/*  value={date}*/}
+              {/*  min="1923-01-01"*/}
+              {/*  max="2005-01-01"*/}
+              {/*  onChange={(e) => setDate(e.target.value)}*/}
+              {/*/>*/}
             </div>
 
-            <div className="row">
-              <Input
-                type={"text"}
-                title={"Электронный адрес*"}
-                placeholder={"Электронный адрес"}
-                fullWidth={true}
-                register={register("email")}
-              />
+            <div className="row_gender">
+              <p className="input_name">Электронный адрес</p>
+              <p>{accountInfo?.email}</p>
+              {/*<Input*/}
+              {/*  type={"text"}*/}
+              {/*  title={"Электронный адрес*"}*/}
+              {/*  placeholder={"Электронный адрес"}*/}
+              {/*  fullWidth={true}*/}
+              {/*  register={register("email")}*/}
+              {/*/>*/}
             </div>
             <div className="row">
               <Input
@@ -124,6 +131,7 @@ function BookingForm() {
                 placeholder={"Город"}
                 fullWidth={false}
                 register={register("city")}
+
               />
             </div>
 

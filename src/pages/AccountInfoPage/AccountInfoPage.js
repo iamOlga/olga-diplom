@@ -19,7 +19,9 @@ function AccountInfoPage() {
         backgroundImage: `url(${account_bg})`,
       }}
     >
-      {userEmail && <h2>Ваш аккаунт</h2>}
+      {userEmail && <h2 style={{
+        textAlign: "center",
+      }}>Ваш аккаунт</h2>}
       <Button value={"Выйти из аккаунта"} isrow={true} onClickAction={handleLogOut} />
       <div className="account__cont">
         <AccountInfo />
